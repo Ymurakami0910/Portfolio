@@ -1,6 +1,6 @@
 import React from "react";
 import ReadButton from "./ReadButton";
-import styles from "../components/projectCard.module.css"; // Assuming you're using CSS modules for styling
+import styles from "./projectCard.module.css"; // Assuming you're using CSS modules for styling
 import projectData from "../data/project.json"; // Importing project data from the JSON file
 
 function ProjectCard() {

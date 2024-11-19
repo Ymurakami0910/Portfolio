@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import 'font-awesome/css/font-awesome.min.css';
 import Layout from './components/layout';
 import Home from './pages/home';
 import Projects from './pages/project';
@@ -12,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="projects" element={<Projects />} />
+          <Route path="project" element={<Projects />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
         </Route>

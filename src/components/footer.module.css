@@ -1,0 +1,174 @@
+footer {
+  background-color: var(--blue);
+  }
+.footerLogo {
+  width: auto;
+  width: 300px;
+}
+
+.footerLogo img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+  .footerP {
+    color: white;
+  }
+  
+  .footerBox {
+    padding-top : 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; 
+  }
+  
+  .footerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+  }
+  
+  .footerLinks {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 1rem; 
+  }
+
+  .footerSocialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .footerSocialIcons__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .footerSocialIcons__box:hover {
+    transform: scale(1.1);
+    box-shadow: var(--box-shadow);
+  }
+  .footerSocialIcons__box img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+  
+.connectButtonLink {
+    display: inline-block;
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    text-decoration: none;
+    color: var(--blue);
+    background-color: #fff;
+    position: relative;
+    border: 1px solid white;
+    border-radius: 30px;
+    transition: color 0.5s ease;
+    overflow: hidden;
+  }
+  
+
+  .connectButtonLink:hover {
+    color: #fff;
+  }
+
+  .connectButtonLink::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: var(--blue);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+    z-index: 0;
+  }
+  
+
+  .connectButtonLink:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+
+  .connectButtonText {
+    font-size: 1.4rem;
+    font-family: "Fredoka", serif;
+    font-weight: var(--bold);
+    position: relative;
+    z-index: 1;
+  }
+  
+  
+  .footerBottom {
+    padding-left: 6rem;
+    padding-right: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+  }
+  
+  .footerBottom p {
+    color: var(--blue);
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+
+
+  /* mobile */
+  
+  @media (max-width: 768px) {
+
+    .footerBox {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  
+    .footerSocialIcons {
+      gap: 0.5rem;
+    }
+  
+    .footerSocialIcons__box {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .footerBottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.5rem;
+      padding: 1rem 0;
+    }
+  }
+  
+  @media (max-width: 576px) {
+
+  
+    .footerSocialIcons__box {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .footerBottom p {
+      font-size: 1rem;
+    }
+  }

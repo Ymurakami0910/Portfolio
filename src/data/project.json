@@ -4,28 +4,32 @@
         "genre": "Fictional Cafe",
         "title": "Kissa Tanpopo",
         "description": "A nostalgic Japanese dessert cafe concept development. Brand book and responsible single page website",
-        "image": "src/assets/KissaTanpopo/kissaTanpopoThmb.png"
+        "image": "src/assets/KissaTanpopo/kissaTanpopoThmb.png",
+        "chips": ["Indesign", " Illustrator", "Photoshop","HTML","CSS", "JS"]
     },
     {
         "id": 2,
         "genre": "Event Plan",
         "title": "Celestial Tea Ceremony",
         "description": "We developed a fictional advertising campaign for the fictional Celestial Tea Ceremony, I played a role as a leader.",
-        "image": "src/assets/celestial/celestialThumb.jpg"
+        "image": "src/assets/celestial/celestialThumb.jpg",
+        "chips": ["Indesign", " Illustrator", "Photoshop","Group Project"]
     },
     {
         "id": 3,
         "genre": "App Development",
         "title": "Crafted Corners",
         "description": "I played a roll as a graphic designer for an online home decor e-commerce platform.",
-        "image": "src/assets/KissaTanpopo/kissaTanpopoThmb.png"
+        "image": "src/assets/Crafted Corners/CraftedThmb.jpg",
+        "chips": ["Figma", " Illustrator", "Marketing","Group Project"]
     },
     {
         "id": 4,
         "genre": "App Redesign",
         "title": "Blenz Coffee",
         "description": "Redesigned the coffee  mobile order app with UI/UX skills.",
-        "image": "src/assets/KissaTanpopo/kissaTanpopoThmb.png"
+        "image": "src/assets/Blenz/BlenzThmb.jpg",
+        "chips": ["Figma", " UI/UX"]
     }
 
 ]

@@ -3,18 +3,102 @@ import Button from "../components/button";
 import Styles from "../components/title.module.css";
 import ProjectCard from "../components/projectCard";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate } from "react-router-dom"; 
 
 function Home() {
 
+  const navigate = useNavigate();
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+
+    // Create the animation for airplane elements that doesn't work so far 
+    gsap.to(".airplane-1", {
+      x: "100vw", 
+      duration: 10, 
+      ease: "none", 
+      repeat: -1, 
+      repeatDelay: 0, 
+    });
+
+    gsap.to(".airplane-2", {
+      x: "100vw", 
+      duration: 12, 
+      ease: "none", 
+      repeat: -1, 
+      repeatDelay: 0,
+    });
+
+    gsap.to(".airplane-3", {
+      x: "50vw", 
+      duration: 15, 
+      ease: "none", 
+      repeat: -1, 
+      repeatDelay: 0,
+    });
+
+    // Scroll-triggered animation for the message box
+    gsap.fromTo(
+      ".message-box",
+      {
+        scale: 0.5, 
+        opacity: 0, 
+      },
+      {
+        scale: 1, 
+        opacity: 1, 
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".message",
+          start: "top 65%", 
+          end: "top 15%", 
+          scrub: true, 
+        },
+      }
+    );
+
+
+    gsap.fromTo(
+      ".message-tanukiBox",
+      {
+        opacity: 0,
+        y: 100, 
+        x: 50, 
+        scale: 0.5, 
+      },
+      {
+        opacity: 1, // Fade in
+        y: 0, 
+        x: 0, 
+        scale: 1,
+        duration: 1.5, 
+        ease: "power3.out", // easing
+        scrollTrigger: {
+          trigger: ".message",
+          start: "top 100%",
+          end: "top 20%", 
+          scrub: true,
+          toggleActions: "play none none reverse", 
+        },
+      }
+    );
+    
+    
+  }, []);
+
 
   return (
+    
 
     
     <>
-      <section className="hero bg_pattern Paper_v2">
-        <div className="container hero-layout">
-          <div>
+      <section className="Home-hero hero bg_pattern Paper_v2">
+
+        <div className="container">
+          <div className="Home-hero__text">
             <h1>国境を越えたデザインを</h1>
             <h1>Crafting Brands that Cross Borders</h1>
           </div>
@@ -66,13 +150,11 @@ function Home() {
       
 
       <section className="featured">
-        <div className="container">
-        <div className="Featured-title">
+        <div>
+        <div className=" container featured-title">
           <h3 className={Styles.h3}>Featured Branding Projects</h3>
         </div>
-        <div className="featured-cards">
         <ProjectCard/>
-        </div>
         </div>
       </section>
 

@@ -84,6 +84,8 @@
   @media (min-width: 768px) {
     .nav {
       /* display: none;  */
+      display: flex;
+      flex-direction: c;
     }
   
     .menuIcon {

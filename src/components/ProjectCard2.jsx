@@ -1,24 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import ReadButton from "./ReadButton";
-import styles from "../components/projectCard.module.css";
-import projectData from "../data/project.json"; // Importing project data from the JSON file
+import styles from "../components/ProjectCard2.module.css";
+import projectData from "../data/project.json";
 
-function ProjectCard() {
-  // Filter only the projects with id 1 and 2
-  const filteredProjects = projectData.filter(
-    (project) => project.id === 1 || project.id === 2
-  );
+function ProjectCard2() {
+  const navigate = useNavigate();
 
   return (
     <div className={styles.cardContainer}>
-      {/* Loop through the filtered projects */}
-      {filteredProjects.map((project) => (
+      {/* projectData loop*/}
+      {projectData.map((project) => (
         <div key={project.id} className={styles.card}>
           <div className={styles.cardText}>
             <h4 className={styles.cardTitle}>{project.title}</h4>
             <p className={styles.cardGenre}>{project.genre}</p>
 
-            {/* chips map*/}
+            {/* Chips */}
             <div className={styles.chipsContainer}>
               {project.chips.map((chip, index) => (
                 <span key={index} className={styles.chip}>
@@ -28,6 +26,8 @@ function ProjectCard() {
             </div>
 
             <p className={styles.cardDescription}>{project.description}</p>
+
+            {/* Read More */}
             <div className={styles.ReadButton}>
               <ReadButton label="Read More" onClick={() => navigate("")} />
             </div>
@@ -45,4 +45,4 @@ function ProjectCard() {
   );
 }
 
-export default ProjectCard;
+export default ProjectCard2;

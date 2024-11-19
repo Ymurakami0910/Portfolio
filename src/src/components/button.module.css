@@ -1,0 +1,17 @@
+.primaryButton {
+    font-family: "Fredoka", serif; 
+    font-weight: var(--bold);
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color:var(--blue);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: var(--box-shadow);
+}
+
+.primary-button:hover {
+    background-color:#163B5B;
+}

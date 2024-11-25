@@ -64,36 +64,22 @@ h5 {
   font-size: 2rem;
 }
 
+
+
 /* animation */
 @keyframes float {
   0% {
-    transform: translateY(0); 
+    transform: translateY(0px); 
   }
   50% {
-    transform: translateY(25px); 
+    transform: translateY(50px); 
   }
   100% {
     transform: translateY(0); 
   }
 }
 
-/* @keyframes shake {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(5px, -5px);
-  }
-  50% {
-    transform: translate(-5px, 5px);
-  }
-  75% {
-    transform: translate(5px, 5px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-} */
+
 
 
 
@@ -135,7 +121,7 @@ h5 {
 }
 
 
-/* 方眼紙 */
+/* Paper Pattern */
 .bg_pattern {
   top: 0;
   left: 0;
@@ -176,7 +162,63 @@ h5 {
 
 .Home-hero{
   min-height: 80vh;
+  position: relative;
 }
+
+.Home-hero__text {
+  position: absolute;
+  top: 20%;
+  z-index: 1;
+}
+
+
+.cloud {
+  width: 1300px;
+  height: auto;
+  position: absolute;
+  top: 20%; 
+  opacity: 60%;
+}
+
+
+.cloud img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.cloud1 {
+  left: 40%; /* 初期位置を画面内の左端に設定 */
+}
+
+.cloud1-duplicate {
+  left: 100vw; /* 複製雲を画面右端に配置 */
+}
+
+.cloud2 {
+  left: 0; /* 初期位置を画面内の左端に設定 */
+  top: 30%; /* 雲2の高さを調整 */
+}
+
+.cloud2-duplicate {
+  left: 100vw; /* 複製雲を画面右端に配置 */
+  top: 30%; /* 雲2複製も高さを揃える */
+}
+
+
+@media (max-width: 768px) {
+  .cloud {
+    width: 700px;
+    top: 50%; 
+  }
+  
+}
+@media (max-width: 480px) {
+  .cloud {
+    width: 800px;
+  }
+}
+
 
 /* message section */
 .message {
@@ -186,12 +228,13 @@ h5 {
   background-color: var(--blue);
 }
 
+/* Airplane Animation */
 .message-airplane {
   animation: shake 2s ease-in-out infinite;
   position: relative;
 }
 .message-airplane img {
-  width: 100px;
+  width: 150px;
   height: auto;
   position: absolute;
 }
@@ -217,7 +260,7 @@ h5 {
   gap: 20px;
 }
 
-/* 吹き出し */
+/* Message Box */
 
 .message-box {
   flex-basis: 70%;
@@ -328,6 +371,9 @@ h5 {
     max-width: 300px;
   }
 
+  .message-airplane img {
+    width: 100px;
+  }
   .airplane-1 {
     top: 90%;
     transform: none;

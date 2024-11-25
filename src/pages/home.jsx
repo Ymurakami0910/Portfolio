@@ -4,38 +4,90 @@ import Styles from "../components/title.module.css";
 import ProjectCard from "../components/projectCard";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 function Home() {
-
   const navigate = useNavigate();
 
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
+    // Clouds animation ]
 
-    // Create the animation for airplane elements that doesn't work so far 
+    gsap.fromTo(
+      ".cloud",
+      {
+        scale: 0.3, 
+        opacity: 0,
+      },
+      {
+        scale: 1, 
+        opacity: 1, 
+        duration: 1.5, 
+        ease: "power3.out", 
+        stagger: 0.3, 
+      }
+    );
+
+    gsap.to(".cloud1", {
+      x: "-100vw", // 左端の外まで移動
+      duration: 20, // アニメーションの時間
+      ease: "none", // 一定速度
+      repeat: -1, // 無限ループ
+    });
+
+    
+    // 雲1の複製アニメーション
+    gsap.to(".cloud1-duplicate", {
+      x: "-100vw", // 左端の外まで移動
+      duration: 20, // 同じ速度
+      ease: "none",
+      repeat: -1,
+    });
+
+    // 雲2のアニメーション
+    gsap.to(".cloud2", {
+      x: "-100vw",
+      duration: 25, // 異なる速度で自然な動き
+      ease: "none",
+      repeat: -1,
+    });
+
+    // 雲2の複製アニメーション
+    gsap.to(".cloud2-duplicate", {
+      x: "-100vw",
+      duration: 25,
+      ease: "none",
+      repeat: -1,
+    });
+
+
+
+
+    // Create the animation for airplane elements
     gsap.to(".airplane-1", {
-      x: "100vw", 
-      duration: 10, 
-      ease: "none", 
-      repeat: -1, 
-      repeatDelay: 0, 
+      x: "100vw",
+      y: "+=20",
+      duration: 5,
+      ease: "none",
+      repeat: -1,
+      repeatDelay: 0,
     });
 
     gsap.to(".airplane-2", {
-      x: "100vw", 
-      duration: 12, 
-      ease: "none", 
-      repeat: -1, 
+      x: "100vw",
+      y: "+=20", // Floating effect
+      duration: 8,
+      ease: "none",
+      repeat: -1,
       repeatDelay: 0,
     });
 
     gsap.to(".airplane-3", {
-      x: "50vw", 
-      duration: 15, 
-      ease: "none", 
-      repeat: -1, 
+      x: "50vw",
+      duration: 10,
+      ease: "none",
+      repeat: -1,
       repeatDelay: 0,
     });
 
@@ -43,66 +95,70 @@ function Home() {
     gsap.fromTo(
       ".message-box",
       {
-        scale: 0.5, 
-        opacity: 0, 
+        scale: 0.5,
+        opacity: 0,
       },
       {
-        scale: 1, 
-        opacity: 1, 
+        scale: 1,
+        opacity: 1,
         duration: 1,
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".message",
-          start: "top 65%", 
-          end: "top 15%", 
-          scrub: true, 
+          start: "top 65%",
+          end: "top 15%",
+          scrub: true,
         },
       }
     );
-
 
     gsap.fromTo(
       ".message-tanukiBox",
       {
         opacity: 0,
-        y: 100, 
-        x: 50, 
-        scale: 0.5, 
+        y: 100,
+        x: 50,
+        scale: 0.5,
       },
       {
         opacity: 1, // Fade in
-        y: 0, 
-        x: 0, 
+        y: 0,
+        x: 0,
         scale: 1,
-        duration: 1.5, 
+        duration: 1.5,
         ease: "power3.out", // easing
         scrollTrigger: {
           trigger: ".message",
           start: "top 100%",
-          end: "top 20%", 
+          end: "top 20%",
           scrub: true,
-          toggleActions: "play none none reverse", 
+          toggleActions: "play none none reverse",
         },
       }
     );
-    
-    
   }, []);
 
-
   return (
-    
-
-    
     <>
       <section className="Home-hero hero bg_pattern Paper_v2">
-
+        <div className="cloud cloud1">
+          <img src="src/assets/cloud1.png" alt="cloud1" />
+        </div>
+        <div className="cloud cloud1-duplicate">
+          <img src="src/assets/cloud1.png" alt="cloud1-duplicate" />
+        </div>
         <div className="container">
           <div className="Home-hero__text">
             <h1>国境を越えたデザインを</h1>
             <h1>Crafting Brands that Cross Borders</h1>
-          </div>
           <Button label="About Me" onClick={() => navigate("about")} />
+          </div>
+        </div>
+        <div className="cloud cloud2">
+          <img src="src/assets/cloud2.png" alt="cloud1" />
+        </div>
+        <div className="cloud cloud2-duplicate">
+          <img src="src/assets/cloud2.png" alt="cloud2-duplicate" />
         </div>
       </section>
 
@@ -112,7 +168,6 @@ function Home() {
         </div>
         <div className="container message-layout">
           <div className="message-box">
-   
             <div className="message-box__header">
               <h2>Hi! I am Yuri, a brand designer</h2>
               <a
@@ -147,18 +202,15 @@ function Home() {
           </div>
         </div>
       </section>
-      
 
       <section className="featured">
         <div>
-        <div className=" container featured-title">
-          <h3 className={Styles.h3}>Featured Branding Projects</h3>
-        </div>
-        <ProjectCard/>
+          <div className=" container featured-title">
+            <h3 className={Styles.h3}>Featured Branding Projects</h3>
+          </div>
+          <ProjectCard />
         </div>
       </section>
-
-
     </>
   );
 }

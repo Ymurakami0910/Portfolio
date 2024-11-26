@@ -1,15 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../components/button";
 import Styles from "../components/title.module.css";
 import ProjectCard from "../components/projectCard";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useNavigate } from "react-router-dom";
+import Splash from "../components/splash";
+
+import Cloud1 from "../assets/cloud1.png";
+import Cloud2 from "../assets/cloud2.png";
+import AirplaneIcon from "../assets/icons/airplane.png";
+import LinkedInIcon from "../assets/icons/linkedin.png";
+import TanukiIllustration from "../assets/tanuki.png";
 
 function Home() {
   const navigate = useNavigate();
 
   gsap.registerPlugin(ScrollTrigger);
+
+  const [showSplash, setShowSplash] = useState(true); //manage the splash screen
+
+  useEffect(() => {
+    // splash timer after 2.5 seconds
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     // Clouds animation ]
@@ -140,12 +158,13 @@ function Home() {
 
   return (
     <>
+    {showSplash && <Splash />}
       <section className="Home-hero hero bg_pattern Paper_v2">
         <div className="cloud cloud1">
-          <img src="src/assets/cloud1.png" alt="cloud1" />
+          <img src={Cloud1} alt="cloud1" />
         </div>
         <div className="cloud cloud1-duplicate">
-          <img src="src/assets/cloud1.png" alt="cloud1-duplicate" />
+          <img src={Cloud1} alt="cloud1-duplicate" />
         </div>
         <div className="container">
           <div className="Home-hero__text">
@@ -155,21 +174,21 @@ function Home() {
           </div>
         </div>
         <div className="cloud cloud2">
-          <img src="src/assets/cloud2.png" alt="cloud1" />
+          <img src={Cloud2} alt="cloud1" />
         </div>
         <div className="cloud cloud2-duplicate">
-          <img src="src/assets/cloud2.png" alt="cloud2-duplicate" />
+          <img src={Cloud2} alt="cloud2-duplicate" />
         </div>
       </section>
 
       <section className="message">
         <div className="message-airplane airplane-1">
-          <img src="src/assets/icons/airplane.png" alt="airplane-icon" />
+          <img src={AirplaneIcon} alt="airplane-icon" />
         </div>
         <div className="container message-layout">
           <div className="message-box">
             <div className="message-box__header">
-              <h2>Hi! I am Yuri, a brand designer</h2>
+              <h2>Hi! I am Yuri,<span></span>a brand designer</h2>
               <a
                 href="https://www.linkedin.com/in/yurino-murakami-047175318"
                 target="_blank"
@@ -177,7 +196,7 @@ function Home() {
               >
                 <div className="message-box__icon">
                   <img
-                    src="src/assets/icons/linkedin.png"
+                    src={LinkedInIcon}
                     alt="LinkedIn-icon"
                   />
                 </div>
@@ -192,13 +211,13 @@ function Home() {
             </p>
           </div>
           <div className="message-airplane airplane-2">
-            <img src="src/assets/icons/airplane.png" alt="airplane-icon" />
+            <img src={AirplaneIcon} alt="airplane-icon" />
           </div>
           <div className="message-airplane airplane-3">
-            <img src="src/assets/icons/airplane.png" alt="airplane-icon" />
+            <img src={AirplaneIcon} alt="airplane-icon" />
           </div>
           <div className="message-tanukiBox">
-            <img src="src/assets/tanuki.png" alt="Tanuki-illustration" />
+            <img src={TanukiIllustration} alt="Tanuki-illustration" />
           </div>
         </div>
       </section>

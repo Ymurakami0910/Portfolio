@@ -1,0 +1,50 @@
+.splashScreen {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: fadeInOut 2.5s ease-out forwards;
+}
+
+.Logo {
+    width: 30%;
+    height: auto;
+}
+
+.BrandDesigner {
+    width: 20%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+
+    .Logo {
+        width: 90%;
+    }
+
+    .BrandDesigner {
+        width: 70%;
+    }
+}
+
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
+import Logo from '../assets/logo.png'
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,31 +10,42 @@ function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleNavLinkClick = () => {
+    setIsMenuOpen(false); // Close the overlay
+  };
+
   return (
     <header className={styles.headerContainer}>
-      {/*logo */}
+      {/* Logo */}
       <NavLink to="/" className={styles.logo}>
-        <img src="src/assets/logo.png" alt="Logo" />
+        <img src={Logo} alt="Logo" />
       </NavLink>
 
-      {/* mobile menu*/}
+      {/* Mobile menu icon */}
       <div className={styles.menuIcon} onClick={handleMenuToggle}>
         <div className={styles.line}></div>
         <div className={styles.line}></div>
         <div className={styles.line}></div>
       </div>
 
-      {/* mobile opened */}
+      {/* Mobile menu overlay */}
       <div className={`${styles.navOverlay} ${isMenuOpen ? styles.navOpen : ''}`}>
-        {/* close btn*/}
+        {/* Close button */}
         <button className={styles.closeButton} onClick={handleMenuToggle}>
           ×
         </button>
 
+        {/* Navigation links */}
         <nav className={styles.nav}>
-          <NavLink to="/project" className={styles.navLink}>Projects</NavLink>
-          <NavLink to="/about" className={styles.navLink}>About Me</NavLink>
-          <NavLink to="/contact" className={styles.navLink}>Contact</NavLink>
+          <NavLink to="/project" className={styles.navLink} onClick={handleNavLinkClick}>
+            Projects
+          </NavLink>
+          <NavLink to="/about" className={styles.navLink} onClick={handleNavLinkClick}>
+            About Me
+          </NavLink>
+          <NavLink to="/contact" className={styles.navLink} onClick={handleNavLinkClick}>
+            Contact
+          </NavLink>
         </nav>
       </div>
     </header>

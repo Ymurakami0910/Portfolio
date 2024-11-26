@@ -1,109 +1,173 @@
-  .headerContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 50px;
-    margin: 10px;
-    background-color: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
-  
-  .logo img {
-    height: 70px;
-  }
-  
-  .nav {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .navLink {
-    font-family:  "Fredoka", serif; 
-    text-decoration: none;
-    color: var(--blue);
-    font-size: 1rem;
-    transition: color 0.3s;
-  }
-  
-  .menuIcon {
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 25px;
-    height: 20px;
-    cursor: pointer;
-  }
-  
-  .line {
-    width: 100%;
-    height: 3px;
-    background-color: var(--blue);
-    border-radius: 5px;
-  }
-  
-  .navOverlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--blue);
-    z-index: 100;
+/* 共通スタイル */
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  margin: 10px;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.logo img {
+  height: 70px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column; 
+  gap: 20px;
+  color: white;
+}
+
+.navLink {
+  font-family: "Fredoka", serif;
+  text-decoration: none;
+  color: var(--blue);
+  font-size: 1rem;
+  transition: color 0.3s;
+  border-bottom: white dotted 3px;
+}
+
+.menuIcon {
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.line {
+  width: 100%;
+  height: 3px;
+  background-color: var(--blue);
+  border-radius: 5px;
+}
+
+/* Mobile Menu Overlay */
+.navOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--blue);
+  z-index: 100;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.navOpen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  animation: fadeInOverlay 0.5s ease forwards; 
+}
+
+/* Individual Links Animation */
+.navOpen .navLink {
+  color: var(--white);
+  font-size: 2rem;
+  margin: 15px 0;
+  opacity: 0;
+  animation: fadeInLinks 0.6s ease forwards;
+}
+
+/* Add delay to each link */
+.navOpen .navLink:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.navOpen .navLink:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.navOpen .navLink:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.closeButton {
+  position: absolute;
+  top: 50px;
+  right: 45px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+
+/* animation */
+@keyframes fadeInOverlay {
+  0% {
     opacity: 0;
-    transform: translateY(-100%);
-    transition: opacity 0.3s, transform 0.3s;
+    transform: scale(0.8);
   }
-  
-  .navOpen {
-    display: block;
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Keyframes for Links */
+@keyframes fadeInLinks {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
-  
-  .navOpen .navLink {
-    color: var(--white);
 }
-  
+
+/* デスクトップ用のスタイル */
+@media (min-width: 768px) {
+  .menuIcon {
+    display: none; 
+  }
+
+  .navOverlay {
+    all: unset;
+  }
+
   .closeButton {
-    display:flex;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    color: var(--white);
-    font-size: 2rem;
-    cursor: pointer;
+    display: none;
+  }
+
+
+  .nav {
+    all: unset;
+    display: flex; 
+    flex-direction: row; 
+    gap: 30px; 
+    align-items: center; 
+
+  }
+
+  .navLink {
+    font-family: "Fredoka", serif;
+    border-bottom: none;
+    text-decoration: none;
+    color: var(--blue);
+    font-size: 1.3rem;
+    transition: color 0.3s ease, background-color 0.3s ease, padding 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
   }
   
-  @media (min-width: 768px) {
-    .nav {
-      /* display: none;  */
-      display: flex;
-      flex-direction: c;
-    }
-  
-    .menuIcon {
-      display: flex; 
-    }
-  
-    .navOverlay {
-      all: unset;
-    }
-    .closeButton{
-        display:none;
-    }
-    .menuIcon{
-        display: none;
-    }
-  
-    .navOpen {
-      display: block; 
-    }
+
+  .navLink:hover {
+    color: var(--text_white); 
+    background-color: var(--pink); 
+    padding: 7px 12px; 
   }
-  
+}

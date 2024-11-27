@@ -11,6 +11,7 @@
     align-items: center;
     flex-direction: column;
     animation: fadeInOut 2.5s ease-out forwards;
+    z-index: 100;
 }
 
 .Logo {

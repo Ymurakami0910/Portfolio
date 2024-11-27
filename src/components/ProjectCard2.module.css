@@ -52,9 +52,9 @@
   
   .chip {
     font-family: "Fredoka", serif;
-    background-color: var(--blue);
-    color: white;
+    color: var(--green);
     padding: 4px 8px;
+    border: var(--green) solid 2px;
     border-radius: 5px;
     font-size: 1rem;
   }

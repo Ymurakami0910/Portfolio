@@ -5,7 +5,7 @@ function Projects() {
   return (
    <div className='Paper_v2 .bg_pattern'>
     <div className='container'>
-    <div className='ProjectContent'>
+    <div className='Project-content'>
     <h1>All Projects</h1>
     <ProjectCard2 />
     </div>

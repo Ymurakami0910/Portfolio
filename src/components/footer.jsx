@@ -1,5 +1,10 @@
 import React from "react";
 import Styles from "../components/footer.module.css";
+import Logo from "../assets/logo-white.png"
+import Linkedin from "../assets/icons/linkedin-sm.png"
+import Insta from "../assets/icons/insta.png"
+import Be from "../assets/icons/be.png"
+
 import { useNavigate } from "react-router-dom";
 
 function Footer() {
@@ -11,7 +16,7 @@ function Footer() {
         <div className="container">
           <div className={Styles.footerBox}>
             <div className={Styles.footerLogo}>
-              <img src="src/assets/logo-white.png" alt="logo with white text" />
+              <img src={Logo} alt="logo with white text" />
             </div>
             <div className={Styles.footerContent}>
               <p className={Styles.footerP}>
@@ -27,19 +32,19 @@ function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <img src="src/assets/icons/linkedin-sm.png" alt="" />
+                    <img src={Linkedin} alt="Linkedin Icon" />
                   </a>
                 </div>
                 <div className={Styles.footerSocialIcons__box}>
-                  <img src="src/assets/icons/insta.png" alt="" />
+                  <img src={Insta} alt="Instagram Icon" />
                 </div>
                 <div className={Styles.footerSocialIcons__box}>
-                  <img src="src/assets/icons/be.png" alt="" />
+                  <img src={Be}alt="" />
                 </div>
               </div>
               <div className={Styles.connectButton}>
-                <button href="#" className={Styles.connectButtonLink}>
-                  <span className={Styles.connectButtonText} onClick={() => navigate("/contact")}>Contact</span>
+                <button className={Styles.connectButtonLink} onClick={() => navigate("contact")}>
+                  <span className={Styles.connectButtonText}>Contact</span>
                 </button>
               </div>
             </div>

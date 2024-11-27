@@ -18,6 +18,8 @@ html, body {
 :root {
   --blue: #205989;
   --pink: #F5AFAF;
+  --orange :#D75B27;
+  --green:#46AA9B;
   --text_white: #FFFFFF;
   --bold: 500;
   --box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2)
@@ -39,9 +41,7 @@ h5{
   color: #FFFFFF;
 }
 
- h2 span {
-  display: block; 
-}
+
 
 p {
   font-family: "Open sans";
@@ -59,13 +59,16 @@ h2 {
 
 }
 
+
 h4{
   font-size: 1.8rem;
 }
 
 h5 {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
+
+
 
 
 
@@ -138,7 +141,7 @@ h5 {
   top: 0;
   left: 0;
   background-color: #fff;
-  z-index: -1;
+  z-index: -100;
 }
 
 
@@ -227,15 +230,19 @@ h5 {
 
 
 @media (max-width: 768px) {
+  .Home-hero{
+    min-height: 95vh;
+  }
   .cloud {
     width: 700px;
-    top: 50%; 
+    top: 58%; 
   }
   
 }
 @media (max-width: 480px) {
+  
   .cloud {
-    width: 800px;
+    width: 700px;
   }
 }
 
@@ -247,6 +254,7 @@ h5 {
   padding-bottom: 5rem;
   background-color: var(--blue);
 }
+
 
 /* Airplane Animation */
 .message-airplane {
@@ -318,6 +326,11 @@ h5 {
 
 }
 
+.message-box a{
+  color: var(--blue);
+  font-weight: var(--bold);
+}
+
 .message-box__icon {
   flex-shrink: 0;
   border-radius: 50%;
@@ -351,6 +364,9 @@ h5 {
 }
 
 @media (max-width: 768px) {
+  h1 span {
+    display: block; 
+  }
   .message-layout {
     flex-direction: column;
     align-items: center;
@@ -424,13 +440,25 @@ h5 {
   text-align: center;
   margin-bottom: 3rem;
 }
+/* Project page */
 
+.Project-content {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+@media (max-width: 768px){
+  .Project-content {
+    padding-top: 7rem;
+  }
+}
 
 /* About page */
 
 .about-header {
   background-color: var(--blue);
   min-height:65vh;
+  padding-top: 1rem;
   padding-bottom:3rem;
   position: relative;
 } 
@@ -441,17 +469,17 @@ h5 {
   align-items: center;
   transition: all 0.3s ease; 
 }
+
 .about-header__text {
   flex-basis: 70%;
   position: relative;
   padding-right: 10px;
   z-index: 1;
-
 }
 
-
-
-
+.about-header__text h1 {
+  height: 50px;
+}
 .about-header__text h1,
 .about-header__text p {
   color: white;
@@ -482,6 +510,10 @@ h5 {
 .about-cards {
   padding-top: 3rem;
   padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 }
 
 .about-cards h2 {
@@ -489,47 +521,32 @@ h5 {
   padding: 8px 15px;
   margin-left: 40px;
   text-align: center;
-  background: #def3ff;
+  background: white;
   border-radius: 20px;
+  box-shadow: var(--box-shadow);
 }
 
-.about-cards h2 :before {
-  font-family: "Font Awesome 5 Free";
-  content: "\f111";
-  font-weight: 900;
-  position: absolute;
-  font-size: 15px;
-  left: -40px;
-  bottom: 0;
-  color:var(--text_white);
 
-}
-.about-cards h2 :after {
-  font-family: "Font Awesome 5 Free";
-  content: "\f111";
-  font-weight: 900;
-  position: absolute;
-  font-size: 23px;
-  left: -23px;
-  bottom: 0;
-  color: var(--text_white);
-
-}
 
 /* Card  */
 
 
+.about-cards__wrap {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap:20px;
 
-
-.photo-container {
-  perspective: 1000px; /* 3D効果を出すための設定 */
-  animation: float-2 3s ease-in-out infinite; 
 }
 
 
+.photo-container {
+  perspective: 1000px; 
+  animation: float-2 3s ease-in-out infinite; 
+}
 
 .photo {
-  width: 300px; /* 任意のサイズ */
+  width: 300px; 
   height: 400px;
   position: relative;
   transition: transform 0.6s; 
@@ -545,37 +562,51 @@ h5 {
   left: 0;
   right: 0;
   bottom: 0;
-  backface-visibility: hidden; /* 裏面を隠す */
+  backface-visibility: hidden; 
+  border: var(--green) solid 10px;
+  box-shadow: var(--box-shadow);
+  border-radius: 19px; 
 }
 
 .photo-front {
-  z-index: 2; /* 前面に表示 */
+  z-index: 2;
 }
 
 .photo-back {
-  transform: rotateY(180deg); /* 裏面をひっくり返す */
-  display: flex; /* 中身を中央に */
+  transform: rotateY(180deg); 
+  display: flex; 
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.9); /* 半透明の背景 */
+  background: rgba(255, 255, 255, 0.9); 
 }
 
 .photo img {
   width: 100%;
   height: 100%;
-  border-radius: 10px; /* 任意で角を丸く */
+  border-radius: 10px; 
 }
 
 .flipped {
-  transform: rotateY(180deg); /* Y軸に沿って回転 */
+  transform: rotateY(180deg); 
 }
 
+.about-cards__description {
+  text-align: left;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.about-cards__description p{
+  margin-top: 1rem;
+}
 
 
 
 .about-offer {
-  background-image: url(src/assets/bg-about.jpg);
+  background-image: url(./assets/bg-about.jpg);
 }
+
+
 .about-offer__content {
   padding: 4rem;
   position: relative;
@@ -583,11 +614,19 @@ h5 {
   justify-content: space-between;
   gap: 20px;
   width: 100%;
-  align-items: flex-start; /* 上揃え */
+  align-items: flex-start; 
+}
+
+.about-offer__title h4{
+  color:var(--text_white);
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--blue);
+
 }
 
 .about-offer_dropContainer {
-  width: 50%;
+  width: 70%;
   position: relative; /* ドロップダウン用の絶対配置に対応 */
 }
 
@@ -605,7 +644,7 @@ label {
   cursor: pointer;
   display: block;
   color: var(--blue);
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -648,7 +687,10 @@ label {
   border-radius: 5px;
   margin-top: 10px; 
 }
+.about-offer_dropDown p{
+  font-size: 1.3rem;
 
+}
 
 .drop-toggle:checked + label + .about-offer_dropDown {
   max-height: 250px; 
@@ -662,7 +704,7 @@ label {
   justify-content: flex-start;
   gap: 10px;
   margin-left: 3rem;
-  width: 50%;
+  width: 30%;
   align-items: flex-start; 
 }
 
@@ -680,14 +722,34 @@ label {
 /* About Responsive styles */
 @media (max-width: 768px) {
 
+
+.about-header {
+  padding-top:7rem;
+} 
+
+
   .curved {
-    height: 90vh;
+    height: auto;
   } 
+
+  .about-header__text h1 {
+    height:50px;
+    font-size: 2rem;
+  }
+  
+  .about-cards__wrap {
+    flex-direction: column;
+  }
 
   .about-header__content {
     padding-top: 1rem;
     flex-direction: column;
     text-align: center;
+  }
+
+  .about-cards h2{
+    margin: 0 auto;
+    font-size: 1.7rem;
   }
 
   .about-header__image {
@@ -705,14 +767,20 @@ label {
     padding-bottom: 20px;
   }
 
+
+  .about-header__text p {
+    font-size: 1.2rem;
+  }
+
   .about-offer__content {
    flex-direction: column;
    padding: 0;
   }
 
   .about-offer_dropContainer {
-    width: 100%;
-
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 1rem;
   }
 
   .drop-title {
@@ -738,7 +806,7 @@ label {
     justify-content: flex-start;
     gap: 10px;
     margin: 0 auto; 
-    width: 100%; 
+    width: 90%; 
     align-items: center; 
   }
 

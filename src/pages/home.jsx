@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Button from "../components/button";
-import Styles from "../components/title.module.css";
-import ProjectCard from "../components/projectCard";
+import { useNavigate } from "react-router-dom";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useNavigate } from "react-router-dom";
+
+import Button from "../components/button.jsx";
+import Styles from "../components/title.module.css";
+import ProjectCard from "../components/projectCard";
 import Splash from "../components/splash";
 
 import Cloud1 from "../assets/cloud1.png";
@@ -168,9 +170,9 @@ function Home() {
         </div>
         <div className="container">
           <div className="Home-hero__text">
-            <h1>国境を越えたデザインを</h1>
+            <h1>国境を越えた<span></span>デザインを</h1>
             <h1>Crafting Brands that Cross Borders</h1>
-          <Button label="About Me" onClick={() => navigate("about")} />
+            <Button label="About me" onClick={() => navigate("/about")} />
           </div>
         </div>
         <div className="cloud cloud2">
@@ -188,7 +190,7 @@ function Home() {
         <div className="container message-layout">
           <div className="message-box">
             <div className="message-box__header">
-              <h2>Hi! I am Yuri,<span></span>a brand designer</h2>
+              <h2>Hi! I am Yuri,a brand designer</h2>
               <a
                 href="https://www.linkedin.com/in/yurino-murakami-047175318"
                 target="_blank"
@@ -203,7 +205,7 @@ function Home() {
               </a>
             </div>
             <p>
-              My studio's logo features a tanuki, an animal unique to Japan. In
+              My studio's logo features a <a href="https://en.wikipedia.org/wiki/Japanese_raccoon_dog" target="_blank">tanuki</a>, an animal unique to Japan. In
               Japanese folklore, tanuki are known for their versatility and
               ability to transform into anything. Like them, I can bring
               adaptability to your branding work and collaborate seamlessly with

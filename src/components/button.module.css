@@ -1,18 +1,19 @@
 .primaryButton {
+    display: inline-block;
     font-family: "Fredoka", serif; 
     font-weight: var(--bold);
     padding: 10px 20px;
-    font-size: 16px;
+    font-size:1.1rem;
     color: #fff;
-    background-color:var(--blue);
+    background-color:var(--green);
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
     box-shadow: var(--box-shadow);
+    transition: all 0.3s ease; 
+    margin-top: 0.5rem;
 }
 
 .primaryButton:hover {
     transform: scale(1.1); 
-    transition: transform 0.3s ease; 
   }

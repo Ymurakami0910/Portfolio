@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/button";
+
+
 import tanukiImage from "../assets/tanuki-2.png";
 import Yuri1 from "../assets/Yuri-1.jpg";
+import Yuri2 from '../assets/Yuri-2.png'; 
+import Yuri3 from '../assets/Yuri-3.png'; 
 import arrowIcon from "../assets/icons/arrow.png";
 import aiIcon from "../assets/icons/ai.png";
 import psIcon from "../assets/icons/ps.png";
@@ -14,12 +18,23 @@ import cssIcon from "../assets/icons/css.png";
 import jsIcon from "../assets/icons/js.png";
 
 function About() {
-  const [isFlipped, setIsFlipped] = useState(false);
   const navigate = useNavigate();
+  
+  const [flipStates, setFlipStates] = useState([false, false, false]);
 
-  const flipPhoto = () => {
-    setIsFlipped(!isFlipped);
+  const flipPhoto = (index) => {
+    // Toggle the flip state for the clicked card
+    setFlipStates(prevStates =>
+      prevStates.map((state, i) => (i === index ? !state : state))
+    );
   };
+
+  const cardData = [
+    { image: Yuri1, altText: "Yuri's photo 1" , title:"I'm from Hokkaido, Japan!",description:" Growing up with beautiful nature and scenery, It's one of the sources of my inspiration."
+  },
+    { image: Yuri2, altText: "Yuri's photo 2",title:"I was in the airport lounge staff!",description: "This gives me a broader, global perspective that allows me to enhance my design work now."  },
+    { image: Yuri3, altText: "Yuri's photo 3",title:"Travelling is my passion",description: "I have travelled all over Japan. Trips always expand my perspective and deepen my insights, which I bring into every project." },
+  ];
 
   return (
     <>
@@ -50,33 +65,38 @@ function About() {
       </section>
 
       <section className="Paper_v2 bg_pattern">
-        <div className="container">
-          <div className="about-cards">
-            <h2>Play Cards to get to know me!</h2>
-            <p>Flip</p>
-            <div className="photo-container">
-              <div
-                className={`photo ${isFlipped ? "flipped" : ""}`}
-                onClick={flipPhoto}
-              >
-                <div className="photo-front">
-                  <img src={Yuri1} alt="Yuri's photo" />
-                </div>
-                <div className="photo-back">
-                  <div className="description">
-                    <p>ここに説明文が入ります。</p>
+      <div className="container">
+        <div className="about-cards">
+          <h2>Play Cards to get to know me!</h2>
+          <p>Flip</p>
+          <div className="about-cards__wrap">
+            {cardData.map((card, index) => (
+              <div className="photo-container" key={index}>
+                <div
+                  className={`photo ${flipStates[index] ? 'flipped' : ''}`} // Conditional class for flipped card
+                  onClick={() => flipPhoto(index)} // Flip the card on click
+                >
+                  <div className="photo-front">
+                    <img src={card.image} alt={card.altText} /> {/* Display front image */}
+                  </div>
+                  <div className="photo-back">
+                    <div className="about-cards__description">
+                      <h4>{card.title}</h4>
+                      <p>{card.description}</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       <section className="about-offer">
-        <div className="about-offer__title container">
+        <div className="about-offer__title">
           <h4>What I offer</h4>
-          <div className="about-offer__content">
+          <div className="about-offer__content container">
             <div className="about-offer_dropContainer">
               <div className="about-offer_drop">
                 <input type="checkbox" id="drop1" className="drop-toggle" />
@@ -136,9 +156,7 @@ function About() {
               <div className="icon">
                 <img src={jsIcon} alt="Icon JS" />
               </div>
-              <div className="about-offer__button">
-                <Button label="Resume" onClick={() => navigate("/resume")} />
-              </div>
+              <Button label="Resume" onClick={() => navigate("/")} />
             </div>
           </div>
         </div>

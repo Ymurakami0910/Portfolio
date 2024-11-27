@@ -4,13 +4,13 @@ import Logo from '../assets/logo.png'
 import BrandDesigner from "../assets/BrandDesigner.png"
 
 function Splash() {
+  
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
     }, 2500); 
-
     return () => clearTimeout(timer);
   }, []);
 

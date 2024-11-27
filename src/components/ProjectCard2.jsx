@@ -4,7 +4,9 @@ import ReadButton from "./ReadButton";
 import styles from "../components/ProjectCard2.module.css";
 import projectData from "../data/project.json";
 
+
 function ProjectCard2() {
+
   const navigate = useNavigate();
 
   return (
@@ -29,7 +31,7 @@ function ProjectCard2() {
 
             {/* Read More */}
             <div className={styles.ReadButton}>
-              <ReadButton label="Read More" onClick={() => navigate("")} />
+              <ReadButton label="Read More" pageLink={project.pageLink2} />
             </div>
           </div>
           <div className={styles.cardImageContainer}>

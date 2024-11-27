@@ -1,10 +1,13 @@
 import React from "react";
 import ReadButton from "./ReadButton";
 import styles from "../components/projectCard.module.css";
-import projectData from "../data/project.json"; // Importing project data from the JSON file
+import { useNavigate } from "react-router-dom";
+import projectData from "../data/project.json"; 
 
 function ProjectCard() {
   // Filter only the projects with id 1 and 2
+  const navigate = useNavigate();
+
   const filteredProjects = projectData.filter(
     (project) => project.id === 1 || project.id === 2
   );
@@ -29,7 +32,7 @@ function ProjectCard() {
 
             <p className={styles.cardDescription}>{project.description}</p>
             <div className={styles.ReadButton}>
-              <ReadButton label="Read More" onClick={() => navigate("")} />
+              <ReadButton label="Read More" pageLink={project.pageLink}  />
             </div>
           </div>
           <div className={styles.cardImageContainer}>

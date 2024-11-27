@@ -1,16 +1,18 @@
-/* 共通スタイル */
+
 .headerContainer {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 50px;
-  margin: 10px;
-  background-color: var(--white);
+  background-color: #ffffff;
   border-radius: 10px;
+  margin-top: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 10;
 }
 
 .logo img {
@@ -131,6 +133,11 @@
 
 /* デスクトップ用のスタイル */
 @media (min-width: 768px) {
+
+  .headerContainer{
+  position: static;
+  }
+
   .menuIcon {
     display: none; 
   }

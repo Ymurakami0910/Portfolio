@@ -49,8 +49,8 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     padding: 0.5rem;
     border-radius: 50%;
     background-color: white;
@@ -69,10 +69,9 @@ footer {
   
 .connectButtonLink {
     display: inline-block;
-    width: 200px;
-    height: 60px;
+    width: 140px;
+    height: 50px;
     text-align: center;
-    line-height: 60px;
     text-decoration: none;
     color: var(--blue);
     background-color: #fff;
@@ -110,7 +109,7 @@ footer {
   
 
   .connectButtonText {
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-family: "Fredoka", serif;
     font-weight: var(--bold);
     position: relative;
@@ -148,6 +147,7 @@ footer {
     .footerSocialIcons {
       gap: 0.5rem;
     }
+
   
     .footerSocialIcons__box {
       width: 50px;

@@ -97,6 +97,15 @@ h5 {
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
 
 
 
@@ -200,7 +209,7 @@ h5 {
   height: auto;
   position: absolute;
   top: 20%; 
-  opacity: 60%;
+  opacity: 0%;
 }
 
 
@@ -215,36 +224,21 @@ h5 {
 }
 
 .cloud1-duplicate {
-  left: 100vw; /* 複製雲を画面右端に配置 */
+  left: 120vw; /* 複製雲を画面右端に配置 */
 }
 
 .cloud2 {
-  left: 0; /* 初期位置を画面内の左端に設定 */
+  left: 10%; /* 初期位置を画面内の左端に設定 */
   top: 30%; /* 雲2の高さを調整 */
 }
 
 .cloud2-duplicate {
-  left: 100vw; /* 複製雲を画面右端に配置 */
+  left: 120vw; /* 複製雲を画面右端に配置 */
   top: 30%; /* 雲2複製も高さを揃える */
 }
 
 
-@media (max-width: 768px) {
-  .Home-hero{
-    min-height: 95vh;
-  }
-  .cloud {
-    width: 700px;
-    top: 58%; 
-  }
-  
-}
-@media (max-width: 480px) {
-  
-  .cloud {
-    width: 700px;
-  }
-}
+
 
 
 /* message section */
@@ -253,39 +247,74 @@ h5 {
   padding-top: 5rem;
   padding-bottom: 5rem;
   background-color: var(--blue);
+  overflow: visible;
 }
 
 
 /* Airplane Animation */
 .message-airplane {
-  animation: shake 2s ease-in-out infinite;
   position: relative;
+  z-index: 1;
 }
 .message-airplane img {
-  width: 150px;
-  height: auto;
-  position: absolute;
+  width: 180px; 
+  margin: 0; 
+
 }
 .airplane-1 {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 55%;
+  left: -10%;
 }
 .airplane-2 {
   position: absolute;
-  top: 10%;
-  left: 80%;
+  top: 65%;
+  left: -20%; 
 }
 .airplane-3 {
   position: absolute;
-  top: 0%;
-  left: 90%;
+  top: 15%;
+  left: -30%; 
 }
 
 .message-layout {
   display: flex;
   justify-content: space-between;
   gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .Home-hero{
+    min-height: 95vh;
+  }
+  .cloud {
+    width: 1000px;
+    top: 58%; 
+  }
+  .airplane-1 {
+    left: -5vw;
+    top: 80%;
+  }
+  .airplane-2 {
+    left: -12vw;
+    top: 55%;
+  }
+  .airplane-3 {
+    left: -18vw;
+    top: 12%;
+  }
+
+  .message-airplane img {
+    width: 120px;
+  }
+
+}
+@media (max-width: 480px) {
+  
+  .cloud {
+    width: 700px;
+  }
+
 }
 
 /* Message Box */
@@ -383,6 +412,7 @@ h5 {
     max-width: 90%;
     margin-top: 1rem;
   }
+
 }
 
 
@@ -407,21 +437,6 @@ h5 {
     max-width: 300px;
   }
 
-  .message-airplane img {
-    width: 100px;
-  }
-  .airplane-1 {
-    top: 90%;
-    transform: none;
-  }
-  .airplane-2 {
-    top: 60%;
-    left: 70%;
-  }
-  .airplane-3 {
-    top: 80%;
-    left: 70%;
-  }
 
 
 }
@@ -443,13 +458,17 @@ h5 {
 /* Project page */
 
 .Project-content {
-  padding-top: 3rem;
+  padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
 @media (max-width: 768px){
   .Project-content {
+    text-align: center;
     padding-top: 7rem;
+  }
+  .Project-content h1{
+    font-size:2rem;
   }
 }
 
@@ -467,7 +486,7 @@ h5 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.3s ease; 
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .about-header__text {
@@ -516,14 +535,10 @@ h5 {
   align-items: center;
 }
 
-.about-cards h2 {
+.about-cards__text h2 {
   position: relative;
-  padding: 8px 15px;
-  margin-left: 40px;
   text-align: center;
-  background: white;
-  border-radius: 20px;
-  box-shadow: var(--box-shadow);
+  margin-bottom: 1.3rem;
 }
 
 
@@ -542,9 +557,13 @@ h5 {
 
 .photo-container {
   perspective: 1000px; 
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
   animation: float-2 3s ease-in-out infinite; 
 }
-
+.photo-container:hover{
+  animation: none;
+  transform: scale(1.05);
+}
 .photo {
   width: 300px; 
   height: 400px;
@@ -708,9 +727,14 @@ label {
   align-items: flex-start; 
 }
 
+.about-offer__icons span {
+  width: 80px;
+  height: auto;
+}
+
 .icon img {
   width: 80px;
-  height: 80px;
+  height: auto;
   object-fit: cover;
   display: inline-block;
 }
@@ -747,18 +771,14 @@ label {
     text-align: center;
   }
 
-  .about-cards h2{
-    margin: 0 auto;
-    font-size: 1.7rem;
-  }
-
+  
   .about-header__image {
     width: 80%;
     max-width: 400px;
     margin-bottom: 20px;
     max-height: 400px;
   }
-
+  
   .about-header__text {
     max-width: 100%;
     text-align: left;
@@ -766,10 +786,15 @@ label {
     z-index: 1;
     padding-bottom: 20px;
   }
-
-
+  
+  
   .about-header__text p {
     font-size: 1.2rem;
+  }
+
+  .about-cards__text h2{
+    text-align: left;
+    font-size: 2rem;
   }
 
   .about-offer__content {
@@ -803,11 +828,17 @@ label {
   .about-offer__icons {
     display: flex;
     flex-wrap: wrap; 
-    justify-content: flex-start;
+    justify-content: center;
     gap: 10px;
     margin: 0 auto; 
     width: 90%; 
     align-items: center; 
+    margin-bottom: 1.5rem;
+  }
+
+  .about-offer__icons span {
+    width: 0;
+    height: auto;
   }
 
   .icon img {

@@ -32,86 +32,96 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    // Clouds animation ]
+    if (!showSplash) {
+      gsap.fromTo(
+        ".cloud",
+        {
+          scale: 0.3,
+          opacity: 0,
+        },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          stagger: 0.3,
+        }
+      );
+    }
+  }, [showSplash]);
 
+  gsap.to(".cloud1", {
+    x: "-100vw",
+    duration: 20,
+    ease: "none",
+    repeat: -1,
+  });
+
+  gsap.to(".cloud1-duplicate", {
+    x: "-100vw",
+    duration: 20,
+    ease: "none",
+    repeat: -1,
+  });
+
+  gsap.to(".cloud2", {
+    x: "-100vw",
+    duration: 25,
+    ease: "none",
+    repeat: -1,
+  });
+
+  gsap.to(".cloud2-duplicate", {
+    x: "-100vw",
+    duration: 25,
+    ease: "none",
+    repeat: -1,
+  });
+  // 飛行機のアニメーション
+  useEffect(() => {
     gsap.fromTo(
-      ".cloud",
+      ".airplane-1",
+      { x: "-10vw" 
+    },
       {
-        scale: 0.3, 
-        opacity: 0,
-      },
-      {
-        scale: 1, 
-        opacity: 1, 
-        duration: 1.5, 
-        ease: "power3.out", 
-        stagger: 0.3, 
+        x: "120vw",
+        y: "20vh",
+        rotation: 10,
+        duration: 8,
+        ease: "power1.inOut",
+        repeat: -1,
       }
     );
 
-    gsap.to(".cloud1", {
-      x: "-100vw", // 左端の外まで移動
-      duration: 20, // アニメーションの時間
-      ease: "none", // 一定速度
-      repeat: -1, // 無限ループ
-    });
+    gsap.fromTo(
+      ".airplane-2",
+      { x: "-30vw" },
+      {
+        x: "130vw",
+        y: "10vh",
+        rotation: 5,
+        duration: 7,
+        ease: "power1.inOut",
+        repeat: -1,
+      }
+    );
 
-    
-    // 雲1の複製アニメーション
-    gsap.to(".cloud1-duplicate", {
-      x: "-100vw", // 左端の外まで移動
-      duration: 20, // 同じ速度
-      ease: "none",
-      repeat: -1,
-    });
+    gsap.fromTo(
+      ".airplane-3",
+      { x: "-40vw" },
+      {
+        x: "130vw",
+        y: "-20vh",
+        rotation: 5,
+        duration: 9,
+        ease: "power1.inOut",
+        repeat: -1,
+      }
+    );
+  });
 
-    // 雲2のアニメーション
-    gsap.to(".cloud2", {
-      x: "-100vw",
-      duration: 25, // 異なる速度で自然な動き
-      ease: "none",
-      repeat: -1,
-    });
-
-    // 雲2の複製アニメーション
-    gsap.to(".cloud2-duplicate", {
-      x: "-100vw",
-      duration: 25,
-      ease: "none",
-      repeat: -1,
-    });
-
-
-
-
-    // Create the animation for airplane elements
-    gsap.to(".airplane-1", {
-      x: "100vw",
-      y: "+=20",
-      duration: 5,
-      ease: "none",
-      repeat: -1,
-      repeatDelay: 0,
-    });
-
-    gsap.to(".airplane-2", {
-      x: "100vw",
-      y: "+=20", // Floating effect
-      duration: 8,
-      ease: "none",
-      repeat: -1,
-      repeatDelay: 0,
-    });
-
-    gsap.to(".airplane-3", {
-      x: "50vw",
-      duration: 10,
-      ease: "none",
-      repeat: -1,
-      repeatDelay: 0,
-    });
-
-    // Scroll-triggered animation for the message box
+  // メッセージボックスのスクロールアニメーション
+  useEffect(() => {
     gsap.fromTo(
       ".message-box",
       {
@@ -141,12 +151,12 @@ function Home() {
         scale: 0.5,
       },
       {
-        opacity: 1, // Fade in
+        opacity: 1,
         y: 0,
         x: 0,
         scale: 1,
         duration: 1.5,
-        ease: "power3.out", // easing
+        ease: "power3.out",
         scrollTrigger: {
           trigger: ".message",
           start: "top 100%",
@@ -160,7 +170,7 @@ function Home() {
 
   return (
     <>
-    {showSplash && <Splash />}
+      {showSplash && <Splash />}
       <section className="Home-hero hero bg_pattern Paper_v2">
         <div className="cloud cloud1">
           <img src={Cloud1} alt="cloud1" />
@@ -170,7 +180,9 @@ function Home() {
         </div>
         <div className="container">
           <div className="Home-hero__text">
-            <h1>国境を越えた<span></span>デザインを</h1>
+            <h1>
+              国境を越えた<span></span>デザインを
+            </h1>
             <h1>Crafting Brands that Cross Borders</h1>
             <Button label="About me" onClick={() => navigate("/about")} />
           </div>
@@ -197,19 +209,22 @@ function Home() {
                 rel="noopener noreferrer"
               >
                 <div className="message-box__icon">
-                  <img
-                    src={LinkedInIcon}
-                    alt="LinkedIn-icon"
-                  />
+                  <img src={LinkedInIcon} alt="LinkedIn-icon" />
                 </div>
               </a>
             </div>
             <p>
-              My studio's logo features a <a href="https://en.wikipedia.org/wiki/Japanese_raccoon_dog" target="_blank">tanuki</a>, an animal unique to Japan. In
-              Japanese folklore, tanuki are known for their versatility and
-              ability to transform into anything. Like them, I can bring
-              adaptability to your branding work and collaborate seamlessly with
-              diverse teams and projects.
+              My studio's logo features a{" "}
+              <a
+                href="https://en.wikipedia.org/wiki/Japanese_raccoon_dog"
+                target="_blank"
+              >
+                tanuki
+              </a>
+              , an animal unique to Japan. In Japanese folklore, tanuki are
+              known for their versatility and ability to transform into
+              anything. Like them, I can bring adaptability to your branding
+              work and collaborate seamlessly with diverse teams and projects.
             </p>
           </div>
           <div className="message-airplane airplane-2">

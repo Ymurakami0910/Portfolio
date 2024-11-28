@@ -214,11 +214,9 @@ h6 {
 }
 
 .Home-hero__text {
-  /* position: absolute;
-  top: 20%;
-  z-index: 1; */
   position: relative;
   z-index: 1;
+  padding-top: 8rem;
 }
 
 .clouds {
@@ -312,6 +310,9 @@ h6 {
 @media (max-width: 768px) {
   .Home-hero{
     min-height: 90vh;
+  }
+  .clouds {
+    top: 45vh;
   }
 
   .cloud {

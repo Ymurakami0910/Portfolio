@@ -22,7 +22,7 @@ function Footer() {
               <p className={Styles.footerP}>
                 Like my work? Have any questions?
               </p>
-              <h5>Let’s connect !</h5>
+              <p className={Styles.footerP}>Let’s connect !</p>
             </div>
             <div className={Styles.footerLinks}>
               <div className={Styles.footerSocialIcons}>

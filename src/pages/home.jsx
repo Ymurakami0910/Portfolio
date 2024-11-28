@@ -77,6 +77,8 @@ function Home() {
     ease: "none",
     repeat: -1,
   });
+
+  
   // 飛行機のアニメーション
   useEffect(() => {
     gsap.fromTo(
@@ -172,26 +174,29 @@ function Home() {
     <>
       {showSplash && <Splash />}
       <section className="Home-hero hero bg_pattern Paper_v2">
-        <div className="cloud cloud1">
-          <img src={Cloud1} alt="cloud1" />
-        </div>
-        <div className="cloud cloud1-duplicate">
-          <img src={Cloud1} alt="cloud1-duplicate" />
-        </div>
-        <div className="container">
-          <div className="Home-hero__text">
-            <h1>
-              国境を越えた<span></span>デザインを
-            </h1>
-            <h1>Crafting Brands that Cross Borders</h1>
-            <Button label="About me" onClick={() => navigate("/about")} />
+
+        <div className="clouds">
+          <div className="cloud cloud1">
+            <img src={Cloud1} alt="cloud1" />
           </div>
-        </div>
-        <div className="cloud cloud2">
+          <div className="cloud cloud1-duplicate">
+            <img src={Cloud1} alt="cloud1-duplicate" />
+          </div>
+          <div className="cloud cloud2">
           <img src={Cloud2} alt="cloud1" />
         </div>
         <div className="cloud cloud2-duplicate">
           <img src={Cloud2} alt="cloud2-duplicate" />
+        </div>          
+        </div>
+        <div className="container Home-hero__text">
+          <div className="">
+            <h1>
+              国境を越えた<span></span>デザインを
+            </h1>
+            <h1>Crafting Brands that Cross Borders</h1>
+            <Button label="About me" onClick={() => {navigate("/about")}} />
+          </div>
         </div>
       </section>
 
@@ -242,7 +247,7 @@ function Home() {
       <section className="featured">
         <div>
           <div className=" container featured-title">
-            <h3 className={Styles.h3}>Featured Branding Projects</h3>
+            <h3 className={Styles.tag}>Featured Branding Projects</h3>
           </div>
           <ProjectCard />
         </div>

@@ -29,24 +29,20 @@ html, body {
 /* Typography */
 h1,
 h2,
-h4{
+h3,
+h4,
+h5,
+h6{
   font-family: "Fredoka", serif;
   font-weight: var(--bold);
   color: #205989;
 }
 
-h5{
-  font-family: "Fredoka", serif;
-  font-weight: var(--bold);
-  color: #FFFFFF;
-}
-
-
 
 p {
   font-family: "Open sans";
   color: var(--blue);
-  font-size:1.5rem;
+  font-size:1.2rem;
   line-height: 1.2;
 }
 
@@ -55,17 +51,24 @@ h1 {
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
 
 }
 
-
-h4{
+h3{
   font-size: 1.8rem;
 }
 
+h4{
+  font-size: 1.6rem;
+}
+
 h5 {
-  font-size: 1.5rem;
+ font-size:1.5rem ; 
+}
+
+h6 {
+  font-size: 1.4rem;
 }
 
 
@@ -207,22 +210,28 @@ h5 {
 
 .Home-hero{
   min-height: 80vh;
-  position: relative;
+  overflow: hidden;
 }
 
 .Home-hero__text {
-  position: absolute;
+  /* position: absolute;
   top: 20%;
+  z-index: 1; */
+  position: relative;
   z-index: 1;
 }
 
-
+.clouds {
+  position: relative;
+  top: 150px
+}
 .cloud {
   width: 1300px;
   height: auto;
   position: absolute;
   top: 20%; 
   opacity: 0%;
+  z-index: 1;
 }
 
 
@@ -233,11 +242,11 @@ h5 {
 }
 
 .cloud1 {
-  left: 40%; /* 初期位置を画面内の左端に設定 */
+  left: 30%; 
 }
 
 .cloud1-duplicate {
-  left: 120vw; /* 複製雲を画面右端に配置 */
+  left: 110vw; /* 複製雲を画面右端に配置 */
 }
 
 .cloud2 {
@@ -246,7 +255,7 @@ h5 {
 }
 
 .cloud2-duplicate {
-  left: 120vw; /* 複製雲を画面右端に配置 */
+  left: 110vw; /* 複製雲を画面右端に配置 */
   top: 30%; /* 雲2複製も高さを揃える */
 }
 
@@ -261,6 +270,10 @@ h5 {
   padding-bottom: 5rem;
   background-color: var(--blue);
   overflow: visible;
+}
+
+.message p{
+  font-size: 1.5rem;
 }
 
 
@@ -298,12 +311,28 @@ h5 {
 
 @media (max-width: 768px) {
   .Home-hero{
-    min-height: 95vh;
+    min-height: 90vh;
   }
+
   .cloud {
     width: 1000px;
-    top: 58%; 
+    top: 55%; 
   }
+
+  .cloud1 {
+    left: 20%; 
+  }
+
+  .cloud2 {
+    left: 10%; 
+    top: 50%; 
+  }
+  
+  .cloud2-duplicate {
+    top: 50%; /* 雲2複製も高さを揃える */
+  }
+
+
   .airplane-1 {
     left: -5vw;
     top: 80%;
@@ -521,6 +550,7 @@ h5 {
 
 .about-header__text p {
   margin-top: 2rem;
+  font-size: 1.3rem;
 }
 
 .about-header__image {
@@ -866,7 +896,7 @@ label {
 
 
 
-/* Project Page -1 */
+/* Project Page Global*/
 
 .Project-Thumb {
   margin: 0 auto;
@@ -874,7 +904,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: 3% 0;
   mask-size: auto 100%;
-
+  padding: 0;
 
   -webkit-mask-image: url("/src/assets/mask.svg");
   -webkit-mask-repeat: no-repeat;
@@ -887,12 +917,248 @@ label {
   box-shadow: var(--box-shadow);
 }
 
+.Project-title h1{
+  padding-bottom:2rem ;
+}
+
 .Project-Thumb img {
   width: 100%;
   height: 100%; 
   object-fit: cover; 
 }
 
-.Project-overview {
+.Project-overview, .Project-Takeaways {
+  width: 100%;
+  padding-bottom:2rem ;
+}
+
+.Project-overview__box,
+.Project-Takeaways__box {
+  padding: 1rem;
+  width: 100%;
   background-color: #fff;
+  box-shadow: var(--box-shadow);
+}
+
+.Project-overview h2, .Project-Takeaways h4{
+  margin-bottom: 1rem;
+}
+
+.Project-Content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.Project-Content__text {
+  width: 60%;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: var(--box-shadow);
+  border-radius: 8px;
+  position: relative;
+}
+
+.Project-Content__text h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.Project-Content__text:after {
+  position: absolute;
+  content: '';
+  left: -7px;
+  top: -7px;
+  border-width: 0 0 35px 35px;
+  border-style: solid;
+  border-color: white white var(--pink);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+
+.Project-Content img {
+  width: auto;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+}
+
+.Project-content__website {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Project-content__website img {
+  width: auto;
+  height: 500px;
+  width: 60%;
+}
+
+.Project-content__website button {
+  align-self: center;
+  width: 40%; 
+}
+
+/* slide shows */
+
+.slick-slide {
+  text-align: center;
+  background:var(--pink);
+  padding: 20px;
+  width: 600px;
+  height: auto;
+}
+
+.slick-slide img {
+  width: 400px; /* 画像の幅を親要素に対して80%に設定 */
+  margin: 0 auto; /* 画像を中央揃え */
+  display: block;
+}
+.slick-arrow {
+  color: var(--blue);
+}
+.slick-prev, .slick-next {
+  z-index: 1;
+  color: #205989;
+  padding: 1rem;
+}
+
+.slick-prev:hover , .slick-next:hover {
+ transform: scale(1.02);
+ color:var(--blue);
+}
+
+.custom-prev-arrow, .custom-next-arrow {
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.custom-prev-arrow {
+  left: 10px;
+}
+
+.custom-next-arrow {
+  right: 10px;
+}
+
+/* モーダルの背景 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* モーダルのコンテンツエリア */
+.modal-content {
+  position: relative;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 90%;
+  text-align: center;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 80vh; /* 画像が大きすぎないように制限 */
+}
+
+/* クローズボタン */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: darkred;
+}
+
+
+/* You may also like */
+
+.Project-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
+.Project-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+  width: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.Project-card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.Project-card__content {
+  padding: 1rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+
+@media (max-width: 768px) {
+  .Project-Thumb {
+    padding-top: 10%;
+  }
+
+  .Project-Content {
+    flex-direction: column;
+  }
+  .Project-Content img {
+    height: auto;
+    width: 100%;
+    
+  }
+  .Project-Content__text {
+    width: 100%;
+  }
+
+  .Project-content__website {
+    flex-direction: column;
+  }
+
+  .Project-content__website img {
+    width: 100%;
+    height: auto;
+  }
+
+  .Project-content__website button {
+    width: auto;
+    margin-top: 10px;
+  }
+
 }

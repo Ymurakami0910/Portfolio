@@ -38,7 +38,7 @@ function About() {
     {
       image: Yuri2,
       altText: "Yuri's photo 2",
-      title: "I was in the airport lounge staff!",
+      title: "I worked as an airport lounge host!",
       description:
         "This gives me a broader, global perspective that allows me to enhance my design work now.",
     },

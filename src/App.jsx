@@ -8,6 +8,9 @@ import Contact from './pages/contact';
 import KissaTanpopo from './project/KissaTanpopo';
 import Celestial from './project/Celestial';
 
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 function App() {
   return (
     <Router>

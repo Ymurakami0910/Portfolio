@@ -1,5 +1,5 @@
 
-  h3 {
+  .tag{
     font-family: "Fredoka", sans-serif;
     font-weight: 400;
     color: white;
@@ -10,7 +10,7 @@
     padding: 0.2em 0.5em;
   }
   
-  h3:after {
+  .tag:after {
     position: absolute;
     content: '';
     left: -7px;

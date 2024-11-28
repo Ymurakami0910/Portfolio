@@ -5,7 +5,7 @@ import Button from "../components/button.jsx";
 import styles from "../components/ProjectCard2.module.css";
 
 import Thumb from "../assets/KissaTanpopo/KissaStore.png";
-import Kissa1min from "../assets/KissaTanpopo/Kissa-1.jpg";
+import Kissa1min from "../assets/KissaTanpopo/kissa-1.jpg";
 import Kissa1lg from "../assets/KissaTanpopo/Kissa-1-lg.jpg";
 
 import Kissa6 from "../assets/KissaTanpopo/Kissa-6.png";

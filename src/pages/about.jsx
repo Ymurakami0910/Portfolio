@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import tanukiImage from "../assets/tanuki-2.png";
-import Yuri1 from "../assets/Yuri-1.jpg";
+import Yuri1 from "../assets/Yuri--1.jpg";
 import Yuri2 from "../assets/Yuri-2.png";
 import Yuri3 from "../assets/Yuri-3.png";
 import arrowIcon from "../assets/icons/arrow.png";

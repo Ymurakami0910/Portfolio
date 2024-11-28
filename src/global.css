@@ -309,7 +309,7 @@ h6 {
 
 @media (max-width: 768px) {
   .Home-hero{
-    min-height: 90vh;
+    min-height: 89vh;
   }
   .clouds {
     top: 45vh;

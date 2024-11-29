@@ -11,7 +11,7 @@ function ProjectCard2() {
 
   return (
     <div className={styles.cardContainer}>
-      {/* projectData loop*/}
+      {/* projectData  loop*/}
       {projectData.map((project) => (
         <div key={project.id} className={styles.card}>
           <div className={styles.cardText}>

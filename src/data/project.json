@@ -4,11 +4,7 @@
         "genre": "Fictional Cafe",
         "title": "Kissa Tanpopo",
         "description": "A nostalgic Japanese dessert cafe concept development. Brand book and responsible single page website",
-<<<<<<< Updated upstream
-        "image": "src/assets/KissaTanpopo/kissaTanpopoThmb.png",
-=======
         "image": "KissaTanpopo/kissaTanpopoThmb.png",
->>>>>>> Stashed changes
         "chips": ["Indesign", " Illustrator", "Photoshop","HTML","CSS", "JS"],
         "pageLink": "project/kissa-tanpopo",    
         "pageLink2": "kissa-tanpopo"
@@ -18,11 +14,7 @@
         "genre": "Event Plan",
         "title": "Celestial Tea Ceremony",
         "description": "We developed a fictional advertising campaign for the fictional Celestial Tea Ceremony, I played a role as a leader.",
-<<<<<<< Updated upstream
-        "image": "src/assets/celestial/celestialThumb.jpg",
-=======
         "image": "celestial/celestialThumb.jpg",
->>>>>>> Stashed changes
         "chips": ["Indesign", " Illustrator", "Photoshop","Group Project"],
         "pageLink": "project/celestial",
         "pageLink2": "celestial"
@@ -32,11 +24,7 @@
         "genre": "App Development",
         "title": "Crafted Corners",
         "description": "I played a roll as a graphic designer for an online home decor e-commerce platform.",
-<<<<<<< Updated upstream
-        "image": "src/assets/Crafted Corners/CraftedThmb.jpg",
-=======
         "image": "Crafted Corners/CraftedThmb.jpg",
->>>>>>> Stashed changes
         "chips": ["Figma", " Illustrator", "Marketing","Group Project"],
         "pageLink": ""
     },
@@ -45,11 +33,7 @@
         "genre": "App Redesign",
         "title": "Blenz Coffee",
         "description": "Redesigned the coffee  mobile order app with UI/UX skills.",
-<<<<<<< Updated upstream
-        "image": "src/assets/Blenz/BlenzThmb.jpg",
-=======
         "image": "Blenz/BlenzThmb.jpg",
->>>>>>> Stashed changes
         "chips": ["Figma", " UI/UX"],
         "pageLink": ""
     }

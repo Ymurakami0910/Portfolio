@@ -308,6 +308,10 @@ h6 {
 }
 
 @media (max-width: 768px) {
+
+  h1 {
+    font-size: 2.5rem;
+  }
   .Home-hero{
     min-height: 89vh;
   }

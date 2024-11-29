@@ -183,11 +183,11 @@ function Home() {
             <img src={Cloud1} alt="cloud1-duplicate" />
           </div>
           <div className="cloud cloud2">
-          <img src={Cloud2} alt="cloud1" />
-        </div>
-        <div className="cloud cloud2-duplicate">
-          <img src={Cloud2} alt="cloud2-duplicate" />
-        </div>          
+            <img src={Cloud2} alt="cloud1" />
+          </div>`
+          <div className="cloud cloud2-duplicate">
+            <img src={Cloud2} alt="cloud2-duplicate" />
+          </div>          
         </div>
         <div className="container Home-hero__text">
           <div className="">

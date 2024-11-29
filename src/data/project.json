@@ -24,7 +24,7 @@
         "genre": "App Development",
         "title": "Crafted Corners",
         "description": "I played a roll as a graphic designer for an online home decor e-commerce platform.",
-        "image": "Crafted Corners/CraftedThmb.jpg",
+        "image": "craftedCorners/CraftedThmb.jpg",
         "chips": ["Figma", " Illustrator", "Marketing","Group Project"],
         "pageLink": ""
     },
@@ -33,7 +33,7 @@
         "genre": "App Redesign",
         "title": "Blenz Coffee",
         "description": "Redesigned the coffee  mobile order app with UI/UX skills.",
-        "image": "Blenz/BlenzThmb.jpg",
+        "image": "blenz/BlenzThmb.jpg",
         "chips": ["Figma", " UI/UX"],
         "pageLink": ""
     }

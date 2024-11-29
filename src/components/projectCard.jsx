@@ -1,5 +1,5 @@
 import React from "react";
-import ReadButton from "./ReadButton";
+import ReadButton from "./readButton.jsx";
 import styles from "../components/projectCard.module.css";
 import { useNavigate } from "react-router-dom";
 import projectData from "../data/project.json"; 

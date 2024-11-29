@@ -26,7 +26,6 @@ import slide12 from "../assets/KissaTanpopo/slide12.jpg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -72,8 +71,6 @@ function KissaTanpopo() {
     autoplay: true, // 自動再生
     autoplaySpeed: 3000, // 自動再生間隔 (ms)
     arrows: true,
-    prevArrow: <FaArrowLeft className="custom-prev-arrow" />, // カスタム前矢印
-    nextArrow: <FaArrowRight className="custom-next-arrow" />, // カスタム後矢印
   };
 
     // 画像がクリックされたときにモーダルを開く関数

@@ -1,7 +1,7 @@
 # Yuri's Studio - Portfolio Website
 
-website url : lilyzvillage.ca
-Welcome to Yuri's Studio, a personal portfolio showcasing my work as a brand designer. This project represents my creative vision through engaging animations and interactive elements, blending a dreamy and sky vibe.
+website URL : lilyzvillage.ca
+Welcome to Yuri's Studio, a portfolio showcasing my brand designer work. This project represents my creative vision through engaging animations and interactive elements, blending a dreamy and sky vibe.
 
 Concept
 The portfolio revolves around a cute tanuki logo with clouds, symbolizing creativity, playfulness, and imagination. The design incorporates floating and dreamy animations, enhancing the overall storytelling experience.
@@ -9,7 +9,7 @@ The portfolio revolves around a cute tanuki logo with clouds, symbolizing creati
 Features
 1. Animations
 GSAP and GSAP ScrollTrigger were used extensively to create dynamic animations:
-Clouds gently floating across the screen.
+Clouds gently float across the screen.
 Airplanes flying through the background.
 General screen triggers for page scrolling 
 2. Interactive Elements
@@ -34,10 +34,10 @@ I faced challenges in creating smooth and dynamic animations, such as:
 Cloud Movements: Achieving a natural floating effect.
 Airplanes Flying: Coordinating multiple elements for synchronized movement.
 
-Solution: The multiple attenpts on local sever and adust the css. I used ScrollTrigger to tie animations to the scroll position, ensuring responsiveness and control.
+Solution: The multiple attempts on the local server and adjust the css. I used ScrollTrigger to tie animations to the scroll position, ensuring responsiveness and control.
 
 - State Management for Flip Cards
-Toggling the flip states of individual cards required a flexible approach. I utilized the useState hook and map function for state updates:
+Toggling the flip states of individual cards required a flexible approach. I utilized the useState hook and map function for state updates
 
 How to Run
 Clone this repository:
@@ -54,8 +54,8 @@ Future Improvements
 - Expanding the portfolio with additional projects.
 - add animation for more elements by gsap 
 
-Acknowledgments
-thanks to the resources and tools that made this possible:
+Acknowledgments:
+thanks to the resources and tools that made this possible
 
 GSAP Documentation
 React Router

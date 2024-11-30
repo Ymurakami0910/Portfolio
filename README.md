@@ -1,5 +1,6 @@
 # Yuri's Studio - Portfolio Website
 
+website url : lilyzvillage.ca
 Welcome to Yuri's Studio, a personal portfolio showcasing my work as a brand designer. This project represents my creative vision through engaging animations and interactive elements, blending a dreamy and sky vibe.
 
 Concept

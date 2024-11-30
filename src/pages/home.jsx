@@ -16,6 +16,7 @@ import LinkedInIcon from "../assets/icons/linkedin.png";
 import TanukiIllustration from "../assets/tanuki.png";
 
 function Home() {
+  // initialization of third packages 
   const navigate = useNavigate();
 
   gsap.registerPlugin(ScrollTrigger);

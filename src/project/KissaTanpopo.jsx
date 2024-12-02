@@ -168,6 +168,7 @@ function KissaTanpopo() {
               end: "bottom left", 
               scrub: true,
               markers: false, 
+              toggleActions: "play none none reverse",
             },
           }
         );
@@ -357,7 +358,7 @@ function KissaTanpopo() {
             {randomProjects.map((project) => (
               <div className="Project-card" key={project.id}>
                 <img
-                  src={project.image}
+                  src={"/"+ project.image}
                   alt={`${project.title} thumbnail`}
                   className="Project-card__image"
                 />

@@ -16,7 +16,7 @@ import Kissa1lg from "../assets/KissaTanpopo/Kissa-1-lg.jpg";
 import Kissa2 from "../assets/KissaTanpopo/kissa-2.jpg";
 import Kissa3 from "../assets/KissaTanpopo/kissa-3.jpg";
 import Kissa4 from "../assets/KissaTanpopo/kissa-4.jpg";
-import Kissa5 from "../assets/KissaTanpopo/Kissa-5.jpg";
+import Kissa5 from "../assets/KissaTanpopo/kissa-5.jpg";
 import Kissa6 from "../assets/KissaTanpopo/Kissa-6.png";
 
 import slide1 from "../assets/KissaTanpopo/slide1.jpg";

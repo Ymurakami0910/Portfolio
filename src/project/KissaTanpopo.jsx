@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import Thumb from "../assets/KissaTanpopo/KissaStore.png";
-import Kissa1min from "../assets/KissaTanpopo/Kissa-1.jpg";
+import Kissa1min from "../assets/KissaTanpopo/Kissa--1.jpg";
 import Kissa1lg from "../assets/KissaTanpopo/Kissa-1-lg.jpg";
 import Kissa2 from "../assets/KissaTanpopo/kissa-2.jpg";
 import Kissa3 from "../assets/KissaTanpopo/kissa-3.jpg";

@@ -3,6 +3,11 @@ import { useNavigate } from "react-router-dom";
 import projectData from "../data/project.json";
 import Button from "../components/button.jsx";
 import styles from "../components/ProjectCard2.module.css";
+import tag from "../components/title.module.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
+
 
 import Thumb from "../assets/KissaTanpopo/KissaStore.png";
 import Kissa1min from "../assets/KissaTanpopo/Kissa--1.jpg";
@@ -58,36 +63,68 @@ function KissaTanpopo() {
     });
   }, []);
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [modalImage, setModalImage] = useState("");
+  const CustomNextArrow = ({ onClick }) => {
+    return (
+      <div
+        className="custom-arrow custom-next-arrow"
+        onClick={onClick}
+      >
+        <FontAwesomeIcon icon={faChevronRight} />
+      </div>
+    );
+  };
+  
+  const CustomPrevArrow = ({ onClick }) => {
+    return (
+      <div
+        className="custom-arrow custom-prev-arrow"
+        onClick={onClick}
+      >
+        <FontAwesomeIcon icon={faChevronLeft} />
+      </div>
+    );
+  };
+  
 
 
   const settings = {
-    dots: true, // ナビゲーションドットを表示
     infinite: true, // 無限スクロール
-    speed: 500, // アニメーション速度 (ms)
+    speed: 400, // アニメーション速度 (ms)
     slidesToShow: 3, // 表示するスライド数
     slidesToScroll: 1, // スクロールするスライド数
     autoplay: true, // 自動再生
     autoplaySpeed: 3000, // 自動再生間隔 (ms)
     arrows: true,
+    pauseOnHover: true, 
+    pauseOnFocus: false,
+    nextArrow: <CustomNextArrow />,
+    prevArrow: <CustomPrevArrow />,
+    responsive: [
+      {
+        breakpoint: 768, // Mobile devices (768px or smaller)
+        settings: {
+          slidesToShow: 1, // Show one slide
+          slidesToScroll: 1, // Scroll one slide at a time
+          pauseOnFocus: true,
+        },
+      },
+      {
+        breakpoint: 1024, // Tablets (1024px or smaller)
+        settings: {
+          slidesToShow: 2, // Show two slides
+          slidesToScroll: 1,
+          pauseOnFocus: true,
+        },
+      },
+    ],
   };
 
-    // 画像がクリックされたときにモーダルを開く関数
-    const openModal = (imageSrc) => {
-      setModalImage(imageSrc);
-      setModalIsOpen(true);
-    };
-  
-    // モーダルを閉じる関数
-    const closeModal = () => {
-      setModalIsOpen(false);
-      setModalImage("");
-    };
+
 
   const openWebsiteInNewTab = () => {
     window.open("/kissatanpopo/index.html", "_blank", "noopener,noreferrer");
   };
+
 
   const [currentProject, setCurrentProject] = useState(null);
   const [randomProjects, setRandomProjects] = useState([]);
@@ -186,19 +223,13 @@ function KissaTanpopo() {
           </div>
         </div>
       </section>
-
+      
       <section className="Paper_v2 bg_pattern">
-        <div className="container">
+        <div className="container Project-slider ">
           <h5>Brandbook</h5>
-          <div className="container">
-            <Slider {...settings}>
-            <div>
-              <img
-                src={slide1}  // インポートした画像を直接使う
-                alt="Slide 1"
-                onClick={() => openModal(slide1)} // クリックでモーダルを開く
-              />
-            </div>
+          <div className="fadeIn">
+            <Slider className=""{...settings}>
+              <div><img src={slide1} alt="Slide 1"/></div>
               <div>
                 <img src={slide2} alt="" />
               </div>
@@ -206,18 +237,41 @@ function KissaTanpopo() {
                 <img src={slide3} alt="" />
               </div>
               <div>
-                <img src={slide4} alt="" />
+                <img src={slide4} alt=""/>
               </div>
               <div>
                 <img src={slide5} alt="" />
               </div>
             </Slider>
+            <Slider {...settings}>
+              <div><img src={slide6} alt="Slide 6"/></div>
+              <div>
+                <img src={slide7} alt="" />
+              </div>
+              <div>
+                <img src={slide8} alt="" />
+              </div>
+            </Slider>
+            <Slider {...settings}>
+              <div><img src={slide9} alt="Slide 1"/></div>
+              <div>
+                <img src={slide10} alt="" />
+              </div>
+              <div>
+                <img src={slide11} alt="" />
+              </div>
+              <div>
+                <img src={slide12} alt=""/>
+              </div>
+            </Slider>
           </div>
         </div>
       </section>
+      
+
 
       <section className="Paper_v2 bg_pattern">
-        <div className="container">
+        <div className="container Project-youMay">
           <h6>You may also like...</h6>
           <div className="Project-cards">
             {randomProjects.map((project) => (

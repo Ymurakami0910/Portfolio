@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+// gsap
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+// components
 import Button from "../components/button.jsx";
 import Styles from "../components/title.module.css";
 import ProjectCard from "../components/projectCard";
 import Splash from "../components/splash";
-
+// assets
 import Cloud1 from "../assets/cloud1.png";
 import Cloud2 from "../assets/cloud2.png";
 import AirplaneIcon from "../assets/icons/airplane.png";
@@ -16,6 +17,7 @@ import LinkedInIcon from "../assets/icons/linkedin.png";
 import TanukiIllustration from "../assets/tanuki.png";
 
 function Home() {
+  // initialization of third packages 
   const navigate = useNavigate();
 
   gsap.registerPlugin(ScrollTrigger);
@@ -31,6 +33,7 @@ function Home() {
     return () => clearTimeout(timer);
   }, []);
 
+  // after tha splash screen ends gsap for clouds animation will be shown 
   useEffect(() => {
     if (!showSplash) {
       gsap.fromTo(
@@ -50,8 +53,9 @@ function Home() {
     }
   }, [showSplash]);
 
+  // gsap of each cloud moving animation 
   gsap.to(".cloud1", {
-    x: "-100vw",
+    x: "-100vw", 
     duration: 20,
     ease: "none",
     repeat: -1,
@@ -79,7 +83,7 @@ function Home() {
   });
 
   
-  // 飛行機のアニメーション
+  // airplanes flowing animation
   useEffect(() => {
     gsap.fromTo(
       ".airplane-1",
@@ -122,7 +126,7 @@ function Home() {
     );
   });
 
-  // メッセージボックスのスクロールアニメーション
+  // gsap of message box scale-up animation
   useEffect(() => {
     gsap.fromTo(
       ".message-box",
@@ -143,7 +147,7 @@ function Home() {
         },
       }
     );
-
+    // gsap of Tanuki illustration fadeIn animation
     gsap.fromTo(
       ".message-tanukiBox",
       {
@@ -173,6 +177,7 @@ function Home() {
   return (
     <>
       {showSplash && <Splash />}
+      {/* to render the second part (<Splash />) only if the first part (showSplash) evaluates to true. */}
       <section className="Home-hero hero bg_pattern Paper_v2">
 
         <div className="clouds">
@@ -195,6 +200,7 @@ function Home() {
               国境を越えた<span></span>デザインを
             </h1>
             <h1>Crafting Brands that Cross Borders</h1>
+            {/* Button component is imported and  used*/}
             <Button label="About me" onClick={() => {navigate("/about")}} />
           </div>
         </div>
@@ -249,6 +255,7 @@ function Home() {
           <div className=" container featured-title">
             <h3 className={Styles.tag}>Featured Branding Projects</h3>
           </div>
+          {/* Project card component */}
           <ProjectCard />
         </div>
       </section>

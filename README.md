@@ -1,8 +1,62 @@
-# React + Vite
+# Yuri's Studio - Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+website URL : lilyzvillage.ca
+Welcome to Yuri's Studio, a portfolio showcasing my brand designer work. This project represents my creative vision through engaging animations and interactive elements, blending a dreamy and sky vibe.
 
-Currently, two official plugins are available:
+Concept
+The portfolio revolves around a cute tanuki logo with clouds, symbolizing creativity, playfulness, and imagination. The design incorporates floating and dreamy animations, enhancing the overall storytelling experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Features
+1. Animations
+GSAP and GSAP ScrollTrigger were used extensively to create dynamic animations:
+Clouds gently float across the screen.
+Airplanes flying through the background.
+General screen triggers for page scrolling 
+2. Interactive Elements
+Flip Cards: Visitors can click on cards to flip them, revealing hidden details.
+Typewriter Effect: Adds a personal touch 
+3. Routing
+React Router: Ensures seamless navigation between pages.
+
+Technologies Used
+Framework: React.js
+Animations: GSAP (GreenSock Animation Platform), GSAP ScrollTrigger
+Third-party Packages:
+React Router: For dynamic page navigation.
+Typewriter Effect: Adds an animated typing experience.
+Styling: Custom CSS (No Tailwind or pre-made frameworks were used).
+
+
+Challenges and Solutions
+
+- GSAP Animations
+I faced challenges in creating smooth and dynamic animations, such as:
+Cloud Movements: Achieving a natural floating effect.
+Airplanes Flying: Coordinating multiple elements for synchronized movement.
+
+Solution: The multiple attempts on the local server and adjust the css. I used ScrollTrigger to tie animations to the scroll position, ensuring responsiveness and control.
+
+- State Management for Flip Cards
+Toggling the flip states of individual cards required a flexible approach. I utilized the useState hook and map function for state updates
+
+How to Run
+Clone this repository:
+git clone <repository_url>
+Navigate to the project directory:
+cd Portfolio
+Install dependencies:
+npm install
+Start the development server:
+npm start
+Open your browser and go to the localhost link to view the portfolio.
+
+Future Improvements
+- Expanding the portfolio with additional projects.
+- add animation for more elements by gsap 
+
+Acknowledgments:
+thanks to the resources and tools that made this possible
+
+GSAP Documentation
+React Router
+Typewriter 

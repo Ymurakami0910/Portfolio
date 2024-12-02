@@ -11,14 +11,14 @@ function ProjectCard2() {
 
   return (
     <div className={styles.cardContainer}>
-      {/* projectData  loop*/}
+
       {projectData.map((project) => (
         <div key={project.id} className={styles.card}>
           <div className={styles.cardText}>
             <h4 className={styles.cardTitle}>{project.title}</h4>
             <p className={styles.cardGenre}>{project.genre}</p>
 
-            {/* Chips */}
+            {/* Chips also looped through */}
             <div className={styles.chipsContainer}>
               {project.chips.map((chip, index) => (
                 <span key={index} className={styles.chip}>

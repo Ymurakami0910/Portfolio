@@ -923,6 +923,7 @@ label {
 }
 
 .Project-title h1{
+  padding-top: 1rem;
   padding-bottom:2rem ;
 }
 
@@ -934,6 +935,7 @@ label {
 
 .Project-overview, .Project-Takeaways {
   width: 100%;
+  padding-top: 2rem;
   padding-bottom:2rem ;
 }
 
@@ -1005,8 +1007,16 @@ label {
   width: 40%; 
 }
 
+.Project-slider {
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+}
+
 /* slide shows */
 
+.slick-slider{
+  padding: 1.5rem;
+}
 .slick-slide {
   text-align: center;
   background:var(--pink);
@@ -1016,89 +1026,62 @@ label {
 }
 
 .slick-slide img {
-  width: 400px; /* 画像の幅を親要素に対して80%に設定 */
-  margin: 0 auto; /* 画像を中央揃え */
+  width: 400px; 
+  margin: 0 auto; 
   display: block;
 }
-.slick-arrow {
-  color: var(--blue);
-}
-.slick-prev, .slick-next {
-  z-index: 1;
-  color: #205989;
-  padding: 1rem;
+
+.custom-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--green);
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 18px;
 }
 
-.slick-prev:hover , .slick-next:hover {
- transform: scale(1.02);
- color:var(--blue);
-}
-
-.custom-prev-arrow, .custom-next-arrow {
-  font-size: 30px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-
-.custom-prev-arrow {
-  left: 10px;
+.custom-arrow:hover {
+  background-color: #34a089;
 }
 
 .custom-next-arrow {
-  right: 10px;
-}
-
-/* モーダルの背景 */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-/* モーダルのコンテンツエリア */
-.modal-content {
-  position: relative;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 90%;
-  max-height: 90%;
-  text-align: center;
-}
-
-.modal-image {
-  max-width: 100%;
-  max-height: 80vh; /* 画像が大きすぎないように制限 */
-}
-
-/* クローズボタン */
-.close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
+  right:-30px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.close-button:hover {
-  background-color: darkred;
+.custom-prev-arrow {
+  position: absolute;
+  left:-30px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
 }
+
+
+
+
+
+
 
 
 /* You may also like */
 
+.Project-youMay {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.Project-youMay h6{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
 .Project-cards {
   display: flex;
   gap: 20px;
@@ -1136,9 +1119,14 @@ label {
 
 
 @media (max-width: 768px) {
-  .Project-Thumb {
-    padding-top: 10%;
+  .Project {
+    padding-top: 25%;
   }
+
+  .Project h1 {
+    font-size: 2.5rem;
+  }
+
 
   .Project-Content {
     flex-direction: column;
@@ -1166,4 +1154,10 @@ label {
     margin-top: 10px;
   }
 
+  .slick-slide {
+    width: 100%;
+  }
+  .slick-slide img {
+    width: 100%; 
+  }
 }

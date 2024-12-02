@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 import projectData from "../data/project.json"; 
 
 function ProjectCard() {
-  // Filter only the projects with id 1 and 2
   const navigate = useNavigate();
-
+  
+  // takes out the only data from project data id 1 and 2
   const filteredProjects = projectData.filter(
     (project) => project.id === 1 || project.id === 2
   );

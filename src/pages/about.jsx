@@ -1,10 +1,16 @@
 import React, { useState, useEffect} from "react";
-import { Typewriter } from "react-simple-typewriter";
 import { useNavigate } from "react-router-dom";
-import Button from "../components/button";
+
+// the third party that our class didn't cover
+import { Typewriter } from "react-simple-typewriter";
+// gsap 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// components
+import Button from "../components/button";
+
+// assets
 import tanukiImage from "../assets/tanuki-2.png";
 import Yuri1 from "../assets/Yuri--1.jpg";
 import Yuri2 from "../assets/Yuri-2.png";
@@ -21,12 +27,16 @@ import jsIcon from "../assets/icons/js.png";
 
 function About() {
 
+  // initialization of third packages 
   const navigate = useNavigate();
 
   gsap.registerPlugin(ScrollTrigger);
 
+
+  //  state that manage the flip cards 
   const [flipStates, setFlipStates] = useState([false, false, false]);
 
+  // the data of flip cards that map through later
   const cardData = [
     {
       image: Yuri1,
@@ -59,8 +69,9 @@ function About() {
   };
 
 
-  
+  // GSAP that is triggered by the scroll, based on a user's view point
   useEffect(() => {
+    // Take the all of .fadeIn class and this effect will be applied by forEach 
     const FadeIns = document.querySelectorAll(".fadeIn");
     FadeIns.forEach((element) => {
       gsap.fromTo(
@@ -77,9 +88,11 @@ function About() {
           scrollTrigger: {
             trigger: element, 
             start: "top 80%",
+            // view point value
             end: "top 30%", 
             scrub: true, 
-            toggleActions: "play none none reverse", 
+            toggleActions: "play none none reverse",  
+            // no repeat 
           },
         }
       );
@@ -92,6 +105,7 @@ function About() {
         <div className="about-header__content container">
           <div className="about-header__text">
             <h1>
+              {/* third package that applies a typing effect */}
               <Typewriter
                 words={[
                   "Welcome to Yuri's Studio",
@@ -124,6 +138,7 @@ function About() {
               <h2>Play cards to get to know me!</h2>
             </div>
             <div className="about-cards__wrap">
+              {/* flip cards, the data is coming from above  */}
               {cardData.map((card, index) => (
                 <div className="photo-container fadeIn" key={index}>
                   <div

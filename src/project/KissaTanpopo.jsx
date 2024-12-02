@@ -156,8 +156,8 @@ function KissaTanpopo() {
             stagger: 0.2, // delay between images
             scrollTrigger: {
               trigger: ".belt-container", 
-              start: "top bottom", 
-              end: "bottom top", 
+              start: "top 80%", 
+              end: "top 30%", 
               scrub: true,
               markers: false, 
             },
@@ -294,8 +294,8 @@ function KissaTanpopo() {
 
       <section className="Paper_v2 bg_pattern">
         <div className="container Project-slider ">
-          <h5>Brandbook</h5>
-          <div className="fadeIn">
+          <h5>Brand Book</h5>
+          <div>
             <Slider className="" {...settings}>
               <div>
                 <img src={slide1} alt="Slide 1" />

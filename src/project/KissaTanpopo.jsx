@@ -40,6 +40,14 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function KissaTanpopo() {
+
+
+  const getRandomProjects = (projectData, excludeId, count) => {
+    const filteredProjects = projectData.filter((item) => item.id !== excludeId);
+    const shuffled = [...filteredProjects].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  };
+
   gsap.registerPlugin(ScrollTrigger);
   useEffect(() => {
     const FadeIns = document.querySelectorAll(".fadeIn");
@@ -349,7 +357,7 @@ function KissaTanpopo() {
             {randomProjects.map((project) => (
               <div className="Project-card" key={project.id}>
                 <img
-                  src={project.image}
+                  src={"/" + project.image}
                   alt={`${project.title} thumbnail`}
                   className="Project-card__image"
                 />
@@ -377,10 +385,5 @@ function KissaTanpopo() {
   );
 }
 
-const getRandomProjects = (projectData, excludeId, count) => {
-  const filteredProjects = projectData.filter((item) => item.id !== excludeId);
-  const shuffled = [...filteredProjects].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
-};
 
 export default KissaTanpopo;

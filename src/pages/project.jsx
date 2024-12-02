@@ -1,4 +1,5 @@
 import React from 'react';
+// component
 import ProjectCard2 from '../components/ProjectCard2';
 
 function Projects() {
@@ -7,6 +8,7 @@ function Projects() {
     <div className='container'>
     <div className='Project-content'>
     <h1>All Projects</h1>
+    {/* component */}
     <ProjectCard2 />
     </div>
     </div>

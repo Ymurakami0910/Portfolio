@@ -141,9 +141,9 @@ h6 {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 992px) and (min-width: 769px){
   .container {
-    max-width: 800px;
+    max-width: 750px;
   }
 }
 
@@ -306,7 +306,11 @@ h6 {
   justify-content: space-between;
   gap: 20px;
 }
-
+@media (max-width: 992px) and (min-width: 769px){
+  .Home-hero{
+    min-height: 65vh;
+  }
+}
 @media (max-width: 768px) {
 
   h1 {
@@ -600,6 +604,8 @@ h6 {
   display: flex;
   justify-content: space-between;
   gap:20px;
+  max-width: 90%;
+  flex-wrap: wrap;
 
 }
 
@@ -788,8 +794,14 @@ label {
   display: inline-block;
 }
 
-
-
+@media (max-width: 992px) and (min-width: 769px) {
+  .about-header {
+    min-height:30vh;
+  }
+  .curved {
+    height: auto;
+  } 
+}
 
 
 /* About Responsive styles */
@@ -991,15 +1003,41 @@ label {
   box-shadow: var(--box-shadow);
 }
 
+.Project-belt {
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  background-color: white;
+  padding: 20px 0;
+  align-items: center; 
+  justify-content: center; 
+}
+
+.belt-container {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+
+.belt-image {
+  height: 300px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
 .Project-content__website {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 3rem;
 }
 
 .Project-content__website img {
   width: auto;
   height: 500px;
   width: 60%;
+  object-fit: cover;
 }
 
 .Project-content__website button {
@@ -1147,6 +1185,19 @@ label {
   .Project-content__website img {
     width: 100%;
     height: auto;
+  }
+
+  .belt-container {
+    flex-direction: column; 
+    gap: 20px; 
+    justify-content: center;
+    width: 100%;
+  }
+
+  .belt-image {
+    height: 250px;
+    width: 100%;
+    border-radius: 0px;
   }
 
   .Project-content__website button {

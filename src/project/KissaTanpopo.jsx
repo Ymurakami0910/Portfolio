@@ -3,16 +3,20 @@ import { useNavigate } from "react-router-dom";
 import projectData from "../data/project.json";
 import Button from "../components/button.jsx";
 import styles from "../components/ProjectCard2.module.css";
-import tag from "../components/title.module.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-
-
+import tag from "../components/title.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 import Thumb from "../assets/KissaTanpopo/KissaStore.png";
 import Kissa1min from "../assets/KissaTanpopo/Kissa--1.jpg";
 import Kissa1lg from "../assets/KissaTanpopo/Kissa-1-lg.jpg";
-
+import Kissa2 from "../assets/KissaTanpopo/kissa-2.jpg";
+import Kissa3 from "../assets/KissaTanpopo/kissa-3.jpg";
+import Kissa4 from "../assets/KissaTanpopo/kissa-4.jpg";
+import Kissa5 from "../assets/KissaTanpopo/Kissa-5.jpg";
 import Kissa6 from "../assets/KissaTanpopo/Kissa-6.png";
 
 import slide1 from "../assets/KissaTanpopo/slide1.jpg";
@@ -65,27 +69,19 @@ function KissaTanpopo() {
 
   const CustomNextArrow = ({ onClick }) => {
     return (
-      <div
-        className="custom-arrow custom-next-arrow"
-        onClick={onClick}
-      >
+      <div className="custom-arrow custom-next-arrow" onClick={onClick}>
         <FontAwesomeIcon icon={faChevronRight} />
       </div>
     );
   };
-  
+
   const CustomPrevArrow = ({ onClick }) => {
     return (
-      <div
-        className="custom-arrow custom-prev-arrow"
-        onClick={onClick}
-      >
+      <div className="custom-arrow custom-prev-arrow" onClick={onClick}>
         <FontAwesomeIcon icon={faChevronLeft} />
       </div>
     );
   };
-  
-
 
   const settings = {
     infinite: true, // 無限スクロール
@@ -95,7 +91,7 @@ function KissaTanpopo() {
     autoplay: true, // 自動再生
     autoplaySpeed: 3000, // 自動再生間隔 (ms)
     arrows: true,
-    pauseOnHover: true, 
+    pauseOnHover: true,
     pauseOnFocus: false,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
@@ -118,13 +114,68 @@ function KissaTanpopo() {
       },
     ],
   };
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
 
+    checkMobile(); // 初回ロード時にチェック
+    window.addEventListener("resize", checkMobile); // ウィンドウサイズ変更時に再チェック
+
+    return () => window.removeEventListener("resize", checkMobile); // クリーンアップ
+  }, []);
+
+  useEffect(() => {
+    // belt
+    const beltImages = document.querySelector(".belt-container");
+
+    const scrollAnimation = () => {
+      const isMobile = window.innerWidth <= 768;
+
+      if (!isMobile) {
+        // Desktop, scrolling animation
+        gsap.to(beltImages, {
+          x: "-50%", // Horizontal 
+          duration: 50, // Speed 
+          repeat: -1, // loop
+          ease: "linear", 
+        });
+      } else {
+        // Mobile, vertically stacked images with fade-in on scroll
+        gsap.fromTo(
+          ".belt-image",
+          {
+            opacity: 0,
+            x: -50, // below 
+          },
+          {
+            opacity: 1,
+            x: 0, //  to original position
+            stagger: 0.2, // delay between images
+            scrollTrigger: {
+              trigger: ".belt-container", 
+              start: "top bottom", 
+              end: "bottom top", 
+              scrub: true,
+              markers: false, 
+            },
+          }
+        );
+      }
+    };
+
+    // Call the scrollAnimation function
+    scrollAnimation();
+    window.addEventListener("resize", scrollAnimation); // Adjust when window is resized
+
+    return () => window.removeEventListener("resize", scrollAnimation); // Cleanup
+  }, []);
 
   const openWebsiteInNewTab = () => {
     window.open("/kissatanpopo/index.html", "_blank", "noopener,noreferrer");
   };
-
 
   const [currentProject, setCurrentProject] = useState(null);
   const [randomProjects, setRandomProjects] = useState([]);
@@ -207,9 +258,26 @@ function KissaTanpopo() {
         </div>
       </section>
 
+      <section className="Project-belt">
+        <div className="belt-container">
+          <img src={Kissa2} alt="Slide Kissa2" className="belt-image" />
+          <img src={Kissa3} alt="Slide Kissa3" className="belt-image" />
+          <img src={Kissa4} alt="Slide Kissa4" className="belt-image" />
+          <img src={Kissa5} alt="Slide Kissa5" className="belt-image" />
+          {!isMobile && (
+            <>
+              <img src={Kissa2} alt="Slide Kissa2" className="belt-image" />
+              <img src={Kissa3} alt="Slide Kissa3" className="belt-image" />
+              <img src={Kissa4} alt="Slide Kissa4" className="belt-image" />
+              <img src={Kissa5} alt="Slide Kissa5" className="belt-image" />
+            </>
+          )}
+        </div>
+      </section>
+
       <section className="Paper_v2 bg_pattern">
         <div className="container Project-Takeaways">
-          <div className="Project-Takeaways__box">
+          <div className=" fadeIn Project-Takeaways__box">
             <h4>Takeaways</h4>
             <p>
               The key part of this project was the capturing of a
@@ -223,13 +291,15 @@ function KissaTanpopo() {
           </div>
         </div>
       </section>
-      
+
       <section className="Paper_v2 bg_pattern">
         <div className="container Project-slider ">
           <h5>Brandbook</h5>
           <div className="fadeIn">
-            <Slider className=""{...settings}>
-              <div><img src={slide1} alt="Slide 1"/></div>
+            <Slider className="" {...settings}>
+              <div>
+                <img src={slide1} alt="Slide 1" />
+              </div>
               <div>
                 <img src={slide2} alt="" />
               </div>
@@ -237,14 +307,16 @@ function KissaTanpopo() {
                 <img src={slide3} alt="" />
               </div>
               <div>
-                <img src={slide4} alt=""/>
+                <img src={slide4} alt="" />
               </div>
               <div>
                 <img src={slide5} alt="" />
               </div>
             </Slider>
             <Slider {...settings}>
-              <div><img src={slide6} alt="Slide 6"/></div>
+              <div>
+                <img src={slide6} alt="Slide 6" />
+              </div>
               <div>
                 <img src={slide7} alt="" />
               </div>
@@ -253,7 +325,9 @@ function KissaTanpopo() {
               </div>
             </Slider>
             <Slider {...settings}>
-              <div><img src={slide9} alt="Slide 1"/></div>
+              <div>
+                <img src={slide9} alt="Slide 1" />
+              </div>
               <div>
                 <img src={slide10} alt="" />
               </div>
@@ -261,14 +335,12 @@ function KissaTanpopo() {
                 <img src={slide11} alt="" />
               </div>
               <div>
-                <img src={slide12} alt=""/>
+                <img src={slide12} alt="" />
               </div>
             </Slider>
           </div>
         </div>
       </section>
-      
-
 
       <section className="Paper_v2 bg_pattern">
         <div className="container Project-youMay">

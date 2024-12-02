@@ -136,7 +136,7 @@ function KissaTanpopo() {
   }, []);
 
   useEffect(() => {
-    // belt
+    // belt  ^^--
     const beltImages = document.querySelector(".belt-container");
 
     const scrollAnimation = () => {

@@ -6,6 +6,7 @@ import styles from "../components/ProjectCard2.module.css";
 import tag from "../components/title.module.css";
 
 import ProjectOverview from "../components/ProjectOverview.jsx";
+import FigmaEmbed from "../components/FigmaEmbed.jsx";
 import ProjectIntro from "../components/ProjectIntro.jsx";
 import ProjectBelt from "../components/ProjectBelt.jsx";
 import ProjectTakeaways from "../components/ProjectTakeaways.jsx";
@@ -18,27 +19,24 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-import Thumb from "../assets/KissaTanpopo/KissaStore.png";
-import Kissa1min from "../assets/KissaTanpopo/Kissa--1.jpg";
-import Kissa1lg from "../assets/KissaTanpopo/Kissa-1-lg.jpg";
-import Kissa2 from "../assets/KissaTanpopo/kissa-2.jpg";
-import Kissa3 from "../assets/KissaTanpopo/kissa-3.jpg";
-import Kissa4 from "../assets/KissaTanpopo/kissa-4.jpg";
-import Kissa5 from "../assets/KissaTanpopo/kissa-5.jpg";
-import Kissa6 from "../assets/KissaTanpopo/Kissa-6.png";
+import Thumb from "../assets/CraftedCorners/Thumb.png";
+import Min from "../assets/CraftedCorners/CraftedMin.png";
 
-import slide1 from "../assets/KissaTanpopo/slide1.jpg";
-import slide2 from "../assets/KissaTanpopo/slide2.jpg";
-import slide3 from "../assets/KissaTanpopo/slide3.jpg";
-import slide4 from "../assets/KissaTanpopo/slide4.jpg";
-import slide5 from "../assets/KissaTanpopo/slide5.jpg";
-import slide6 from "../assets/KissaTanpopo/slide6.jpg";
-import slide7 from "../assets/KissaTanpopo/slide7.jpg";
-import slide8 from "../assets/KissaTanpopo/slide8.jpg";
-import slide9 from "../assets/KissaTanpopo/slide9.jpg";
-import slide10 from "../assets/KissaTanpopo/slide10.jpg";
-import slide11 from "../assets/KissaTanpopo/slide11.jpg";
-import slide12 from "../assets/KissaTanpopo/slide12.jpg";
+import Project2 from "../assets/CraftedCorners/Crafted-2.jpg";
+import Project3 from "../assets/CraftedCorners/Crafted-3.jpg";
+import Project4 from "../assets/CraftedCorners/Crafted-4.jpg";
+import Project5 from "../assets/CraftedCorners/Crafted-5.jpg";
+
+import slide1 from "../assets/CraftedCorners/1.jpg";
+import slide2 from "../assets/CraftedCorners/2.jpg";
+import slide3 from "../assets/CraftedCorners/3.jpg";
+import slide4 from "../assets/CraftedCorners/4.jpg";
+import slide5 from "../assets/CraftedCorners/5.jpg";
+import slide6 from "../assets/CraftedCorners/6.jpg";
+import slide7 from "../assets/CraftedCorners/7.jpg";
+import slide8 from "../assets/CraftedCorners/8.jpg";
+import slide9 from "../assets/CraftedCorners/9.jpg";
+import slide10 from "../assets/CraftedCorners/10.jpg";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -47,7 +45,11 @@ import "slick-carousel/slick/slick-theme.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-function Blenz() {
+function Celestial() {
+  const [figmaUrl, setFigmaUrl] = useState(
+    "https://embed.figma.com/design/H6L5Y8FBaVZzQ4Qn7xaoCk/Crafted-Corners?node-id=0-1&embed-host=share"
+  );
+
   gsap.registerPlugin(ScrollTrigger);
 
   const getRandomProjects = (projectData, excludeId, count) => {
@@ -191,130 +193,110 @@ function Blenz() {
     return () => window.removeEventListener("resize", scrollAnimation); // Cleanup
   }, []);
 
-  const openWebsiteInNewTab = () => {
-    window.open("/kissatanpopo/index.html", "_blank", "noopener,noreferrer");
-  };
-
   const [currentProject, setCurrentProject] = useState(null);
   const [randomProjects, setRandomProjects] = useState([]);
 
   useEffect(() => {
     // 初期表示プロジェクト (例: ID 1 のプロジェクト)
-    const project = projectData.find((item) => item.id === 4);
+    const project = projectData.find((item) => item.id === 3);
     setCurrentProject(project);
 
     // 他のプロジェクトをランダムに取得 (例: 2件)
-    const randomItems = getRandomProjects(projectData, project.id, 2);
+    const randomItems = getRandomProjects(projectData, project.id, 4);
     setRandomProjects(randomItems);
   }, [projectData]);
 
   return (
     <>
-    <ProjectHeader
-      backgroundClass="bg_pattern"
-      imageSrc={Thumb}
-      imageAlt="masking image"
-      title="Blenz Coffee Redesign"
-    />
+      <ProjectHeader
+        backgroundClass="bg_pattern"
+        imageSrc={Thumb}
+        imageAlt="masking image"
+        title="Blenz App Coffee Redesign"
+      />
 
       <ProjectOverview
         title="Overview"
         description="
-        I had a fun project of creating the full brand identity for Kissa
-        Tanpopo, a nostalgic, Japanese inspired dessert café. The goal was
-        to mix modern and retro vibes to give the brand a welcoming,
-        playful feel. I started by designing the logo, choosing the
-        colors, and picking the typography that fit the vibe. I also built
-        a single responsive page website that works beautifully across all
-        devices."
+        This fictional campaign was developed as part of a group project with Sonya, Nancy, and Timmy. 
+        I worked as the Project lead, Creative Manager and Graphic Designer, 
+        coordinating tasks and maintaining a cohesive direction throughout the phases. 
+        The campaign involved designing event posters, a digital ticket with an omamori motif, 
+        two social media ads for Twitter/X, two promotional videos for Instagram, and a branded event webpage. 
+        My contribution was providing a the style guide, logo and making posters."
         chips={currentProject?.chips}
       />
 
       <ProjectIntro
-        title="Discover a Corner of Japanese Nostalgia"
-        description={`kissa tanpopo, the word Kissa means cafe, and the word Tanpopo means dandelion. 
-              It blends traditional Japanese culture with a modern café vibe, creating a relaxing space for everyone to enjoy. 
-              Perfect for those looking for a taste of Japan in a warm and welcoming setting.`}
-        imageSrcSmall={Kissa1min}
-        imageSrcLarge={Kissa1lg}
+        title="Iconic characters"
+        description={`I created two characters that embody the brand’s friendly and inviting personality. These characters will be used in the app, marketing materials, and on the website to engage with customers. I sketched multiple concepts before finalizing designs that complemented the overall branding.
+        `}
+        imageSrcSmall={Min}
+        imageSrcLarge={Project2}
         imageAlt="Kissa Tanpopo Medium size cup yellow"
       />
 
-      
       <section className="Paper_v2 bg_pattern">
-        <div className="container Project-content__website">
-          <img
-            className="fadeIn"
-            src={Kissa6}
-            alt="desktop kissa tanpopo website"
-          />
-          <Button
-            className="fadeIn"
-            label="View Brand Website"
-            onClick={openWebsiteInNewTab}
-          />
+        <div className="container Project-content__figma">
+            <FigmaEmbed src={figmaUrl} />
+          <div className="Project-Content__text">
+            <h4>Asset and Banner Figma file</h4>
+            <p>
+              I created a video with Aftereffect that features a starry
+              background with a teacup silhouette masking the tea ceremony
+              footage. It includes key information such as the event date,
+              highlights of the delicious matcha, handcrafted sweets, and the
+              availability of digital tickets.
+            </p>
+          </div>
         </div>
       </section>
 
       <ProjectBelt
-        images={[Kissa2, Kissa3, Kissa4, Kissa5]}
+        images={[Project2, Project3, Project4, Project5]}
         isMobile={isMobile}
       />
 
       <ProjectTakeaways
         title="Takeaways"
         description={`
-        The key part of this project was the capturing of a Japanese-inspired café, 
-        bringing it across authentically and in an engaging way to a mass audience. 
-        I wedded traditional Japanese elements of motifs and retro typography with modern design trends, 
-        alive in a brand that speaks both to local and international customers. 
-        This approach allowed me to use cultural storytelling as a powerful design strategy.`}
+        The Crafted Corners project was a great opportunity to develop my skills in brand identity design and work in a multidisciplinary team. By designing the logo, style guide, and character designs, I learned how important it is to align visual elements with the personality of the brand to create a cohesive and inviting experience. It was also a great exercise for team communication; we managed to use Figma and Discord successfully to stay organized and make sure all ideas were taken into consideration.`}
       />
 
       <section className="Paper_v2 bg_pattern">
         <div className="container Project-slider ">
-          <h5>Brand Book</h5>
+          <h5>More about Crafted Corners</h5>
           <div>
-            <Slider className="" {...settings}>
+            <Slider {...settings}>
               <div>
                 <img src={slide1} alt="Slide 1" />
               </div>
               <div>
-                <img src={slide2} alt="" />
+                <img src={slide2} alt="Slide 2" />
               </div>
               <div>
-                <img src={slide3} alt="" />
+                <img src={slide3} alt="Slide 3" />
               </div>
               <div>
-                <img src={slide4} alt="" />
+                <img src={slide4} alt="Slide 4" />
               </div>
               <div>
-                <img src={slide5} alt="" />
+                <img src={slide5} alt="Slide 5" />
               </div>
-            </Slider>
-            <Slider {...settings}>
               <div>
                 <img src={slide6} alt="Slide 6" />
               </div>
               <div>
-                <img src={slide7} alt="" />
+                <img src={slide7} alt="Slide 7" />
               </div>
               <div>
-                <img src={slide8} alt="" />
-              </div>
-            </Slider>
-            <Slider {...settings}>
-              <div>
-                <img src={slide9} alt="Slide 1" />
+                <img src={slide8} alt="Slide 8" />
               </div>
               <div>
-                <img src={slide10} alt="" />
+                <img src={slide9} alt="Slide 9" />
               </div>
               <div>
-                <img src={slide11} alt="" />
-              </div>
-              <div>
-                <img src={slide12} alt="" />
+                <img src={slide10} alt="Slide 10" />
               </div>
             </Slider>
           </div>
@@ -326,4 +308,4 @@ function Blenz() {
   );
 }
 
-export default Blenz;
+export default Celestial;

@@ -2,7 +2,7 @@ import React from "react";
 
 const FigmaEmbed = ({ src }) => {
   return (
-    <div style={{ width: '100%', height: '100vh' }}>
+    <div style={{ width: '100%', height: 'auto' }}>
       <iframe
         style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
         width="800"

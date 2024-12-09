@@ -1214,6 +1214,11 @@ label {
   .Project-content__figma {
     max-height:90vh; 
   }
+
+  .Project-content__iframe {
+    height: auto;
+
+  }
   iframe {
     width: 100%; /* Make iframe responsive */
     height: auto; /* Adjust iframe height proportionally */

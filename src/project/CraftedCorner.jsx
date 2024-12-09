@@ -19,14 +19,13 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-import Thumb from "../assets/Celestial/Thumb.png";
-import Min from "../assets/Celestial/min.png";
+import Thumb from "../assets/CraftedCorners/Thumb.png";
+import Min from "../assets/CraftedCorners/CraftedMin.png";
 
-import Project2 from "../assets/Celestial/celestial-2.jpg";
-import Project3 from "../assets/Celestial/3.png";
-import Project4 from "../assets/Celestial/celestial-4.jpg";
-import Project5 from "../assets/Celestial/clesetial-5.png";
-import Intro from "../assets/Celestial/intro.mp4";
+import Project2 from "../assets/CraftedCorners/Crafted-2.jpg";
+import Project3 from "../assets/CraftedCorners/Crafted-3.jpg";
+import Project4 from "../assets/CraftedCorners/Crafted-4.jpg";
+import Project5 from "../assets/CraftedCorners/Crafted-5.jpg";
 
 import slide1 from "../assets/CraftedCorners/1.jpg";
 import slide2 from "../assets/CraftedCorners/2.jpg";
@@ -239,9 +238,7 @@ function Celestial() {
 
       <section className="Paper_v2 bg_pattern">
         <div className="container Project-content__figma">
-          <div>
             <FigmaEmbed src={figmaUrl} />
-          </div>
           <div className="Project-Content__text">
             <h4>Asset and Banner Figma file</h4>
             <p>
@@ -263,9 +260,7 @@ function Celestial() {
       <ProjectTakeaways
         title="Takeaways"
         description={`
-        The "Celestial Tea Ceremony" project allowed me to apply my skills of branding, graphic design, and video production within a collaborative team environment. Leading the creative direction and producing the key assets such as the style guide, event posters, and promotional videos were important in honing my design and project management abilities.
-        This project also made me strong technically in Adobe After Effects, specifically in video editing and creating cool visual effects that gave magic to the campaign.
-        The project at hand has helped me in not only enhance my skills of design and video production but also taught me the sense of a team and how project management works. Our final deliverables reflect not only individual skills but also our collaborative work that makes a strong brand identity for the event.`}
+        The Crafted Corners project was a great opportunity to develop my skills in brand identity design and work in a multidisciplinary team. By designing the logo, style guide, and character designs, I learned how important it is to align visual elements with the personality of the brand to create a cohesive and inviting experience. It was also a great exercise for team communication; we managed to use Figma and Discord successfully to stay organized and make sure all ideas were taken into consideration.`}
       />
 
       <section className="Paper_v2 bg_pattern">

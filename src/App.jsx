@@ -9,6 +9,8 @@ import About from './pages/about';
 import Contact from './pages/contact';
 import KissaTanpopo from './project/KissaTanpopo';
 import Celestial from './project/Celestial';
+import CraftedCorners from './project/CraftedCorner';
+import Blenz from './project/Blenz';
 
 // slick slider css for project page 
 import "slick-carousel/slick/slick.css"; 
@@ -25,6 +27,8 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="project/kissa-tanpopo" element={<KissaTanpopo/>} />
           <Route path="project/celestial" element={< Celestial/>} />
+          <Route path="project/craftedCorners" element={< CraftedCorners/>} />
+          <Route path="project/redesign" element={< Blenz/>} />
         </Route>
       </Routes>
     </Router>

@@ -4,6 +4,14 @@ import projectData from "../data/project.json";
 import Button from "../components/button.jsx";
 import styles from "../components/ProjectCard2.module.css";
 import tag from "../components/title.module.css";
+
+import ProjectOverview from "../components/ProjectOverview.jsx";
+import ProjectIntro from "../components/ProjectIntro.jsx";
+import ProjectBelt from "../components/ProjectBelt.jsx";
+import ProjectTakeaways from "../components/ProjectTakeaways.jsx";
+import YouMayLike from "../components/YouMayLike.jsx";
+import ProjectHeader from "../components/ProjectHeader.jsx";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
@@ -43,11 +51,12 @@ function KissaTanpopo() {
   gsap.registerPlugin(ScrollTrigger);
 
   const getRandomProjects = (projectData, excludeId, count) => {
-    const filteredProjects = projectData.filter((item) => item.id !== excludeId);
+    const filteredProjects = projectData.filter(
+      (item) => item.id !== excludeId
+    );
     const shuffled = [...filteredProjects].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, count);
   };
-
 
   useEffect(() => {
     const FadeIns = document.querySelectorAll(".fadeIn");
@@ -145,10 +154,10 @@ function KissaTanpopo() {
       if (!isMobile) {
         // Desktop, scrolling animation
         gsap.to(beltImages, {
-          x: "-50%", // Horizontal 
-          duration: 50, // Speed 
+          x: "-50%", // Horizontal
+          duration: 50, // Speed
           repeat: -1, // loop
-          ease: "linear", 
+          ease: "linear",
         });
       } else {
         // Mobile, vertically stacked images with fade-in on scroll
@@ -156,18 +165,18 @@ function KissaTanpopo() {
           ".belt-image",
           {
             opacity: 0,
-            x: -50, // below 
+            x: -50, // below
           },
           {
             opacity: 1,
             x: 0, //  to original position
             stagger: 0.2, // delay between images
             scrollTrigger: {
-              trigger: ".belt-container", 
-              start: "top right", 
-              end: "bottom left", 
+              trigger: ".belt-container",
+              start: "top right",
+              end: "bottom left",
               scrub: true,
-              markers: false, 
+              markers: false,
               toggleActions: "play none none reverse",
             },
           }
@@ -201,58 +210,38 @@ function KissaTanpopo() {
 
   return (
     <>
-      <section className="Project Paper_v2 bg_pattern ">
-        <figure className="container Project-Thumb">
-          <img src={Thumb} alt="masking image" />
-        </figure>
-        <div className="container fadeIn Project-title">
-          <h1>Kissa Tanpopo Brand Identity</h1>
-        </div>
-      </section>
+    <ProjectHeader
+      backgroundClass="bg_pattern"
+      imageSrc={Thumb}
+      imageAlt="masking image"
+      title="Kissa Tanpopo Brand Identity"
+    />
 
-      <section className="Project-overview Paper_v2 bg_pattern">
-        <div className="container">
-          <div className="fadeIn Project-overview__box">
-            <h2>Overview</h2>
-            <p>
-              I had a fun project of creating the full brand identity for Kissa
-              Tanpopo, a nostalgic, Japanese inspired dessert café. The goal was
-              to mix modern and retro vibes to give the brand a welcoming,
-              playful feel. I started by designing the logo, choosing the
-              colors, and picking the typography that fit the vibe. I also built
-              a single responsive page website that works beautifully across all
-              devices.
-            </p>
-            <div className={styles.chipsContainer}>
-              {currentProject?.chips?.map((chip, index) => (
-                <span className={styles.chip} key={index}>
-                  {chip}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProjectOverview
+        title="Overview"
+        description="
+        I had a fun project of creating the full brand identity for Kissa
+        Tanpopo, a nostalgic, Japanese inspired dessert café. The goal was
+        to mix modern and retro vibes to give the brand a welcoming,
+        playful feel. I started by designing the logo, choosing the
+        colors, and picking the typography that fit the vibe. I also built
+        a single responsive page website that works beautifully across all
+        devices."
+        chips={currentProject?.chips}
+      />
 
+      <ProjectIntro
+        title="Discover a Corner of Japanese Nostalgia"
+        description={`kissa tanpopo, the word Kissa means cafe, and the word Tanpopo means dandelion. 
+              It blends traditional Japanese culture with a modern café vibe, creating a relaxing space for everyone to enjoy. 
+              Perfect for those looking for a taste of Japan in a warm and welcoming setting.`}
+        imageSrcSmall={Kissa1min}
+        imageSrcLarge={Kissa1lg}
+        imageAlt="Kissa Tanpopo Medium size cup yellow"
+      />
+
+      
       <section className="Paper_v2 bg_pattern">
-        <div className="container Project-Content">
-          <div className="Project-Content__text fadeIn">
-            <h3>Discover a Corner of Japanese Nostalgia</h3>
-            <p>
-              kissa tanpopo, the word Kissa means cafe, and the word Tanpopo
-              means dandelion. It blends traditional Japanese culture with a
-              modern café vibe, creating a relaxing space for everyone to enjoy.
-              Perfect for those looking for a taste of Japan in a warm and
-              welcoming setting.
-            </p>
-          </div>
-          <picture className="fadeIn">
-            <source srcSet={Kissa1min} media="(max-width: 768px)" />
-            <source srcSet={Kissa1lg} media="(min-width: 769px)" />
-            <img src={Kissa1min} alt="Kissa Tanpopo Medium size cup yellow " />
-          </picture>
-        </div>
-
         <div className="container Project-content__website">
           <img
             className="fadeIn"
@@ -267,39 +256,20 @@ function KissaTanpopo() {
         </div>
       </section>
 
-      <section className="Project-belt">
-        <div className="belt-container">
-          <img src={Kissa2} alt="Slide Kissa2" className="belt-image" />
-          <img src={Kissa3} alt="Slide Kissa3" className="belt-image" />
-          <img src={Kissa4} alt="Slide Kissa4" className="belt-image" />
-          <img src={Kissa5} alt="Slide Kissa5" className="belt-image" />
-          {!isMobile && (
-            <>
-              <img src={Kissa2} alt="Slide Kissa2" className="belt-image" />
-              <img src={Kissa3} alt="Slide Kissa3" className="belt-image" />
-              <img src={Kissa4} alt="Slide Kissa4" className="belt-image" />
-              <img src={Kissa5} alt="Slide Kissa5" className="belt-image" />
-            </>
-          )}
-        </div>
-      </section>
+      <ProjectBelt
+        images={[Kissa2, Kissa3, Kissa4, Kissa5]}
+        isMobile={isMobile}
+      />
 
-      <section className="Paper_v2 bg_pattern">
-        <div className="container Project-Takeaways">
-          <div className=" fadeIn Project-Takeaways__box">
-            <h4>Takeaways</h4>
-            <p>
-              The key part of this project was the capturing of a
-              Japanese-inspired café, bringing it across authentically and in an
-              engaging way to a mass audience. I wedded traditional Japanese
-              elements of motifs and retro typography with modern design trends,
-              alive in a brand that speaks both to local and international
-              customers. This approach allowed me to use cultural storytelling
-              as a powerful design strategy.
-            </p>
-          </div>
-        </div>
-      </section>
+      <ProjectTakeaways
+        title="Takeaways"
+        description={`
+        The key part of this project was the capturing of a Japanese-inspired café, 
+        bringing it across authentically and in an engaging way to a mass audience. 
+        I wedded traditional Japanese elements of motifs and retro typography with modern design trends, 
+        alive in a brand that speaks both to local and international customers. 
+        This approach allowed me to use cultural storytelling as a powerful design strategy.`}
+      />
 
       <section className="Paper_v2 bg_pattern">
         <div className="container Project-slider ">
@@ -351,45 +321,9 @@ function KissaTanpopo() {
         </div>
       </section>
 
-      <section className="Paper_v2 bg_pattern">
-        <div className="container Project-youMay">
-          <h6>You may also like...</h6>
-          <div className="Project-cards">
-            {randomProjects.map((project) => (
-              <div className="Project-card" key={project.id}>
-                <img
-                  src={"/"+ project.image}
-                  alt={`${project.title} thumbnail`}
-                  className="Project-card__image"
-                />
-                <div className="Project-card__content">
-                  <p>{project.title}</p>
-                  <div className="chips">
-                    {project.chips.map((chip, index) => (
-                      <span className={styles.chip} key={index}>
-                        {chip}
-                      </span>
-                    ))}
-                  </div>
-                  <Button
-                    onClick={() => window.open(project.pageLink2, "_blank")}
-                    label="Check"
-                    className="Project-card__link"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <YouMayLike projects={randomProjects} />
     </>
   );
 }
-
-const getRandomProjects = (projectData, excludeId, count) => {
-  const filteredProjects = projectData.filter((item) => item.id !== excludeId);
-  const shuffled = [...filteredProjects].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
-};
 
 export default KissaTanpopo;

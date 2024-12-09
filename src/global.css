@@ -954,13 +954,37 @@ label {
 .Project-overview__box,
 .Project-Takeaways__box,
 .Project-Bullet__box,
-.Project-slider__text
+.Project-slider__text,
+.Project-slider__tag
  {
   padding: 1rem;
   width: 100%;
   background-color: #fff;
   box-shadow: var(--box-shadow);
 }
+
+.Project-slider__tag {
+  display: flex;
+  gap: 10px;
+}
+.Project-scope {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+.Project-scope h3{
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.Project-scope__timeline{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+
+}
+
+
 
 .Project-Bullet__box ul li {
   margin-top: 0.5rem;

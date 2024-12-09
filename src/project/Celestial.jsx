@@ -8,6 +8,7 @@ import tag from "../components/title.module.css";
 import ProjectOverview from "../components/ProjectOverview.jsx";
 import ProjectIntro from "../components/ProjectIntro.jsx";
 import ProjectBelt from "../components/ProjectBelt.jsx";
+import ProjectVideo from "../components/projectVideo.jsx";
 import ProjectTakeaways from "../components/ProjectTakeaways.jsx";
 import YouMayLike from "../components/YouMayLike.jsx";
 import ProjectHeader from "../components/ProjectHeader.jsx";
@@ -225,7 +226,6 @@ function Celestial() {
     return () => window.removeEventListener("resize", scrollAnimation); // Cleanup
   }, []);
 
-
   const [currentProject, setCurrentProject] = useState(null);
   const [randomProjects, setRandomProjects] = useState([]);
 
@@ -271,30 +271,11 @@ function Celestial() {
         imageAlt="Kissa Tanpopo Medium size cup yellow"
       />
 
-      <section className="Paper_v2 bg_pattern">
-        <div className="container Project-content__video">
-          <video
-            className="responsive-video"
-            width="640"
-            height="360"
-            controls
-            autoPlay
-            muted
-          >
-            <source src={Intro} type="video/mp4" />
-          </video>
-          <div className="Project-Content__text">
-            <h4>Event Introduction Video</h4>
-            <p>
-              I created a video with Aftereffect that features a starry
-              background with a teacup silhouette masking the tea ceremony
-              footage. It includes key information such as the event date,
-              highlights of the delicious matcha, handcrafted sweets, and the
-              availability of digital tickets.{" "}
-            </p>
-          </div>
-        </div>
-      </section>
+      <ProjectVideo
+        videoSrc={Intro}
+        title="Event Introduction Video"
+        description="I created a video with After Effects that features a starry background with a teacup silhouette masking the tea ceremony footage. It includes key information such as the event date, highlights of the delicious matcha, handcrafted sweets, and the availability of digital tickets."
+      />
 
       <ProjectBelt
         images={[Project2, Project3, Project4, Project5]}

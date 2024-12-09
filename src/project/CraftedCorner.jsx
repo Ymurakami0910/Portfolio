@@ -218,12 +218,10 @@ function Celestial() {
       <ProjectOverview
         title="Overview"
         description="
-        This fictional campaign was developed as part of a group project with Sonya, Nancy, and Timmy. 
-        I worked as the Project lead, Creative Manager and Graphic Designer, 
-        coordinating tasks and maintaining a cohesive direction throughout the phases. 
-        The campaign involved designing event posters, a digital ticket with an omamori motif, 
-        two social media ads for Twitter/X, two promotional videos for Instagram, and a branded event webpage. 
-        My contribution was providing a the style guide, logo and making posters."
+        Crafted Corners, is a collaborative group project focused on developing an app platform that offers an online home decor e-commerce platform. 
+        I contributed to creating a brand identity, emphasizing team collaboration. 
+        I worked alongside Suin Tina Timmy and Sam Park, using the waterfall methodology 
+        for project management in ensuring structured progress through the project phases."
         chips={currentProject?.chips}
       />
 
@@ -242,11 +240,9 @@ function Celestial() {
           <div className="Project-Content__text">
             <h4>Asset and Banner Figma file</h4>
             <p>
-              I created a video with Aftereffect that features a starry
-              background with a teacup silhouette masking the tea ceremony
-              footage. It includes key information such as the event date,
-              highlights of the delicious matcha, handcrafted sweets, and the
-              availability of digital tickets.
+            I have designed four digital banners in different sizes to download the app. 
+            Each was designed with good color contrast so it could be viewed more strongly on every device. 
+            You can check the assets and completed data here:
             </p>
           </div>
         </div>

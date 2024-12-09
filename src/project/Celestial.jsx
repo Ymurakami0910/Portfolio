@@ -18,15 +18,15 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-import Thumb from "../assets/KissaTanpopo/KissaStore.png";
-import CelestialMin from "../assets/Celestial/min.png";
+import Thumb from "../assets/Celestial/Thumb.png";
+import Min from "../assets/Celestial/min.png";
 
-import Celestial2 from "../assets/Celestial/celestial-2.jpg";
-
-import Kissa3 from "../assets/KissaTanpopo/kissa-3.jpg";
-import Kissa4 from "../assets/KissaTanpopo/kissa-4.jpg";
-import Kissa5 from "../assets/KissaTanpopo/kissa-5.jpg";
+import Project2 from "../assets/Celestial/celestial-2.jpg";
+import Project3 from "../assets/Celestial/3.png";
+import Project4 from "../assets/Celestial/celestial-4.jpg";
+import Project5 from "../assets/Celestial/clesetial-5.png";
 import Intro from "../assets/Celestial/intro.mp4";
+import aeIcon from "../assets/icons/ae.png";
 
 import slide2 from "../assets/Celestial/2.jpg";
 import slide4 from "../assets/Celestial/4.jpg";
@@ -225,9 +225,6 @@ function Celestial() {
     return () => window.removeEventListener("resize", scrollAnimation); // Cleanup
   }, []);
 
-  const openWebsiteInNewTab = () => {
-    window.open("/kissatanpopo/index.html", "_blank", "noopener,noreferrer");
-  };
 
   const [currentProject, setCurrentProject] = useState(null);
   const [randomProjects, setRandomProjects] = useState([]);
@@ -254,51 +251,62 @@ function Celestial() {
       <ProjectOverview
         title="Overview"
         description="
-        I had a fun project of creating the full brand identity for Kissa
-        Tanpopo, a nostalgic, Japanese inspired dessert café. The goal was
-        to mix modern and retro vibes to give the brand a welcoming,
-        playful feel. I started by designing the logo, choosing the
-        colors, and picking the typography that fit the vibe. I also built
-        a single responsive page website that works beautifully across all
-        devices."
+        This fictional campaign was developed as part of a group project with Sonya, Nancy, and Timmy. 
+        I worked as the Project lead, Creative Manager and Graphic Designer, 
+        coordinating tasks and maintaining a cohesive direction throughout the phases. 
+        The campaign involved designing event posters, a digital ticket with an omamori motif, 
+        two social media ads for Twitter/X, two promotional videos for Instagram, and a branded event webpage. 
+        My contribution was providing a the style guide, logo and making posters."
         chips={currentProject?.chips}
       />
 
       <ProjectIntro
-        title="Discover a Corner of Japanese Nostalgia"
-        description={`kissa tanpopo, the word Kissa means cafe, and the word Tanpopo means dandelion. 
-              It blends traditional Japanese culture with a modern café vibe, creating a relaxing space for everyone to enjoy. 
-              Perfect for those looking for a taste of Japan in a warm and welcoming setting.`}
-        imageSrcSmall={CelestialMin}
-        imageSrcLarge={Celestial2}
+        title="Unique Ticket Concept"
+        description={`I have came up a concept of digital ticket that enhances the user experience. This is a QR code ticket that is inspired by
+        an omamori, is a Japanese good luck charm that protects against bad luck or misfortune. There are different types of omamori 
+        for various life events, like passing a test or getting married. These charms come in different shapes, 
+        sizes, and prices, depending on their purpose.`}
+        imageSrcSmall={Min}
+        imageSrcLarge={Project2}
         imageAlt="Kissa Tanpopo Medium size cup yellow"
       />
 
       <section className="Paper_v2 bg_pattern">
         <div className="container Project-content__video">
-          <video width="640" height="360" controls autoPlay muted>
-            <source src="/assets/Celestial/intro.mp4" type="video/mp4" />
+          <video
+            className="responsive-video"
+            width="640"
+            height="360"
+            controls
+            autoPlay
+            muted
+          >
+            <source src={Intro} type="video/mp4" />
           </video>
-
           <div className="Project-Content__text">
-            <p>this is my aftereffect project</p>
+            <h4>Event Introduction Video</h4>
+            <p>
+              I created a video with Aftereffect that features a starry
+              background with a teacup silhouette masking the tea ceremony
+              footage. It includes key information such as the event date,
+              highlights of the delicious matcha, handcrafted sweets, and the
+              availability of digital tickets.{" "}
+            </p>
           </div>
         </div>
       </section>
 
       <ProjectBelt
-        images={[ Celestial2,Kissa3, Kissa4, Kissa5]}
+        images={[Project2, Project3, Project4, Project5]}
         isMobile={isMobile}
       />
 
       <ProjectTakeaways
         title="Takeaways"
         description={`
-        The key part of this project was the capturing of a Japanese-inspired café, 
-        bringing it across authentically and in an engaging way to a mass audience. 
-        I wedded traditional Japanese elements of motifs and retro typography with modern design trends, 
-        alive in a brand that speaks both to local and international customers. 
-        This approach allowed me to use cultural storytelling as a powerful design strategy.`}
+        The "Celestial Tea Ceremony" project allowed me to apply my skills of branding, graphic design, and video production within a collaborative team environment. Leading the creative direction and producing the key assets such as the style guide, event posters, and promotional videos were important in honing my design and project management abilities.
+        This project also made me strong technically in Adobe After Effects, specifically in video editing and creating cool visual effects that gave magic to the campaign.
+        The project at hand has helped me in not only enhance my skills of design and video production but also taught me the sense of a team and how project management works. Our final deliverables reflect not only individual skills but also our collaborative work that makes a strong brand identity for the event.`}
       />
 
       <section className="Paper_v2 bg_pattern">

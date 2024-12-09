@@ -26,7 +26,8 @@
         "description": "I played a roll as a graphic designer for an online home decor e-commerce platform.",
         "image": "craftedCorners/CraftedThmb.jpg",
         "chips": ["Figma", " Illustrator", "Marketing","Group Project"],
-        "pageLink": "project/crafted"
+        "pageLink": "Project/craftedCorners",
+        "pageLink2": "craftedCorners"
     },
     {
         "id": 4,
@@ -35,7 +36,8 @@
         "description": "Redesigned the coffee  mobile order app with UI/UX skills.",
         "image": "blenz/blenzThumb.jpg",
         "chips": ["Figma", " UI/UX"],
-        "pageLink": "project/redesign"
+        "pageLink": "project/redesign",
+        "pageLink2": "redesign"
     }
 
 ]

@@ -948,7 +948,8 @@ label {
 }
 
 .Project-overview__box,
-.Project-Takeaways__box {
+.Project-Takeaways__box
+ {
   padding: 1rem;
   width: 100%;
   background-color: #fff;
@@ -1023,11 +1024,17 @@ label {
 }
 
 
-.Project-content__website {
+.Project-content__website, .Project-content__video {
   display: flex;
   justify-content: space-between;
   padding-bottom: 3rem;
 }
+
+.Project-content__video {
+  gap: 30px;
+  padding-top: 3rem;
+}
+
 
 .Project-content__website img {
   width: auto;

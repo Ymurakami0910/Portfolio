@@ -415,19 +415,19 @@ h6 {
   font-weight: var(--bold);
 }
 
-.message-box__icon {
+.message-box__icon,.contact-icon  {
   flex-shrink: 0;
   border-radius: 50%;
   height: 50px;
   width: 50px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.message-box__icon:hover {
+.message-box__icon:hover, .contact-icon:hover {
     transform: scale(1.1);
     box-shadow: var(--box-shadow);
   }
 
-.message-box__icon img {
+.message-box__icon img, .contact-icon img {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -1305,6 +1305,107 @@ label {
     width: 100%;
   }
   .slick-slide img {
+    width: 100%; 
+  }
+}
+
+.contact {
+ padding: 3rem;
+  background-color: var(--pink);
+}
+.contact-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.contact-box {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between; 
+  align-items: center; 
+  text-align: left;
+  position: relative;
+  padding: 20px;
+  width: 60%;
+  min-height: 250px;
+  background: var(--text_white);
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+}
+
+.contact-box:before {
+  content: "";
+  position: absolute;
+  top: 50%; 
+  right: -50px; 
+  transform: translateY(-50%) rotate(90deg); 
+  width: 30px;
+  height: 100px;
+  background: var(--text_white);
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+
+
+.contact-text {
+  flex: 1; 
+  line-height: 3rem;
+}
+
+.contact-icon-wrap {
+  margin-left: 20px;
+}
+
+.contact-icon {
+  object-fit: contain;
+}
+
+.contact__image {
+  width: 35%; 
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: float 4.5s ease-in-out infinite;
+  position: relative;
+}
+
+.contact__image img {
+  width: 80%; 
+  height: auto;
+  object-fit: cover;
+}
+
+
+@media (max-width: 768px) {
+  .contact {
+    padding-top: 15vh;
+  }
+  .contact-wrap {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+
+  .contact-box {
+    width: 100%;
+    flex-direction: column; 
+  }
+
+  .contact-icon{
+    position: absolute;
+    top: 70%;
+    left: 70%;
+  }
+
+  .contact-box:before {
+    display: none; 
+  }
+
+  .contact__image {
     width: 100%; 
   }
 }

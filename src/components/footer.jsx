@@ -1,14 +1,13 @@
 import React from "react";
 import Styles from "../components/footer.module.css";
-import Logo from "../assets/logo-white.png"
-import Linkedin from "../assets/icons/linkedin-sm.png"
-import Insta from "../assets/icons/insta.png"
-import Be from "../assets/icons/be.png"
+import Logo from "../assets/logo-white.png";
+import Linkedin from "../assets/icons/linkedin-sm.png";
+import Insta from "../assets/icons/insta.png";
+import Be from "../assets/icons/be.png";
 
 import { useNavigate } from "react-router-dom";
 
 function Footer() {
-
   const navigate = useNavigate();
   return (
     <>
@@ -36,14 +35,24 @@ function Footer() {
                   </a>
                 </div>
                 <div className={Styles.footerSocialIcons__box}>
-                  <img src={Insta} alt="Instagram Icon" />
+                  <a
+                    href="https://www.instagram.com/lilyzvillage.ca/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={Insta} alt="Instagram Icon" />
+                  </a>
                 </div>
+
                 <div className={Styles.footerSocialIcons__box}>
-                  <img src={Be}alt="" />
+                  <img src={Be} alt="" />
                 </div>
               </div>
               <div className={Styles.connectButton}>
-                <button className={Styles.connectButtonLink} onClick={() => navigate("contact")}>
+                <button
+                  className={Styles.connectButtonLink}
+                  onClick={() => navigate("contact")}
+                >
                   <span className={Styles.connectButtonText}>Contact</span>
                 </button>
               </div>

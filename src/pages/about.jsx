@@ -9,6 +9,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // components
 import Button from "../components/button";
+import DLButton from "../components/dlButton";
+
 
 // assets
 import tanukiImage from "../assets/tanuki-2.png";
@@ -124,6 +126,7 @@ function About() {
               brands that connect with people. Let's team up and create
               something great together!
             </p>
+            <div className="about-header__button"><DLButton label="Resume" onClick={() => window.open('/Resume.pdf', '_blank')} /></div>
           </div>
           <div className="about-header__image">
             <img src={tanukiImage} alt="Tanuki Image" />
@@ -230,7 +233,6 @@ function About() {
               <div className="icon">
                 <img src={jsIcon} alt="Icon JS" />
               </div>
-              <Button label="Resume" onClick={() => navigate("/")} />
             </div>
           </div>
         </div>

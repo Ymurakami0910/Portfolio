@@ -18,6 +18,7 @@ html, body {
 :root {
   --blue: #205989;
   --pink: #F5AFAF;
+  --pinkv2: rgba(245, 175, 175, 0.5); 
   --orange :#D75B27;
   --green:#46AA9B;
   --text_white: #FFFFFF;
@@ -178,28 +179,29 @@ h6 {
   background-image:
     repeating-linear-gradient(to bottom,
       transparent 25px,
-      var(--pink) 26px, var(--pink) 26px,
+      var(--pinkv2) 26px, var(--pinkv2) 26px,
       transparent 27px, transparent 51px,
-      var(--pink) 52px, var(--pink) 52px,
+      var(--pinkv2) 52px, var(--pinkv2) 52px,
       transparent 53px, transparent 77px,
-      var(--pink) 78px, var(--pink) 78px,
+      var(--pinkv2) 78px, var(--pinkv2) 78px,
       transparent 79px, transparent 103px,
-      var(--pink) 104px, var(--pink)104px,
+      var(--pinkv2) 104px, var(--pinkv2) 104px,
       transparent 105px, transparent 129px,
-      var(--pink)130px, var(--pink) 130px),
+      var(--pinkv2) 130px, var(--pinkv2) 130px),
 
     repeating-linear-gradient(to right,
       transparent 25px,
-      var(--pink) 26px, var(--pink) 26px,
+      var(--pinkv2) 26px, var(--pinkv2) 26px,
       transparent 27px, transparent 51px,
-      var(--pink) 52px, var(--pink) 52px,
+      var(--pinkv2) 52px, var(--pinkv2) 52px,
       transparent 53px, transparent 77px,
-      var(--pink) 78px, var(--pink)78px,
+      var(--pinkv2) 78px, var(--pinkv2) 78px,
       transparent 79px, transparent 103px,
-      var(--pink) 104px, var(--pink)104px,
+      var(--pinkv2) 104px, var(--pinkv2) 104px,
       transparent 105px, transparent 129px,
-      var(--pink)130px, var(--pink) 130px);
+      var(--pinkv2) 130px, var(--pinkv2) 130px);
 }
+
 
 .curved {
   position: relative;
@@ -561,7 +563,11 @@ h6 {
   margin-top: 2rem;
   font-size: 1.3rem;
 }
-
+.about-header__button {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
 .about-header__image {
   width: 300px;
   height: auto;
@@ -594,74 +600,73 @@ h6 {
   margin-bottom: 1.3rem;
 }
 
-
-
-/* Card  */
-
-
 .about-cards__wrap {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  gap:20px;
+  gap: 20px;
   max-width: 90%;
   flex-wrap: wrap;
-
 }
-
 
 .photo-container {
-  perspective: 1000px; 
+  perspective: 1000px;
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  animation: float-2 3s ease-in-out infinite; 
+  animation: float-2 3s ease-in-out infinite;
+  -webkit-perspective: 1000px; /* Safari用 */
 }
-.photo-container:hover{
+
+.photo-container:hover {
   animation: none;
   transform: scale(1.05);
 }
+
 .photo {
-  width: 300px; 
+  width: 300px;
   height: 400px;
   position: relative;
-  transition: transform 0.6s; 
+  transition: transform 0.6s;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d; /* Safari用 */
   cursor: pointer;
 }
-
 
 .photo-front,
 .photo-back {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  backface-visibility: hidden; 
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* Safari用 */
   border: var(--green) solid 10px;
   box-shadow: var(--box-shadow);
-  border-radius: 19px; 
+  border-radius: 19px;
 }
 
 .photo-front {
   z-index: 2;
+  transform: rotateY(0deg);
 }
 
 .photo-back {
-  transform: rotateY(180deg); 
-  display: flex; 
+  z-index: 1;
+  transform: rotateY(180deg);
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.9); 
+  background: rgba(121, 82, 82, 0.9);
+}
+
+.flipped {
+  transform: rotateY(180deg);
 }
 
 .photo img {
   width: 100%;
   height: 100%;
-  border-radius: 10px; 
-}
-
-.flipped {
-  transform: rotateY(180deg); 
+  border-radius: 10px;
 }
 
 .about-cards__description {
@@ -670,10 +675,9 @@ h6 {
   padding-right: 2rem;
 }
 
-.about-cards__description p{
+.about-cards__description p {
   margin-top: 1rem;
 }
-
 
 
 .about-offer {

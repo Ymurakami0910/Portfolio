@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import Lenis from 'lenis';
 
 // import all pages that website contains 
 import Layout from './components/layout';
@@ -16,7 +19,32 @@ import Blenz from './project/Blenz';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
+gsap.registerPlugin(ScrollTrigger);
+
 function App() {
+  useEffect(() => {
+    // Lenisのインスタンスを作成
+    const lenis = new Lenis({
+      autoRaf: true, // 自動でリクエストアニメーションフレームを更新
+      duration: 2,   // スクロールアニメーションの遅さを調整（デフォルトは1、2にすると遅くなる）
+    });
+
+    // LenisのスクロールイベントをScrollTriggerに更新する
+    lenis.on('scroll', ScrollTrigger.update);
+
+    // GSAPのtickerでLenisのrafメソッドを使ってスクロールのアニメーションを更新
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000); // 秒からミリ秒に変換
+    });
+
+    // スクロールのラグを無効にする（遅延を防ぐ）
+    gsap.ticker.lagSmoothing(0);
+
+    return () => {
+      lenis.destroy(); // コンポーネントがアンマウントされたときにクリーンアップ
+    };
+  }, []);
+
   return (
     <Router>
       <Routes>
@@ -36,4 +64,3 @@ function App() {
 }
 
 export default App;
-

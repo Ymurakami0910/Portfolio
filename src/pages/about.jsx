@@ -9,6 +9,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // components
 import Button from "../components/button";
+import DLButton from "../components/dlButton";
+
 
 // assets
 import tanukiImage from "../assets/tanuki-2.png";
@@ -20,6 +22,7 @@ import aiIcon from "../assets/icons/ai.png";
 import psIcon from "../assets/icons/ps.png";
 import idIcon from "../assets/icons/id.png";
 import aeIcon from "../assets/icons/ae.png";
+import figmaIcon from "../assets/icons/figma.png"
 import canvaIcon from "../assets/icons/canva.png";
 import htmlIcon from "../assets/icons/html.png";
 import cssIcon from "../assets/icons/css.png";
@@ -124,6 +127,7 @@ function About() {
               brands that connect with people. Let's team up and create
               something great together!
             </p>
+            <div className="about-header__button"><DLButton label="Resume" onClick={() => window.open('/Resume.pdf', '_blank')} /></div>
           </div>
           <div className="about-header__image">
             <img src={tanukiImage} alt="Tanuki Image" />
@@ -218,9 +222,11 @@ function About() {
                 <img src={idIcon} alt="Icon Indesign" />
               </div>
               <div className="icon">
+                <img src={figmaIcon} alt="Icon Figma" />
+              </div>
+              <div className="icon">
                 <img src={canvaIcon} alt="Icon Canva" />
               </div>
-              <span></span>
               <div className="icon">
                 <img src={htmlIcon} alt="Icon HTML" />
               </div>
@@ -230,7 +236,6 @@ function About() {
               <div className="icon">
                 <img src={jsIcon} alt="Icon JS" />
               </div>
-              <Button label="Resume" onClick={() => navigate("/")} />
             </div>
           </div>
         </div>

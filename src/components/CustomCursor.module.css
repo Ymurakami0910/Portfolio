@@ -1,0 +1,11 @@
+.customCursor {
+    width: 40px;  /* カーソル画像のサイズ */
+    height: 40px;
+    background-image: url("../assets/paw.png"); /* カスタムカーソル画像 */
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  

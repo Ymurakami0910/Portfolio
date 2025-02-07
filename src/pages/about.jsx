@@ -22,6 +22,7 @@ import aiIcon from "../assets/icons/ai.png";
 import psIcon from "../assets/icons/ps.png";
 import idIcon from "../assets/icons/id.png";
 import aeIcon from "../assets/icons/ae.png";
+import figmaIcon from "../assets/icons/figma.png"
 import canvaIcon from "../assets/icons/canva.png";
 import htmlIcon from "../assets/icons/html.png";
 import cssIcon from "../assets/icons/css.png";
@@ -221,9 +222,11 @@ function About() {
                 <img src={idIcon} alt="Icon Indesign" />
               </div>
               <div className="icon">
+                <img src={figmaIcon} alt="Icon Figma" />
+              </div>
+              <div className="icon">
                 <img src={canvaIcon} alt="Icon Canva" />
               </div>
-              <span></span>
               <div className="icon">
                 <img src={htmlIcon} alt="Icon HTML" />
               </div>

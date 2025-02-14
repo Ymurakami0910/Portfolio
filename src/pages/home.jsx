@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 // gsap
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import { Typewriter } from "react-simple-typewriter";
+
 // components
 import Button from "../components/button.jsx";
 import Styles from "../components/title.module.css";
@@ -196,10 +199,20 @@ function Home() {
         </div>
         <div className="container Home-hero__text">
           <div className="">
-            <h1>
-              国境を越えた<span></span>デザインを
-            </h1>
-            <h1>Crafting Brands that Cross Borders</h1>
+          <h1>
+              {/* third package that applies a typing effect */}
+              <Typewriter
+                words={[
+                  "Crafting Brands that Cross Borders",
+                  "国境を超えたデザインを",
+                ]}
+                loop={true}
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+          </h1>
+
             {/* Button component is imported and  used*/}
             <Button label="About me" onClick={() => {navigate("/about")}} />
           </div>

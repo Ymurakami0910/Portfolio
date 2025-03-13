@@ -15,7 +15,7 @@
     justify-content: flex-start;
     gap: 20px;
     width: 100%;
-    max-width: 900px;
+    max-width: 1200px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -87,7 +87,7 @@
   .ReadButton {
     position: absolute;
     bottom: 2rem; 
-    right: 50%; 
+    right: 40%; 
   }
   
   /* Responsive styles */

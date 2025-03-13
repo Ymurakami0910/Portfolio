@@ -273,7 +273,7 @@ function Home() {
           {/* Project card component */}
           <ProjectCard/>
           <div className="featured-btn">
-          <ReadButton label="Read More" onClick={() => {navigate("/project")}}/>
+          <ReadButton label="View More" onClick={() => { navigate("/project"); window.scrollTo(0, 0); }} />
           </div>
           </div>
         </div>

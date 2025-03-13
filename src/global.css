@@ -639,9 +639,10 @@ h6 {
 
 /* Project page */
 
-.Project-content {
+.ProjectPage-content {
+  text-align: center;
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 5rem;
 }
 
 @media (max-width: 768px){
@@ -1072,6 +1073,7 @@ label {
 }
 
 .Project-title h1{
+  text-align: center;
   padding-top: 1rem;
   padding-bottom:2rem ;
 }

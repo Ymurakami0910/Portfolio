@@ -12,7 +12,7 @@ function Footer() {
   return (
     <>
       <footer className={Styles.footer}>
-        <div className="container">
+        <div>
           <div className={Styles.footerBox}>
             <div className={Styles.footerLogo}>
               <img src={Logo} alt="logo with white text" />

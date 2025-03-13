@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import ReadButton from "./ReadButton";
+import ReadButton2 from "../components/readButton2";
 import styles from "../components/ProjectCard2.module.css";
 import projectData from "../data/project.json";
 
@@ -31,7 +31,8 @@ function ProjectCard2() {
 
             {/* Read More */}
             <div className={styles.ReadButton}>
-              <ReadButton label="Read More" pageLink={project.pageLink2} />
+              <ReadButton2 label="Read More" pageLink={project.pageLink2}
+               />
             </div>
           </div>
           <div className={styles.cardImageContainer}>

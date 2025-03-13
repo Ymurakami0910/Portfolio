@@ -40,12 +40,13 @@
 
 /* Project title */
 .cardTitle {
-  margin-bottom:1rem;
+  font-size: 1.8rem;
+  margin-bottom:0.5rem;
 }
 
 /* Genre label */
 .cardGenre {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: var(--blue);
   margin-bottom: 1rem;
 }

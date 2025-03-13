@@ -14,6 +14,8 @@ import KissaTanpopo from './project/KissaTanpopo';
 import Celestial from './project/Celestial';
 import CraftedCorners from './project/CraftedCorner';
 import Blenz from './project/Blenz';
+import scrollTop from "./components/scrollTop"
+
 
 // slick slider css for project page 
 import "slick-carousel/slick/slick.css"; 
@@ -47,6 +49,7 @@ function App() {
 
   return (
     <Router>
+      <scrollTop/>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

@@ -1,0 +1,50 @@
+
+a.btnBorder {
+    font-family: "Open sans";
+    position: relative;
+    border: 2px solid var(--green);
+    border-radius: 0;
+    background: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    color:var(--green);
+    font-weight: bold;
+    display: inline-block;
+    overflow: hidden; 
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+  }
+  
+  a.btnBorder:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    content: '';
+    background:var(--green);
+    transition: all 0.5s ease;
+    transform: translateX(0) translateY(0);
+    border-radius: 0 50% 50% 0;
+  }
+  
+  a.btnBorder:hover:before {
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    transform: translateX(460%) translateY(.5rem);
+    color:#fff;
+    border-radius: 50%;
+  }
+  
+  a.btnBorder:hover {
+    color: #fff;
+    background-color:var(--green);
+  }
+  
+  a.btnBorder:hover:before {
+    background:var(--green); 
+  }
+  

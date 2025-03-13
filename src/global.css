@@ -330,17 +330,64 @@ h6 {
   justify-content: space-between;
   gap: 20px;
 }
+@media (max-width: 1024px) and (min-width: 769px) {
+  .Home-hero {
+    min-height: 75vh; /* 画面の大きさに合わせて調整 */
+  }
+
+  .clouds {
+    top: 40vh; /* 雲の位置を少し下げる */
+  }
+
+  .cloud {
+    width: 900px; /* iPad miniサイズに合わせた雲の調整 */
+    top: 52%;
+  }
+
+  .cloud1 {
+    left: 18%;
+  }
+
+  .cloud2 {
+    left: 12%;
+    top: 48%;
+  }
+
+  .cloud2-duplicate {
+    top: 48%;
+  }
+
+  .airplane-1 {
+    left: -6vw;
+    top: 78%;
+  }
+
+  .airplane-2 { 
+    left: -10vw;
+    top: 53%;
+  }
+
+  .airplane-3 {
+    left: -14vw;
+    top: 15%;
+  }
+
+  .message-airplane img {
+    width: 130px; /* 中間サイズの飛行機メッセージ */
+  }
+}
 @media (max-width: 992px) and (min-width: 769px){
   .Home-hero{
     min-height: 65vh;
   }
 }
+
 @media (max-width: 768px) {
   .Home-hero{
-    min-height: 89vh;
+    min-height: 70vh;
   }
   .clouds {
-    top: 45vh;
+    top: 30vh;
   }
 
   .cloud {
@@ -390,6 +437,53 @@ h6 {
     min-height: 1rem; /* 文字の高さを固定 */
   }
 
+}
+
+@media (min-width: 1201px) {
+  .Home-hero {
+    min-height: 80vh; /* より大きなヒーローセクション */
+  }
+
+  .clouds {
+    top: 30vh; /* 雲の位置を調整 */
+  }
+
+  .cloud {
+    width: 1200px; /* 雲のサイズを拡大 */
+    top: 50%;
+  }
+
+  .cloud1 {
+    left: 25%;
+  }
+
+  .cloud2 {
+    left: 70%;
+    top: 45%;
+  }
+
+  .cloud2-duplicate {
+    top: 45%;
+  }
+
+  .airplane-1 {
+    left: -3vw;
+    top: 75%;
+  }
+
+  .airplane-2 { 
+    left: -8vw;
+    top: 50%;
+  }
+
+  .airplane-3 {
+    left: -15vw;
+    top: 10%;
+  }
+
+  .message-airplane img {
+    width: 150px; /* 飛行機のメッセージ画像を少し大きく */
+  }
 }
 
 /* Message Box */
@@ -518,10 +612,11 @@ h6 {
 
 /* featured section */
 .featured {
+  position: relative;
   background-image: url("./assets/sky-bg.jpeg");
   background-size: cover; 
   padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-bottom: 10rem;
   background-position: center; 
   background-repeat: no-repeat; 
 }
@@ -530,6 +625,12 @@ h6 {
   font-size: 30px;
   text-align: center;
   margin-bottom: 3rem;
+}
+
+.featured-btn {
+  position: absolute;
+  right: 10%;
+  margin-top: 1rem;
 }
 
 /* Project page */
@@ -586,6 +687,7 @@ h6 {
   margin-top: 2rem;
   font-size: 1.3rem;
 }
+
 .about-header__button {
   margin-top: 1rem;
   display: flex;
@@ -604,7 +706,11 @@ h6 {
   object-fit: cover;
   animation: float 4.5s ease-in-out infinite; 
 }
-
+@media (min-width: 1801px) {
+.about-header {
+  min-height:30vh;
+} 
+}
 
 /*  Cards  */
 

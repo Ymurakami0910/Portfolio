@@ -1,16 +1,19 @@
 import React from "react";
-import styles from "./readButton.module.css";
-import { useNavigate } from "react-router-dom";
+import { Icon } from "@iconify/react";
+import styles from "../components/readButton.module.css";
 
-function ReadButton({ label, pageLink}) {
-  // takes props as its input and will be passed when this component is used 
-  const navigate = useNavigate();
-
+function ReadButton({ label, onClick }) {
   return (
-    <a className={`${styles.btn} ${styles.btnBorder}`} onClick={() => navigate(pageLink)}>
-      {label}
-      {/* This allows customization of the button's content */}
-    </a>
+    <button
+      onClick={() => {
+        if (onClick) onClick(); // onClickが渡されていれば実行
+        window.scrollTo(0, 0); // 画面をトップにスクロール
+      }}
+      className={styles.patchworkButton}
+    >
+      <Icon icon="mdi:arrow-right-circle" className={styles.icon} />
+      <span className={styles.label}>{label}</span>
+    </button>
   );
 }
 

@@ -4,11 +4,15 @@ import { useNavigate } from "react-router-dom";
 // gsap
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import { Typewriter } from "react-simple-typewriter";
+
 // components
 import Button from "../components/button.jsx";
 import Styles from "../components/title.module.css";
 import ProjectCard from "../components/projectCard";
 import Splash from "../components/splash";
+import ReadButton from "../components/ReadButton.jsx";
 // assets
 import Cloud1 from "../assets/cloud1.png";
 import Cloud2 from "../assets/cloud2.png";
@@ -16,9 +20,19 @@ import AirplaneIcon from "../assets/icons/airplane.png";
 import LinkedInIcon from "../assets/icons/linkedin.png";
 import TanukiIllustration from "../assets/tanuki.png";
 
+
+import projectData from "../data/project.json"; 
+
+
 function Home() {
   // initialization of third packages 
   const navigate = useNavigate();
+
+    // takes out the only data from project data id 1 and 2
+  
+    const filteredProjects = projectData.filter(
+      (project) => project.id === 1 || project.id === 2
+    );
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -196,10 +210,20 @@ function Home() {
         </div>
         <div className="container Home-hero__text">
           <div className="">
-            <h1>
-              国境を越えた<span></span>デザインを
-            </h1>
-            <h1>Crafting Brands that Cross Borders</h1>
+          <h1>
+              {/* third package that applies a typing effect */}
+              <Typewriter
+                words={[
+                  "Crafting Brands that Cross Borders",
+                  "国境を超えたデザインを",
+                ]}
+                loop={true}
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+          </h1>
+
             {/* Button component is imported and  used*/}
             <Button label="About me" onClick={() => {navigate("/about")}} />
           </div>
@@ -214,15 +238,6 @@ function Home() {
           <div className="message-box">
             <div className="message-box__header">
               <h2>Hi! I am Yuri,a brand designer</h2>
-              <a
-                href="https://www.linkedin.com/in/yurino-murakami-047175318"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="message-box__icon">
-                  <img src={LinkedInIcon} alt="LinkedIn-icon" />
-                </div>
-              </a>
             </div>
             <p>
               My studio's logo features a{" "}
@@ -254,9 +269,13 @@ function Home() {
         <div>
           <div className=" container featured-title">
             <h3 className={Styles.tag}>Featured Branding Projects</h3>
-          </div>
+     
           {/* Project card component */}
-          <ProjectCard />
+          <ProjectCard/>
+          <div className="featured-btn">
+          <ReadButton label="Read More" onClick={() => {navigate("/project")}}/>
+          </div>
+          </div>
         </div>
       </section>
     </>

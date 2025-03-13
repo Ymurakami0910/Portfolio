@@ -1,50 +1,58 @@
+.patchworkButton {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-flex; /* Flexboxを使用 */
+  align-items: center; /* アイコンとテキストを中央揃え */
+  gap: 0.8rem; /* アイコンとテキストの間隔 */
+  padding: 1.5rem 3rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: var(--text_white); /* テキストの色を白に */
+  border-radius: 100vh; /* ボタンの角を丸くする */
+  border: none; /* 枠線をなしに */
+  background: repeating-linear-gradient(
+    45deg,
+    #46AA9B, /* --green */
+    #46AA9B 10px,
+    #3a8c7f 10px, /* --greenを少し暗く */
+    #3a8c7f 20px,
+    #2e7a6d 20px, /* --greenをさらに暗く */
+    #2e7a6d 30px,
+    #46AA9B 30px, /* --green */
+    #46AA9B 40px,
+    #3a8c7f 40px, /* --greenを少し暗く */
+    #3a8c7f 50px,
+    #2e7a6d 50px, /* --greenをさらに暗く */
+    #46AA9B 50px
+  ); /* パッチワーク風のグラデーション */
+  background-size: 200% 200%; /* 背景のサイズを大きくする */
+  overflow: hidden; /* はみ出た部分を隠す */
+  box-shadow: var(--box-shadow); /* シャドウを追加 */
+}
 
-a.btnBorder {
-    font-family: "Open sans";
-    position: relative;
-    border: 2px solid var(--green);
-    border-radius: 0;
-    background: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    color:var(--green);
-    font-weight: bold;
-    display: inline-block;
-    overflow: hidden; 
-    transition: all 0.3s ease;
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
-    cursor: pointer;
-  }
-  
-  a.btnBorder:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 100%;
-    content: '';
-    background:var(--green);
-    transition: all 0.5s ease;
-    transform: translateX(0) translateY(0);
-    border-radius: 0 50% 50% 0;
-  }
-  
-  a.btnBorder:hover:before {
-    line-height: 30px;
-    width: 30px;
-    height: 30px;
-    transform: translateX(460%) translateY(.5rem);
-    color:#fff;
-    border-radius: 50%;
-  }
-  
-  a.btnBorder:hover {
-    color: #fff;
-    background-color:var(--green);
-  }
-  
-  a.btnBorder:hover:before {
-    background:var(--green); 
-  }
-  
+.patchworkButton:hover {
+  background-position: 100% 100%; /* ホバー時に背景を動かす */
+  transform: translateY(-2px); /* ホバー時に少し浮き上がる */
+}
+
+.label {
+  position: relative;
+  z-index: 1; /* テキストを前面に表示 */
+}
+
+.arrowIcon {
+  font-size: 2rem; /* アイコンのサイズ */
+  color: var(--text_white); /* アイコンの色を白に */
+  transition: transform 0.3s ease; /* ホバー時のアニメーション */
+}
+
+.patchworkButton:hover .arrowIcon {
+  transform: translateX(5px); /* ホバー時に矢印を右に動かす */
+}

@@ -115,7 +115,7 @@ function About() {
                   "Create your perfect brand",
                 ]}
                 loop={true}
-                typeSpeed={70}
+                typeSpeed={60}
                 deleteSpeed={50}
                 delaySpeed={1000}
               />

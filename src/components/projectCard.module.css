@@ -4,23 +4,31 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  padding: 20px;
+  padding: 30px;
   max-width: 1200px;
-  margin: 0 auto; 
+  margin: 0 auto;
+  /* Add a subtle background texture */
+  border-radius: 10px;
 }
 
 /* Individual project card */
 .card {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column; /* Vertical stacking of content */
+  align-items: center;
   gap: 20px;
   width: 100%;
-  max-width: 900px;
-  background-color: #fff;
+  max-width: 550px; /* Smaller cards for a cozy, stacked layout */
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  padding:2rem;
   position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+  background: url('../assets/paper.jpeg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
 }
 
 /* Card text content */

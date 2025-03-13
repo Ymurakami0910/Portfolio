@@ -9,14 +9,10 @@ import ProjectOverview from "../components/ProjectOverview.jsx";
 import ProjectIntro from "../components/ProjectIntro.jsx";
 import ProjectBelt from "../components/ProjectBelt.jsx";
 import ProjectTakeaways from "../components/ProjectTakeaways.jsx";
+import ProjectSlider from "../components/ProjectSlider.jsx";
 import YouMayLike from "../components/YouMayLike.jsx";
 import ProjectHeader from "../components/ProjectHeader.jsx";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
 
 import Thumb from "../assets/KissaTanpopo/KissaStore.png";
 import Kissa1min from "../assets/KissaTanpopo/Kissa--1.jpg";
@@ -58,6 +54,12 @@ function KissaTanpopo() {
     return shuffled.slice(0, count);
   };
 
+  const projectImages = [
+    [slide1, slide2, slide3,slide4,slide5], 
+    [slide6, slide7, slide8],
+    [slide9, slide10, slide11, slide12],
+  ];
+
   useEffect(() => {
     const FadeIns = document.querySelectorAll(".fadeIn");
     FadeIns.forEach((element) => {
@@ -84,53 +86,9 @@ function KissaTanpopo() {
     });
   }, []);
 
-  const CustomNextArrow = ({ onClick }) => {
-    return (
-      <div className="custom-arrow custom-next-arrow" onClick={onClick}>
-        <FontAwesomeIcon icon={faChevronRight} />
-      </div>
-    );
-  };
 
-  const CustomPrevArrow = ({ onClick }) => {
-    return (
-      <div className="custom-arrow custom-prev-arrow" onClick={onClick}>
-        <FontAwesomeIcon icon={faChevronLeft} />
-      </div>
-    );
-  };
 
-  const settings = {
-    infinite: true, // 無限スクロール
-    speed: 400, // アニメーション速度 (ms)
-    slidesToShow: 3, // 表示するスライド数
-    slidesToScroll: 1, // スクロールするスライド数
-    autoplay: true, // 自動再生
-    autoplaySpeed: 3000, // 自動再生間隔 (ms)
-    arrows: true,
-    pauseOnHover: true,
-    pauseOnFocus: false,
-    nextArrow: <CustomNextArrow />,
-    prevArrow: <CustomPrevArrow />,
-    responsive: [
-      {
-        breakpoint: 768, // Mobile devices (768px or smaller)
-        settings: {
-          slidesToShow: 1, // Show one slide
-          slidesToScroll: 1, // Scroll one slide at a time
-          pauseOnFocus: true,
-        },
-      },
-      {
-        breakpoint: 1024, // Tablets (1024px or smaller)
-        settings: {
-          slidesToShow: 2, // Show two slides
-          slidesToScroll: 1,
-          pauseOnFocus: true,
-        },
-      },
-    ],
-  };
+
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -274,50 +232,7 @@ function KissaTanpopo() {
       <section className="Paper_v2 bg_pattern">
         <div className="container Project-slider ">
           <h5>Brand Book</h5>
-          <div>
-            <Slider className="" {...settings}>
-              <div>
-                <img src={slide1} alt="Slide 1" />
-              </div>
-              <div>
-                <img src={slide2} alt="" />
-              </div>
-              <div>
-                <img src={slide3} alt="" />
-              </div>
-              <div>
-                <img src={slide4} alt="" />
-              </div>
-              <div>
-                <img src={slide5} alt="" />
-              </div>
-            </Slider>
-            <Slider {...settings}>
-              <div>
-                <img src={slide6} alt="Slide 6" />
-              </div>
-              <div>
-                <img src={slide7} alt="" />
-              </div>
-              <div>
-                <img src={slide8} alt="" />
-              </div>
-            </Slider>
-            <Slider {...settings}>
-              <div>
-                <img src={slide9} alt="Slide 1" />
-              </div>
-              <div>
-                <img src={slide10} alt="" />
-              </div>
-              <div>
-                <img src={slide11} alt="" />
-              </div>
-              <div>
-                <img src={slide12} alt="" />
-              </div>
-            </Slider>
-          </div>
+          <ProjectSlider imageGroups={projectImages}/>
         </div>
       </section>
 

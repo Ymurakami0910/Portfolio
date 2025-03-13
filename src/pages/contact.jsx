@@ -5,6 +5,7 @@ import styles from "../components/title.module.css";
 
 function Contact() {
   return (
+
     <>
       <section>
         <div className="container contact">
@@ -27,7 +28,6 @@ function Contact() {
                 />
               </a>
             </div>
-
             <div className="contact__image">
               <img src={tanukiImage} alt="Tanuki Image" />
             </div>

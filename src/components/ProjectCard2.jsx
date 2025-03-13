@@ -11,7 +11,7 @@ function ProjectCard2() {
 
   return (
     <div className={styles.cardContainer}>
-      {/* projectData loop. coming from json data */}
+
       {projectData.map((project) => (
         <div key={project.id} className={styles.card}>
           <div className={styles.cardText}>

@@ -640,22 +640,11 @@ h6 {
 /* Project page */
 
 .ProjectPage-content {
-  text-align: center;
+  text-align: left;
+  padding-left:10% ;
   padding-top: 2rem;
   padding-bottom: 5rem;
 }
-
-@media (max-width: 768px){
-  .ProjectPage-content {
-    text-align: center;
-    padding-top: 7rem;
-  }
-  .ProjectPage-content h1{
-    font-size:2rem;
-  }
-}
-
-
 .ProjectPage-content h1 {
   margin-bottom: 2rem;
 }
@@ -693,7 +682,6 @@ h6 {
   justify-content: center;
   transition: opacity 0.3s ease, transform 0.3s ease; 
   text-align: center; 
-
 }
 
 /* フィルターボタン */
@@ -730,6 +718,21 @@ h6 {
 }
 
 
+@media (max-width: 768px){
+  .ProjectPage-content {
+    padding-top: 7rem;
+  }
+  .ProjectPage-content h1{
+    font-size:2rem;
+  }
+
+  /* フィルターボタンエリア */
+.filters {
+  justify-content: left;
+  text-align: left; 
+}
+
+}
 
 /* About page */
 

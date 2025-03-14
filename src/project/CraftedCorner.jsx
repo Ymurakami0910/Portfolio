@@ -12,6 +12,7 @@ import ProjectBelt from "../components/ProjectBelt.jsx";
 import ProjectTakeaways from "../components/ProjectTakeaways.jsx";
 import YouMayLike from "../components/YouMayLike.jsx";
 import ProjectHeader from "../components/ProjectHeader.jsx";
+import ProjectSlider from "../components/ProjectSlider.jsx";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -45,7 +46,7 @@ import "slick-carousel/slick/slick-theme.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-function Celestial() {
+function CraftedCorners() {
   const [figmaUrl, setFigmaUrl] = useState(
     "https://embed.figma.com/design/H6L5Y8FBaVZzQ4Qn7xaoCk/Crafted-Corners?node-id=0-1&embed-host=share"
   );
@@ -86,53 +87,7 @@ function Celestial() {
     });
   }, []);
 
-  const CustomNextArrow = ({ onClick }) => {
-    return (
-      <div className="custom-arrow custom-next-arrow" onClick={onClick}>
-        <FontAwesomeIcon icon={faChevronRight} />
-      </div>
-    );
-  };
 
-  const CustomPrevArrow = ({ onClick }) => {
-    return (
-      <div className="custom-arrow custom-prev-arrow" onClick={onClick}>
-        <FontAwesomeIcon icon={faChevronLeft} />
-      </div>
-    );
-  };
-
-  const settings = {
-    infinite: true, // 無限スクロール
-    speed: 400, // アニメーション速度 (ms)
-    slidesToShow: 3, // 表示するスライド数
-    slidesToScroll: 1, // スクロールするスライド数
-    autoplay: true, // 自動再生
-    autoplaySpeed: 3000, // 自動再生間隔 (ms)
-    arrows: true,
-    pauseOnHover: true,
-    pauseOnFocus: false,
-    nextArrow: <CustomNextArrow />,
-    prevArrow: <CustomPrevArrow />,
-    responsive: [
-      {
-        breakpoint: 768, // Mobile devices (768px or smaller)
-        settings: {
-          slidesToShow: 1, // Show one slide
-          slidesToScroll: 1, // Scroll one slide at a time
-          pauseOnFocus: true,
-        },
-      },
-      {
-        breakpoint: 1024, // Tablets (1024px or smaller)
-        settings: {
-          slidesToShow: 2, // Show two slides
-          slidesToScroll: 1,
-          pauseOnFocus: true,
-        },
-      },
-    ],
-  };
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -206,6 +161,10 @@ function Celestial() {
     setRandomProjects(randomItems);
   }, [projectData]);
 
+  const projectImages = [
+    [slide1, slide2, slide3,slide4,slide5,slide6,slide7,slide8,slide9,slide10], 
+  ];
+
   return (
     <>
       <ProjectHeader
@@ -262,40 +221,8 @@ function Celestial() {
       <section className="Paper_v2 bg_pattern">
         <div className="container Project-slider ">
           <h5>More about Crafted Corners</h5>
-          <div>
-            <Slider {...settings}>
-              <div>
-                <img src={slide1} alt="Slide 1" />
-              </div>
-              <div>
-                <img src={slide2} alt="Slide 2" />
-              </div>
-              <div>
-                <img src={slide3} alt="Slide 3" />
-              </div>
-              <div>
-                <img src={slide4} alt="Slide 4" />
-              </div>
-              <div>
-                <img src={slide5} alt="Slide 5" />
-              </div>
-              <div>
-                <img src={slide6} alt="Slide 6" />
-              </div>
-              <div>
-                <img src={slide7} alt="Slide 7" />
-              </div>
-              <div>
-                <img src={slide8} alt="Slide 8" />
-              </div>
-              <div>
-                <img src={slide9} alt="Slide 9" />
-              </div>
-              <div>
-                <img src={slide10} alt="Slide 10" />
-              </div>
-            </Slider>
-          </div>
+          <ProjectSlider imageGroups={projectImages}/>
+
         </div>
       </section>
 
@@ -304,4 +231,4 @@ function Celestial() {
   );
 }
 
-export default Celestial;
+export default CraftedCorners;

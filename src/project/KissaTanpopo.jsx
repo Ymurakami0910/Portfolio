@@ -36,10 +36,6 @@ import slide10 from "../assets/KissaTanpopo/slide10.jpg";
 import slide11 from "../assets/KissaTanpopo/slide11.jpg";
 import slide12 from "../assets/KissaTanpopo/slide12.jpg";
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 

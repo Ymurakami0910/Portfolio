@@ -6,8 +6,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pixelify+Sans:wght@400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 
-
-
 * {
   margin: 0;
   padding: 0;
@@ -655,6 +653,59 @@ h6 {
   }
 }
 
+/* Skill Search ボタン */
+.skillSearchBtn {
+  font-family: "Fredoka", sans-serif;
+  background: var(--green);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.skillSearchBtn:hover {
+  transform: scale(1.1); 
+}
+
+/* フィルターボタンエリア */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+
+/* フィルターボタン */
+.filters button {
+  font-family: "Fredoka", sans-serif;
+  color: var(--green);
+  padding: 6px 12px;
+  border: 2px solid var(--green);
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: white;
+  transition: 0.3s;
+}
+
+.filters button:hover {
+  background: var(--green);
+  color: white;
+}
+
+/* 選択されたフィルター */
+.filters .active {
+  background: var(--green);
+  color: white;
+}
+
+
 /* About page */
 
 .about-header {
@@ -1073,7 +1124,6 @@ label {
 }
 
 .Project-title h1{
-  text-align: center;
   padding-top: 1rem;
   padding-bottom:2rem ;
 }
@@ -1271,7 +1321,7 @@ label {
 /* slide shows */
 
 .slick-slider{
-  padding: 1.5rem;
+  padding: 1rem;
 }
 .slick-slide {
   text-align: center;
@@ -1337,8 +1387,7 @@ label {
   margin-top: 0;
   padding-top: 0;
   position: relative;
-  max-width: 50%;
-  max-height: 50%;
+  max-width: 60%;
   margin: auto; 
 }
 

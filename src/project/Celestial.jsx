@@ -42,12 +42,15 @@ import slide12 from "../assets/Celestial/12.jpg";
 import slide13 from "../assets/Celestial/13.jpg";
 import slide14 from "../assets/Celestial/14.jpg";
 import slide15 from "../assets/Celestial/15.jpg";
+
+
 import slide18 from "../assets/Celestial/18.jpg";
 import slide19 from "../assets/Celestial/19.jpg";
 import slide20 from "../assets/Celestial/20.jpg";
 import slide21 from "../assets/Celestial/21.jpg";
 import slide22 from "../assets/Celestial/22.jpg";
 import slide23 from "../assets/Celestial/23.jpg";
+
 import slide24 from "../assets/Celestial/24.jpg";
 import slide25 from "../assets/Celestial/25.jpg";
 import slide26 from "../assets/Celestial/26.jpg";
@@ -81,6 +84,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ProjectSlider from "../components/ProjectSlider.jsx";
 
 function Celestial() {
   gsap.registerPlugin(ScrollTrigger);
@@ -118,54 +122,6 @@ function Celestial() {
       );
     });
   }, []);
-
-  const CustomNextArrow = ({ onClick }) => {
-    return (
-      <div className="custom-arrow custom-next-arrow" onClick={onClick}>
-        <FontAwesomeIcon icon={faChevronRight} />
-      </div>
-    );
-  };
-
-  const CustomPrevArrow = ({ onClick }) => {
-    return (
-      <div className="custom-arrow custom-prev-arrow" onClick={onClick}>
-        <FontAwesomeIcon icon={faChevronLeft} />
-      </div>
-    );
-  };
-
-  const settings = {
-    infinite: true, // 無限スクロール
-    speed: 400, // アニメーション速度 (ms)
-    slidesToShow: 3, // 表示するスライド数
-    slidesToScroll: 1, // スクロールするスライド数
-    autoplay: true, // 自動再生
-    autoplaySpeed: 3000, // 自動再生間隔 (ms)
-    arrows: true,
-    pauseOnHover: true,
-    pauseOnFocus: false,
-    nextArrow: <CustomNextArrow />,
-    prevArrow: <CustomPrevArrow />,
-    responsive: [
-      {
-        breakpoint: 768, // Mobile devices (768px or smaller)
-        settings: {
-          slidesToShow: 1, // Show one slide
-          slidesToScroll: 1, // Scroll one slide at a time
-          pauseOnFocus: true,
-        },
-      },
-      {
-        breakpoint: 1024, // Tablets (1024px or smaller)
-        settings: {
-          slidesToShow: 2, // Show two slides
-          slidesToScroll: 1,
-          pauseOnFocus: true,
-        },
-      },
-    ],
-  };
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -238,6 +194,16 @@ function Celestial() {
     const randomItems = getRandomProjects(projectData, project.id, 2);
     setRandomProjects(randomItems);
   }, [projectData]);
+  
+  const projectImages = [
+    [
+      slide2, slide4, slide5, slide6, slide7, slide8, 
+      slide9, slide10, slide11, slide12, slide13, slide14, slide15
+    ], 
+    [
+      slide18, slide19, slide20, slide21, slide22, slide23
+    ]
+  ];
 
   return (
     <>
@@ -293,143 +259,7 @@ function Celestial() {
       <section className="Paper_v2 bg_pattern">
         <div className="container Project-slider ">
           <h5>Event details</h5>
-          <div>
-            <Slider className="" {...settings}>
-              <div>
-                <img src={slide2} alt="" />
-              </div>
-              <div>
-                <img src={slide4} alt="" />
-              </div>
-              <div>
-                <img src={slide5} alt="" />
-              </div>
-              <div>
-                <img src={slide6} alt="" />
-              </div>
-              <div>
-                <img src={slide7} alt="" />
-              </div>
-              <div>
-                <img src={slide8} alt="" />
-              </div>
-              <div>
-                <img src={slide9} alt="" />
-              </div>
-              <div>
-                <img src={slide10} alt="" />
-              </div>
-              <div>
-                <img src={slide11} alt="" />
-              </div>
-              <div>
-                <img src={slide13} alt="" />
-              </div>
-              <div>
-                <img src={slide14} alt="" />
-              </div>
-              <div>
-                <img src={slide15} alt="" />
-              </div>
-            </Slider>
-            <Slider {...settings}>
-              <div>
-                <img src={slide18} alt="" />
-              </div>
-              <div>
-                <img src={slide19} alt="" />
-              </div>
-              <div>
-                <img src={slide20} alt="" />
-              </div>
-              <div>
-                <img src={slide21} alt="Slide 21" />
-              </div>
-              <div>
-                <img src={slide22} alt="Slide 22" />
-              </div>
-              <div>
-                <img src={slide23} alt="Slide 23" />
-              </div>
-              <div>
-                <img src={slide24} alt="Slide 24" />
-              </div>
-              <div>
-                <img src={slide25} alt="Slide 25" />
-              </div>
-              <div>
-                <img src={slide26} alt="Slide 26" />
-              </div>
-              <div>
-                <img src={slide27} alt="Slide 27" />
-              </div>
-              <div>
-                <img src={slide28} alt="Slide 28" />
-              </div>
-              <div>
-                <img src={slide29} alt="Slide 29" />
-              </div>
-              <div>
-                <img src={slide30} alt="Slide 30" />
-              </div>
-              <div>
-                <img src={slide31} alt="Slide 31" />
-              </div>
-              <div>
-                <img src={slide32} alt="Slide 32" />
-              </div>
-              <div>
-                <img src={slide33} alt="Slide 33" />
-              </div>
-              <div>
-                <img src={slide34} alt="Slide 34" />
-              </div>
-              <div>
-                <img src={slide35} alt="Slide 35" />
-              </div>
-              <div>
-                <img src={slide36} alt="Slide 36" />
-              </div>
-              <div>
-                <img src={slide37} alt="Slide 37" />
-              </div>
-              <div>
-                <img src={slide38} alt="Slide 38" />
-              </div>
-              <div>
-                <img src={slide39} alt="Slide 39" />
-              </div>
-            </Slider>
-            <Slider {...settings}>
-              <div>
-                <img src={slide40} alt="Slide 1" />
-              </div>
-              <div>
-                <img src={slide41} alt="Slide 2" />
-              </div>
-              <div>
-                <img src={slide49} alt="Slide 3" />
-              </div>
-              <div>
-                <img src={slide50} alt="Slide 4" />
-              </div>
-              <div>
-                <img src={slide51} alt="Slide 5" />
-              </div>
-              <div>
-                <img src={slide52} alt="Slide 7" />
-              </div>
-              <div>
-                <img src={slide53} alt="Slide 8" />
-              </div>
-              <div>
-                <img src={slide54} alt="Slide 9" />
-              </div>
-              <div>
-                <img src={slide55} alt="Slide 10" />
-              </div>
-            </Slider>
-          </div>
+          <ProjectSlider imageGroups={projectImages}/>
         </div>
       </section>
 

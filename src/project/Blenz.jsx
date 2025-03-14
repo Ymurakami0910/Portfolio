@@ -14,6 +14,7 @@ import ProjectIntro from "../components/ProjectIntro.jsx";
 import ProjectBullet from "../components/ProjectBullet.jsx";
 import ProjectVideo from "../components/projectVideo.jsx";
 import ProjectTakeaways from "../components/ProjectTakeaways.jsx";
+import ProjectSlider from "../components/ProjectSlider.jsx";
 import YouMayLike from "../components/YouMayLike.jsx";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -37,9 +38,6 @@ import slide5 from "../assets/Blenz/user1.jpg";
 import slide6 from "../assets/Blenz/user2.jpg";
 import slide7 from "../assets/Blenz/user3.jpg";
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -136,53 +134,7 @@ function Celestial() {
     });
   }, []);
 
-  const CustomNextArrow = ({ onClick }) => {
-    return (
-      <div className="custom-arrow custom-next-arrow" onClick={onClick}>
-        <FontAwesomeIcon icon={faChevronRight} />
-      </div>
-    );
-  };
 
-  const CustomPrevArrow = ({ onClick }) => {
-    return (
-      <div className="custom-arrow custom-prev-arrow" onClick={onClick}>
-        <FontAwesomeIcon icon={faChevronLeft} />
-      </div>
-    );
-  };
-
-  const settings = {
-    infinite: true, // 無限スクロール
-    speed: 400, // アニメーション速度 (ms)
-    slidesToShow: 3, // 表示するスライド数
-    slidesToScroll: 1, // スクロールするスライド数
-    autoplay: true, // 自動再生
-    autoplaySpeed: 3000, // 自動再生間隔 (ms)
-    arrows: true,
-    pauseOnHover: true,
-    pauseOnFocus: false,
-    nextArrow: <CustomNextArrow />,
-    prevArrow: <CustomPrevArrow />,
-    responsive: [
-      {
-        breakpoint: 768, // Mobile devices (768px or smaller)
-        settings: {
-          slidesToShow: 1, // Show one slide
-          slidesToScroll: 1, // Scroll one slide at a time
-          pauseOnFocus: true,
-        },
-      },
-      {
-        breakpoint: 1024, // Tablets (1024px or smaller)
-        settings: {
-          slidesToShow: 2, // Show two slides
-          slidesToScroll: 1,
-          pauseOnFocus: true,
-        },
-      },
-    ],
-  };
   const [isMobile, setIsMobile] = useState(false);
 
   const [currentProject, setCurrentProject] = useState(null);
@@ -197,6 +149,13 @@ function Celestial() {
     const randomItems = getRandomProjects(projectData, project.id, 2);
     setRandomProjects(randomItems);
   }, [projectData]);
+
+  const projectImages = [
+    [slide2, slide3,slide4], 
+  ];
+  const projectImages2 = [
+    [slide5, slide6,slide7], 
+  ];
 
   return (
     <>
@@ -243,17 +202,7 @@ function Celestial() {
             </p>
           </div>
           <div>
-            <Slider {...settings}>
-              <div>
-                <img src={slide2} alt="Slide 1" />
-              </div>
-              <div>
-                <img src={slide3} alt="Slide 2" />
-              </div>
-              <div>
-                <img src={slide4} alt="Slide 3" />
-              </div>
-            </Slider>
+          <ProjectSlider imageGroups={projectImages}/>
           </div>
         </div>
       </section>
@@ -275,17 +224,7 @@ function Celestial() {
         <FontAwesomeIcon icon={faUser} size="2x" color="#205989" />
             <h3>Targeted user</h3>
           </div>
-            <Slider {...settings}>
-              <div>
-                <img src={slide5} alt="Slide 4" />
-              </div>
-              <div>
-                <img src={slide6} alt="Slide 5" />
-              </div>
-              <div>
-                <img src={slide7} alt="Slide 6" />
-              </div>
-            </Slider>
+          <ProjectSlider imageGroups={projectImages2}/>
           </div>
       </section>
 

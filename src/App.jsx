@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     lenisRef.current = new Lenis({
       autoRaf: true,
-      duration: 1.2, // デフォルトの1.2くらいに戻す
+      duration: 1.5, // デフォルトの1.2くらいに戻す
       easing: (t) => 1 - Math.pow(1 - t, 3), // より軽めのeasing
       smoothTouch: true, // タッチデバイスの挙動を改善
     });

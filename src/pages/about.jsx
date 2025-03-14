@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 // the third party that our class didn't cover
 import { Typewriter } from "react-simple-typewriter";
+
+import { Tooltip } from "react-tooltip";
+
 // gsap 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -142,9 +145,26 @@ function About() {
               <h2>Play cards to get to know me!</h2>
             </div>
             <div className="about-cards__wrap">
+            <Tooltip
+                    id="modal-tooltip"
+                    place="top"
+                    offset={-10} // これで少し上に移動
+                    style={{
+                      backgroundColor: "rgba(0, 0, 0, 0.9)", 
+                      color: "#fff",
+                      fontFamily: "'Fredoka', serif", 
+                      padding: "6px 10px", 
+                      borderRadius: "4px",
+                      fontSize: "13px",
+                      zIndex:100000,
+                    }}
+                    
+                  >
+                  Tap
+                  </Tooltip>
               {/* flip cards, the data is coming from above  */}
               {cardData.map((card, index) => (
-                <div className="photo-container fadeIn" key={index}>
+                <div className="photo-container fadeIn" key={index} data-tooltip-id="modal-tooltip">
                   <div
                     className={`photo ${flipStates[index] ? "flipped" : ""}`} // Conditional class for flipped card
                     onClick={() => flipPhoto(index)} // Flip the card on click

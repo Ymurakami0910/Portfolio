@@ -21,6 +21,10 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     position: relative;
+    background: url('../assets/paper-2.jpeg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
   }
   
   /* Card text content */
@@ -70,7 +74,6 @@
   /* Image container */
   .cardImageContainer {
     flex-shrink: 0;
-    margin-bottom: 1rem;
     width: 400px;
     height: auto;
     overflow: hidden;
@@ -89,6 +92,38 @@
     bottom: 2rem; 
     right: 40%; 
   }
+
+.chipsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  background-color:var(--white);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: var(--green);
+}
+
+.chipIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+.chipText {
+  font-size: 0.9rem;
+  margin-left: 6px; /* Add some space between the icon and the text */
+}
+
+
   
   /* Responsive styles */
   @media (max-width: 768px) {
@@ -106,17 +141,20 @@
     .cardText {
       text-align: left; 
       width: 100%;
+      margin-top: 2rem;
+      
     }
   
     .cardImageContainer {
       width: 100%;
       height: auto;
       border-radius: 10px; 
+      margin-bottom: 2rem;
     }
   
     .ReadButton {
-     bottom: 2%;
-     right: 2%;
+     bottom: 3%;
+     right: 3%;
     }
   }
   

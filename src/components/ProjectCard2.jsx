@@ -4,13 +4,36 @@ import ReadButton2 from "../components/readButton2";
 import styles from "../components/ProjectCard2.module.css";
 import projectData from "../data/project.json";
 
+import aiIcon from "../assets/icons/ai.png";
+import psIcon from "../assets/icons/ps.png";
+import idIcon from "../assets/icons/id.png";
+import aeIcon from "../assets/icons/ae.png";
+import figmaIcon from "../assets/icons/figma.png";
+import htmlIcon from "../assets/icons/html.png";
+import cssIcon from "../assets/icons/css.png";
+import jsIcon from "../assets/icons/js.png";
+
+// Create a map of chips to icons
+const chipIcons = {
+  "Indesign": idIcon,
+  "Illustrator": aiIcon,
+  "PhotoShop": psIcon,
+  "After Effect": aeIcon,
+  "Figma": figmaIcon,
+  "HTML": htmlIcon,
+  "CSS": cssIcon,
+  "JS": jsIcon,
+  "Group Project": null, // No icon for this
+  "UI/UX": null // No icon for this
+};
+
 function ProjectCard2({ filter }) {
   const navigate = useNavigate();
 
-  // フィルター条件に一致するプロジェクトをフィルタリング
+  // Filter projects based on selected chip
   const filteredProjects = projectData.filter((project) => {
-    if (filter === '') return true; // フィルターがない場合は全てのプロジェクトを表示
-    return project.chips.includes(filter); // チップにフィルター条件が含まれている場合に表示
+    if (filter === '') return true; // Show all projects if no filter is selected
+    return project.chips.includes(filter); // Show project if the chip includes the filter
   });
 
   return (
@@ -21,18 +44,27 @@ function ProjectCard2({ filter }) {
             <h4 className={styles.cardTitle}>{project.title}</h4>
             <p className={styles.cardGenre}>{project.genre}</p>
 
-            {/* チップを表示 */}
+            {/* Display chips with icons and text */}
             <div className={styles.chipsContainer}>
               {project.chips.map((chip, index) => (
                 <span key={index} className={styles.chip}>
-                  {chip}
+                  {chipIcons[chip] ? (
+                    // If there's an icon, display both the icon and the text
+                    <>
+                      <img src={chipIcons[chip]} alt={chip} className={styles.chipIcon} />
+                      <span className={styles.chipText}>{chip}</span>
+                    </>
+                  ) : (
+                    // If no icon, just display the text
+                    <span className={styles.chipText}>{chip}</span>
+                  )}
                 </span>
               ))}
             </div>
 
             <p className={styles.cardDescription}>{project.description}</p>
 
-            {/* Read More */}
+            {/* Read More Button */}
             <div className={styles.ReadButton}>
               <ReadButton2 label="Read More" pageLink={project.pageLink2} />
             </div>

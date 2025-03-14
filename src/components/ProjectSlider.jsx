@@ -3,10 +3,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import { Tooltip } from "react-tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
+  faTimesCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
 const ProjectSlider = ({ imageGroups }) => {
@@ -26,21 +28,17 @@ const ProjectSlider = ({ imageGroups }) => {
     setSelectedGroup(null);
   };
 
-  const CustomNextArrow = ({ onClick }) => {
-    return (
-      <div className="custom-arrow custom-next-arrow" onClick={onClick}>
-        <FontAwesomeIcon icon={faChevronRight} />
-      </div>
-    );
-  };
+  const CustomNextArrow = ({ onClick }) => (
+    <div className="custom-arrow custom-next-arrow" onClick={onClick}>
+      <FontAwesomeIcon icon={faChevronRight} />
+    </div>
+  );
 
-  const CustomPrevArrow = ({ onClick }) => {
-    return (
-      <div className="custom-arrow custom-prev-arrow" onClick={onClick}>
-        <FontAwesomeIcon icon={faChevronLeft} />
-      </div>
-    );
-  };
+  const CustomPrevArrow = ({ onClick }) => (
+    <div className="custom-arrow custom-prev-arrow" onClick={onClick}>
+      <FontAwesomeIcon icon={faChevronLeft} />
+    </div>
+  );
 
   const settings = {
     infinite: true,
@@ -103,12 +101,33 @@ const ProjectSlider = ({ imageGroups }) => {
             <Slider {...modalSettings}>
               {selectedGroup?.map((image, imgIndex) => (
                 <div key={imgIndex}>
-                  <img src={image} alt={`Expanded view ${imgIndex + 1}`} />
+                  <img
+                    src={image}
+                    alt={`Expanded view ${imgIndex + 1}`}
+                    data-tooltip-id="modal-tooltip"
+                  />
+                  <Tooltip
+                    id="modal-tooltip"
+                    place="bottom"
+                    offset={-10} // これで少し上に移動
+                    style={{
+                      backgroundColor: "rgba(0, 0, 0, 0.9)", 
+                      color: "#fff",
+                      fontFamily: "'Fredoka', serif", 
+                      padding: "6px 10px", 
+                      borderRadius: "4px",
+                      fontSize: "13px",
+                      zIndex: 9999, // ツールチップを最前面に
+                    }}
+                    
+                  >
+                    Click outside to close
+                  </Tooltip>
                 </div>
               ))}
             </Slider>
             <button className="close-modal" onClick={closeModal}>
-              &times;
+              <FontAwesomeIcon icon={faTimesCircle} />
             </button>
           </div>
         </div>

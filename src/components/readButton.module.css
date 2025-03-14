@@ -1,6 +1,7 @@
 .patchworkButton {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-family: "Fredoka", serif;
+  font-size: 1.5rem;
+  font-weight: 600;
   line-height: 1.5;
   position: relative;
   display: inline-flex; /* Flexboxを使用 */

@@ -1,22 +1,41 @@
 import React, { useState } from 'react';
 import ProjectCard2 from '../components/ProjectCard2';
 
+import aiIcon from "../assets/icons/ai.png";
+import psIcon from "../assets/icons/ps.png";
+import idIcon from "../assets/icons/id.png";
+import aeIcon from "../assets/icons/ae.png";
+import figmaIcon from "../assets/icons/figma.png";
+import htmlIcon from "../assets/icons/html.png";
+import cssIcon from "../assets/icons/css.png";
+import jsIcon from "../assets/icons/js.png";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSearch
+} from "@fortawesome/free-solid-svg-icons";
+
 function Projects() {
   const [filter, setFilter] = useState('');
-  const [showFilters, setShowFilters] = useState(false); // フィルターの表示状態を管理
+  const [showFilters, setShowFilters] = useState(false);
 
-  // フィルターの更新
+  // 利用可能なスキルタグ（アイコン付き）
+  const allChips = [
+    { label: "Illustrator", icon: aiIcon },
+    { label: "PhotoShop", icon: psIcon },
+    { label: "After Effect", icon: aeIcon },
+    { label: "Indesign", icon: idIcon },
+    { label: "Figma", icon: figmaIcon },
+    { label: "Web-Development", icon: [htmlIcon, cssIcon, jsIcon] }, // アイコンを配列で管理
+  ];
+
   const handleFilterClick = (chip) => {
-    setFilter(chip === filter ? '' : chip); // クリックしたら適用、もう一回押したら解除
+    setFilter(chip === filter ? '' : chip);
   };
 
-  // フィルターの開閉
   const toggleFilters = () => {
     setShowFilters(!showFilters);
   };
-
-  // 利用可能なスキルタグ
-  const allChips = ["Indesign", "Illustrator", "PhotoShop", "After Effect", "Web-Development", "Figma"];
 
   return (
     <div className="Paper_v2 bg_pattern">
@@ -24,12 +43,10 @@ function Projects() {
         <div className="ProjectPage-content">
           <h1>All Projects</h1>
 
-          {/* Skill Searchボタン */}
           <button className="skillSearchBtn" onClick={toggleFilters}>
-            Skill Search
+          <FontAwesomeIcon icon={faSearch} />Skill Search
           </button>
 
-          {/* フィルターリスト (開閉する) */}
           {showFilters && (
             <div className="filters">
               <button
@@ -41,16 +58,23 @@ function Projects() {
               {allChips.map((chip, index) => (
                 <button
                   key={index}
-                  className={filter === chip ? 'active' : ''}
-                  onClick={() => handleFilterClick(chip)}
+                  className={filter === chip.label ? 'active' : ''}
+                  onClick={() => handleFilterClick(chip.label)}
                 >
-                  {chip}
+                  {Array.isArray(chip.icon) ? (
+                    // 複数アイコンを表示する処理
+                    chip.icon.map((icon, idx) => (
+                      <img key={idx} src={icon} alt={chip.label} className="chip-icon" />
+                    ))
+                  ) : (
+                    <img src={chip.icon} alt={chip.label} className="chip-icon" />
+                  )}
+                  {chip.label}
                 </button>
               ))}
             </div>
           )}
 
-          {/* フィルターをProjectCard2に渡す */}
           <ProjectCard2 filter={filter} />
         </div>
       </div>

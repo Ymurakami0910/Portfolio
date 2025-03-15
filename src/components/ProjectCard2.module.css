@@ -25,6 +25,7 @@
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
+    cursor: pointer;
   }
   
   /* Card text content */
@@ -136,6 +137,7 @@
       flex-direction: column;
       align-items: flex-start; 
       width: 100%;
+      cursor: default;
     }
   
     .cardText {
@@ -155,6 +157,7 @@
     .ReadButton {
      bottom: 3%;
      right: 3%;
+     cursor: pointer;
     }
   }
   

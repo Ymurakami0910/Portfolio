@@ -36,10 +36,21 @@ function ProjectCard2({ filter }) {
     return project.chips.includes(filter); // Show project if the chip includes the filter
   });
 
+  // Handle click to navigate to the project page
+  const handleCardClick = (projectPageLink) => {
+    if (window.innerWidth >= 768) {  // Desktop: Click anywhere to navigate
+      navigate(projectPageLink);
+    }
+  };
+
   return (
     <div className={styles.cardContainer}>
       {filteredProjects.map((project) => (
-        <div key={project.id} className={styles.card}>
+        <div
+          key={project.id}
+          className={styles.card}
+          onClick={() => handleCardClick(project.pageLink2)}  // Click anywhere to navigate on desktop
+        >
           <div className={styles.cardText}>
             <h4 className={styles.cardTitle}>{project.title}</h4>
             <p className={styles.cardGenre}>{project.genre}</p>
@@ -49,13 +60,11 @@ function ProjectCard2({ filter }) {
               {project.chips.map((chip, index) => (
                 <span key={index} className={styles.chip}>
                   {chipIcons[chip] ? (
-                    // If there's an icon, display both the icon and the text
                     <>
                       <img src={chipIcons[chip]} alt={chip} className={styles.chipIcon} />
                       <span className={styles.chipText}>{chip}</span>
                     </>
                   ) : (
-                    // If no icon, just display the text
                     <span className={styles.chipText}>{chip}</span>
                   )}
                 </span>

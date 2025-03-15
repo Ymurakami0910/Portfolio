@@ -128,6 +128,7 @@
   
   /* Responsive styles */
   @media (max-width: 768px) {
+    
     .cardContainer {
       padding: 10px;
       margin: 0 5%; 

@@ -131,11 +131,6 @@ h6 {
 }
 
 
-
-
-
-
-
 /* container */
 .container {
   width: 100%;
@@ -1387,14 +1382,14 @@ label {
 
 .custom-next-arrow {
   position: absolute;
-  right:-30px;
+  right:-15px;
   top: 50%;
   transform: translateY(-50%);
 }
 
 .custom-prev-arrow {
   position: absolute;
-  left:-30px;
+  left:-10px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 100;

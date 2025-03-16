@@ -131,13 +131,27 @@ h6 {
 }
 
 
+/* 全体のリセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 /* container */
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 15px; /* 幅を狭めないために左右のパディング追加 */
 }
 
+/* モニターの解像度によって変更 */
 @media (min-width: 2559px) {
   .container {
     max-width: 2000px; /* 2560px モニター向けに調整 */
@@ -146,13 +160,13 @@ h6 {
 
 @media (max-width: 2000px) {
   .container {
-    max-width: 1800px; /* 2560px モニター向けに調整 */
+    max-width: 1800px; /* 2000px モニター向けに調整 */
   }
 }
 
 @media (max-width: 1800px) {
   .container {
-    max-width: 1600px; /* 2560px モニター向けに調整 */
+    max-width: 1600px; /* 1800px モニター向けに調整 */
   }
 }
 
@@ -168,18 +182,17 @@ h6 {
   }
 }
 
-@media (max-width: 1199px) and (min-width: 769px){
+@media (max-width: 1199px) and (min-width: 769px) {
   .container {
     max-width: 750px;
   }
 }
 
-@media (max-width: 768px)and (min-width:577px) {
+@media (max-width: 768px) and (min-width: 577px) {
   .container {
     max-width: 100%;
     padding: 0 15px;
   }
-  
 }
 
 @media (max-width: 576px) {

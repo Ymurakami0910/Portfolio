@@ -52,7 +52,7 @@ function ProjectCard2({ filter }) {
           onClick={() => handleCardClick(project.pageLink2)}  // Click anywhere to navigate on desktop
         >
           <div className={styles.cardText}>
-            <h4 className={styles.cardTitle}>{project.title}</h4>
+            <h3 className={styles.cardTitle}>{project.title}</h3>
             <p className={styles.cardGenre}>{project.genre}</p>
 
             {/* Display chips with icons and text */}

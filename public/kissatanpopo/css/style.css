@@ -49,6 +49,49 @@ h6 {
     width: 100%;
 }
 
+
+  
+  @media (min-width: 1800px) {
+    .container {
+      max-width: 1600px; /* 2560px モニター向けに調整 */
+    }
+  }
+  
+  @media (max-width: 1500px) {
+    .container {
+      max-width: 1300px;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .container {
+      max-width: 1000px;
+    }
+  }
+  
+  @media (max-width: 992px) and (min-width: 769px){
+    .container {
+      max-width: 750px;
+    }
+  }
+  
+  @media (max-width: 768px)and (min-width:577px) {
+    .container {
+      max-width: 100%;
+      padding: 0 15px;
+    }
+    
+  }
+  
+  @media (max-width: 576px) {
+    .container {
+      max-width: 100%;
+      padding: 0 10px;
+    }
+  }
+
+
+
 /* 素材 */
 .bg_pattern {
     position: fixed;
@@ -426,6 +469,7 @@ time {
 
 
 .card-btn {
+    position: absolute;
     text-align: center;
     padding: 10px 5px;
     background-color: var(--brand-brown);

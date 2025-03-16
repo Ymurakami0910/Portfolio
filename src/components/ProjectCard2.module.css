@@ -5,7 +5,7 @@
     gap: 20px;
     justify-content: center;
     padding: 20px;
-    max-width: 1200px;
+    max-width: 2000px;
     margin: 0 auto; 
   }
   
@@ -15,7 +15,7 @@
     justify-content: flex-start;
     gap: 20px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 2000px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -125,13 +125,18 @@
 }
 
 
-  
+@media (min-width: 1800px) {
+  .ReadButton {
+    right: 30%;
+    cursor: pointer;
+   }
+
+}
   /* Responsive styles */
   @media (max-width: 768px) {
-    
     .cardContainer {
       padding: 10px;
-      margin: 0 5%; 
+      margin: 0 0%; 
     }
   
     .card {

@@ -41,6 +41,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function KissaTanpopo() {
   gsap.registerPlugin(ScrollTrigger);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const projectImages = [
+    [slide1, slide2, slide3,slide4,slide5], 
+    [slide6, slide7, slide8],
+    [slide9, slide10, slide11, slide12],
+  ];
 
   const getRandomProjects = (projectData, excludeId, count) => {
     const filteredProjects = projectData.filter(
@@ -49,12 +56,6 @@ function KissaTanpopo() {
     const shuffled = [...filteredProjects].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, count);
   };
-
-  const projectImages = [
-    [slide1, slide2, slide3,slide4,slide5], 
-    [slide6, slide7, slide8],
-    [slide9, slide10, slide11, slide12],
-  ];
 
   useEffect(() => {
     const FadeIns = document.querySelectorAll(".fadeIn");
@@ -83,10 +84,6 @@ function KissaTanpopo() {
   }, []);
 
 
-
-
-  const [isMobile, setIsMobile] = useState(false);
-
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -98,52 +95,6 @@ function KissaTanpopo() {
     return () => window.removeEventListener("resize", checkMobile); // クリーンアップ
   }, []);
 
-  useEffect(() => {
-    // belt  ^^--
-    const beltImages = document.querySelector(".belt-container");
-
-    const scrollAnimation = () => {
-      const isMobile = window.innerWidth <= 768;
-
-      if (!isMobile) {
-        // Desktop, scrolling animation
-        gsap.to(beltImages, {
-          x: "-50%", // Horizontal
-          duration: 50, // Speed
-          repeat: -1, // loop
-          ease: "linear",
-        });
-      } else {
-        // Mobile, vertically stacked images with fade-in on scroll
-        gsap.fromTo(
-          ".belt-image",
-          {
-            opacity: 0,
-            x: -50, // below
-          },
-          {
-            opacity: 1,
-            x: 0, //  to original position
-            stagger: 0.2, // delay between images
-            scrollTrigger: {
-              trigger: ".belt-container",
-              start: "top right",
-              end: "bottom left",
-              scrub: true,
-              markers: false,
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      }
-    };
-
-    // Call the scrollAnimation function
-    scrollAnimation();
-    window.addEventListener("resize", scrollAnimation); // Adjust when window is resized
-
-    return () => window.removeEventListener("resize", scrollAnimation); // Cleanup
-  }, []);
 
   const openWebsiteInNewTab = () => {
     window.open("/kissatanpopo/index.html", "_blank", "noopener,noreferrer");

@@ -131,16 +131,29 @@ h6 {
 }
 
 
-
-
-
-
-
 /* container */
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+@media (min-width: 2559px) {
+  .container {
+    max-width: 2000px; /* 2560px モニター向けに調整 */
+  }
+}
+
+@media (max-width: 2000px) {
+  .container {
+    max-width: 1800px; /* 2560px モニター向けに調整 */
+  }
+}
+
+@media (max-width: 1800px) {
+  .container {
+    max-width: 1600px; /* 2560px モニター向けに調整 */
+  }
 }
 
 @media (max-width: 1500px) {
@@ -286,18 +299,6 @@ h6 {
 
 
 
-/* message section */
-.message {
-  position: relative;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: var(--blue);
-  overflow: visible;
-}
-
-.message p{
-  font-size: 1.5rem;
-}
 
 
 /* Airplane Animation */
@@ -308,7 +309,7 @@ h6 {
 .message-airplane img {
   width: 180px; 
   margin: 0; 
-
+  
 }
 .airplane-1 {
   position: absolute;
@@ -335,56 +336,56 @@ h6 {
   .Home-hero {
     min-height: 75vh; /* 画面の大きさに合わせて調整 */
   }
-
+  
   .clouds {
     top: 40vh; /* 雲の位置を少し下げる */
   }
-
+  
   .cloud {
     width: 900px; /* iPad miniサイズに合わせた雲の調整 */
     top: 52%;
   }
-
+  
   .cloud1 {
     left: 18%;
   }
-
+  
   .cloud2 {
     left: 12%;
     top: 48%;
   }
-
+  
   .cloud2-duplicate {
     top: 48%;
   }
-
+  
   .airplane-1 {
     left: -6vw;
     top: 78%;
   }
-
+  
   .airplane-2 { 
     left: -10vw;
     top: 53%;
   }
-
+  
   .airplane-3 {
     left: -14vw;
     top: 15%;
   }
-
+  
   .message-airplane img {
     width: 130px; /* 中間サイズの飛行機メッセージ */
   }
 }
 @media (max-width: 992px) and (min-width: 769px){
   .Home-hero{
-    min-height: 65vh;
+    min-height: 70vh;
   }
 }
 
 @media (max-width: 768px) {
-
+  
   h1 {
     font-size: 2.5rem;
   }
@@ -394,16 +395,16 @@ h6 {
   .clouds {
     top: 30vh;
   }
-
+  
   .cloud {
     width: 1000px;
     top: 55%; 
   }
-
+  
   .cloud1 {
     left: 20%; 
   }
-
+  
   .cloud2 {
     left: 10%; 
     top: 50%; 
@@ -412,8 +413,8 @@ h6 {
   .cloud2-duplicate {
     top: 50%; /* 雲2複製も高さを揃える */
   }
-
-
+  
+  
   .airplane-1 {
     left: -5vw;
     top: 80%;
@@ -426,71 +427,85 @@ h6 {
     left: -18vw;
     top: 12%;
   }
-
+  
   .message-airplane img {
     width: 120px;
   }
-
+  
 }
 @media (max-width: 480px) {
-  
+  .Home-hero{
+    min-height: 90vh;
+  }
   .cloud {
     width: 700px;
   }
-
+  
   .Home-hero__text h1 {
     min-height: 1rem; /* 文字の高さを固定 */
   }
-
+  
 }
 
 @media (min-width: 1201px) {
   .Home-hero {
     min-height: 80vh; /* より大きなヒーローセクション */
   }
-
+  
   .clouds {
     top: 30vh; /* 雲の位置を調整 */
   }
-
+  
   .cloud {
     width: 1200px; /* 雲のサイズを拡大 */
     top: 50%;
   }
-
+  
   .cloud1 {
     left: 25%;
   }
-
+  
   .cloud2 {
     left: 70%;
     top: 45%;
   }
-
+  
   .cloud2-duplicate {
     top: 45%;
   }
-
+  
   .airplane-1 {
     left: -3vw;
     top: 75%;
   }
-
+  
   .airplane-2 { 
     left: -8vw;
     top: 50%;
   }
-
+  
   .airplane-3 {
     left: -15vw;
     top: 10%;
   }
-
+  
   .message-airplane img {
     width: 150px; /* 飛行機のメッセージ画像を少し大きく */
   }
 }
 
+/* message section */
+.message {
+  position: relative;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: var(--blue);
+  overflow: visible;
+}
+
+.message p{
+  font-size: 1.5rem;
+}
 /* Message Box */
 
 .message-box {
@@ -592,9 +607,14 @@ h6 {
 
 @media (max-width: 480px) {
 
+  
   .message-box {
     padding: 1rem;
     font-size: 0.75rem;
+  }
+
+  .message p{
+    font-size: 1rem;
   }
 
   .message-box:before {
@@ -1387,14 +1407,14 @@ label {
 
 .custom-next-arrow {
   position: absolute;
-  right:-30px;
+  right:-15px;
   top: 50%;
   transform: translateY(-50%);
 }
 
 .custom-prev-arrow {
   position: absolute;
-  left:-30px;
+  left:-10px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 100;

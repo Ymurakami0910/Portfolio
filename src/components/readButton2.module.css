@@ -1,50 +1,67 @@
-
 a.btnBorder {
     font-family: "Open sans";
     position: relative;
     border: 2px solid var(--green);
-    border-radius: 0;
+    border-radius: 10px;
     background: #fff;
-    padding: 10px 20px;
+    padding: 8px 16px; /* サイズを小さく */
     text-decoration: none;
-    color:var(--green);
+    color: var(--green);
     font-weight: bold;
     display: inline-block;
     overflow: hidden; 
     transition: all 0.3s ease;
-    border-radius: 10px;
     box-shadow: var(--box-shadow);
     cursor: pointer;
-  }
-  
-  a.btnBorder:before {
+    font-size: 14px; /* フォントサイズを小さく */
+}
+
+a.btnBorder:before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 10px;
+    width: 8px; /* 小さく */
     height: 100%;
     content: '';
-    background:var(--green);
+    background: var(--green);
     transition: all 0.5s ease;
     transform: translateX(0) translateY(0);
     border-radius: 0 50% 50% 0;
-  }
-  
-  a.btnBorder:hover:before {
-    line-height: 30px;
-    width: 30px;
-    height: 30px;
-    transform: translateX(460%) translateY(.5rem);
-    color:#fff;
-    border-radius: 50%;
-  }
-  
-  a.btnBorder:hover {
+}
+
+a.btnBorder:hover:before {
+    line-height: 24px;
+    width: 24px;
+    height: 24px;
+    transform: translateX(400%) translateY(0.4rem); /* 微調整 */
     color: #fff;
-    background-color:var(--green);
-  }
-  
-  a.btnBorder:hover:before {
-    background:var(--green); 
-  }
-  
+    border-radius: 50%;
+}
+
+a.btnBorder:hover {
+    color: #fff;
+    background-color: var(--green);
+}
+
+a.btnBorder:hover:before {
+    background: var(--green); 
+}
+
+/* モバイル用の調整 */
+@media screen and (max-width: 768px) {
+    a.btnBorder {
+        padding: 10px 22px; /* さらに小さく */
+        font-size: 17px;
+        border-radius: 6px;
+    }
+
+    a.btnBorder:before {
+        width: 6px;
+    }
+
+    a.btnBorder:hover:before {
+        width: 20px;
+        height: 20px;
+        transform: translateX(350%) translateY(0.3rem); /* 小さめに調整 */
+    }
+}

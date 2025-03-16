@@ -3,61 +3,70 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const ProjectBelt = ({ images, isMobile }) => {
-
   useEffect(() => {
-    // belt  ^^--
-    const beltImages = document.querySelector(".belt-container");
+    gsap.registerPlugin(ScrollTrigger);
+
+    const beltContainer = document.querySelector(".belt-container");
+    const beltImages = document.querySelectorAll(".belt-image");
 
     const scrollAnimation = () => {
-      const isMobile = window.innerWidth <= 768;
-
       if (!isMobile) {
-        // Desktop, scrolling animation
-        gsap.to(beltImages, {
-          x: "-50%", // Horizontal
-          duration: 50, // Speed
-          repeat: -1, // loop
-          ease: "linear",
+        // Desktop: Infinite loop animation
+        const totalWidth = beltContainer.scrollWidth;
+        gsap.to(beltContainer, {
+          x: `-=${totalWidth / 2}`,
+          duration: 10,
+          ease: "none", // linearではなくnoneを使用
+          repeat: -1,
+          modifiers: {
+            x: gsap.utils.unitize((x) => parseFloat(x) % (totalWidth / 2)), // ループをシームレスにする
+          },
         });
       } else {
-        // Mobile, vertically stacked images with fade-in on scroll
+        // Mobile: Fade-in on scroll
         gsap.fromTo(
-          ".belt-image",
+          beltImages,
           {
             opacity: 0,
-            x: -50, // below
+            x: -50,
           },
           {
             opacity: 1,
-            x: 0, // to original position
-            stagger: 0.2, // delay between images
+            x: 0,
+            stagger: 0.2,
             scrollTrigger: {
-              trigger: ".belt-container",
+              trigger: beltContainer,
               start: "top right",
-              end: "10%",
+              end: "top 10%",
               scrub: true,
-              markers: false,
-              toggleActions: "play none none none", // Only "play" once when triggered
+              toggleActions: "play none none none",
             },
           }
         );
       }
     };
 
-    // Call the scrollAnimation function
     scrollAnimation();
-    window.addEventListener("resize", scrollAnimation); // Adjust when window is resized
+    window.addEventListener("resize", scrollAnimation);
 
-    return () => window.removeEventListener("resize", scrollAnimation); // Cleanup
-  }, []);
-    
+    return () => {
+      window.removeEventListener("resize", scrollAnimation);
+      gsap.killTweensOf(beltContainer); // Cleanup GSAP animations
+    };
+  }, [isMobile]);
 
   return (
     <section className="Project-belt">
       <div className="belt-container">
-        {images.map((src, index) => (
-          <img src={src} alt={`Slide ${index}`} className="belt-image" key={index} />
-        ))}
+        {!isMobile
+          ? // Desktop: Duplicate images for seamless loop
+            [...images, ...images, ...images].map((src, index) => (
+              <img src={src} alt={`Slide ${index}`} className="belt-image" key={index} />
+            ))
+          : // Mobile: Single set of images
+            images.map((src, index) => (
+              <img src={src} alt={`Slide ${index}`} className="belt-image" key={index} />
+            ))}
       </div>
     </section>
   );

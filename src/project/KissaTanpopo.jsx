@@ -160,7 +160,7 @@ function KissaTanpopo() {
           />
         </div>
       </section>
-
+      
       <ProjectBelt
         images={[Kissa2, Kissa3, Kissa4, Kissa5]}
         isMobile={isMobile}

@@ -230,6 +230,7 @@ function Home() {
             />
           </div>
         </div>
+
         <div className="profile-container">
           <video className="profile-video" autoPlay loop muted>
             {document.createElement("video").canPlayType("video/webm") ? (

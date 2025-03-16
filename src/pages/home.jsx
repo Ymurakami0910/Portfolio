@@ -16,6 +16,7 @@ import ReadButton from "../components/ReadButton.jsx";
 // assets
 import Cloud1 from "../assets/cloud1.png";
 import Cloud2 from "../assets/cloud2.png";
+import Profile from "../assets/video.webm"
 import AirplaneIcon from "../assets/icons/airplane.png";
 import LinkedInIcon from "../assets/icons/linkedin.png";
 import TanukiIllustration from "../assets/tanuki.png";
@@ -228,6 +229,12 @@ function Home() {
             <Button label="About me" onClick={() => {navigate("/about")}} />
           </div>
         </div>
+
+        <div className="profile-container">
+    <video className="profile-video" autoPlay loop muted>
+      <source src={Profile} type="video/webm" />
+    </video>
+  </div>
       </section>
 
       <section className="message">

@@ -26,7 +26,7 @@ import projectData from "../data/project.json";
 function Home() {
   // initialization of third packages
   const navigate = useNavigate();
-
+  
   // takes out the only data from project data id 1 and 2
 
   const filteredProjects = projectData.filter(
@@ -236,7 +236,7 @@ function Home() {
             {document.createElement("video").canPlayType("video/webm") ? (
               <source src={Profile} type="video/webm" />
             ) : (
-              <source src={Profile.replace(".webm", ".mp4")} type="video/mp4" />
+              <source src={Profile.replace(".webm", ".gif")} type="video/gif" />
             )}
           </video>
         </div>

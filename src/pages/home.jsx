@@ -16,24 +16,22 @@ import ReadButton from "../components/readButton.jsx";
 // assets
 import Cloud1 from "../assets/cloud1.png";
 import Cloud2 from "../assets/cloud2.png";
-import Profile from "../assets/video.webm"
+import Profile from "../assets/video.webm";
 import AirplaneIcon from "../assets/icons/airplane.png";
 import LinkedInIcon from "../assets/icons/linkedin.png";
 import TanukiIllustration from "../assets/tanuki.png";
 
-
-import projectData from "../data/project.json"; 
-
+import projectData from "../data/project.json";
 
 function Home() {
-  // initialization of third packages 
+  // initialization of third packages
   const navigate = useNavigate();
 
-    // takes out the only data from project data id 1 and 2
-  
-    const filteredProjects = projectData.filter(
-      (project) => project.id === 1 || project.id === 2
-    );
+  // takes out the only data from project data id 1 and 2
+
+  const filteredProjects = projectData.filter(
+    (project) => project.id === 1 || project.id === 2
+  );
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -48,7 +46,7 @@ function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-  // after tha splash screen ends gsap for clouds animation will be shown 
+  // after tha splash screen ends gsap for clouds animation will be shown
   useEffect(() => {
     if (!showSplash) {
       gsap.fromTo(
@@ -68,9 +66,9 @@ function Home() {
     }
   }, [showSplash]);
 
-  // gsap of each cloud moving animation 
+  // gsap of each cloud moving animation
   gsap.to(".cloud1", {
-    x: "-100vw", 
+    x: "-100vw",
     duration: 20,
     ease: "none",
     repeat: -1,
@@ -97,13 +95,11 @@ function Home() {
     repeat: -1,
   });
 
-  
   // airplanes flowing animation
   useEffect(() => {
     gsap.fromTo(
       ".airplane-1",
-      { x: "-10vw" 
-    },
+      { x: "-10vw" },
       {
         x: "120vw",
         y: "20vh",
@@ -194,7 +190,6 @@ function Home() {
       {showSplash && <Splash />}
       {/* to render the second part (<Splash />) only if the first part (showSplash) evaluates to true. */}
       <section className="Home-hero hero bg_pattern Paper_v2">
-
         <div className="clouds">
           <div className="cloud cloud1">
             <img src={Cloud1} alt="cloud1" />
@@ -204,14 +199,15 @@ function Home() {
           </div>
           <div className="cloud cloud2">
             <img src={Cloud2} alt="cloud1" />
-          </div>`
+          </div>
+          `
           <div className="cloud cloud2-duplicate">
             <img src={Cloud2} alt="cloud2-duplicate" />
-          </div>          
+          </div>
         </div>
         <div className="container Home-hero__text">
           <div className="">
-          <h1>
+            <h1>
               {/* third package that applies a typing effect */}
               <Typewriter
                 words={[
@@ -223,18 +219,26 @@ function Home() {
                 deleteSpeed={50}
                 delaySpeed={1000}
               />
-          </h1>
+            </h1>
 
             {/* Button component is imported and  used*/}
-            <Button label="About me" onClick={() => {navigate("/about")}} />
+            <Button
+              label="About me"
+              onClick={() => {
+                navigate("/about");
+              }}
+            />
           </div>
         </div>
-
         <div className="profile-container">
-    <video className="profile-video" autoPlay loop muted>
-      <source src={Profile} type="video/webm" />
-    </video>
-  </div>
+          <video className="profile-video" autoPlay loop muted>
+            {document.createElement("video").canPlayType("video/webm") ? (
+              <source src={Profile} type="video/webm" />
+            ) : (
+              <source src={Profile.replace(".webm", ".mp4")} type="video/mp4" />
+            )}
+          </video>
+        </div>
       </section>
 
       <section className="message">
@@ -276,12 +280,18 @@ function Home() {
         <div>
           <div className=" container featured-title">
             <h3 className={Styles.tag}>Featured Branding Projects</h3>
-     
-          {/* Project card component */}
-          <ProjectCard/>
-          <div className="featured-btn">
-          <ReadButton label="View More" onClick={() => { navigate("/project"); window.scrollTo(0, 0); }} />
-          </div>
+
+            {/* Project card component */}
+            <ProjectCard />
+            <div className="featured-btn">
+              <ReadButton
+                label="View More"
+                onClick={() => {
+                  navigate("/project");
+                  window.scrollTo(0, 0);
+                }}
+              />
+            </div>
           </div>
         </div>
       </section>

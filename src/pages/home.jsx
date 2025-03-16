@@ -12,7 +12,7 @@ import Button from "../components/button.jsx";
 import Styles from "../components/title.module.css";
 import ProjectCard from "../components/projectCard";
 import Splash from "../components/splash";
-import ReadButton from "../components/ReadButton.jsx";
+import ReadButton from "../components/readButton.jsx";
 // assets
 import Cloud1 from "../assets/cloud1.png";
 import Cloud2 from "../assets/cloud2.png";
@@ -230,6 +230,7 @@ function Home() {
             />
           </div>
         </div>
+
         <div className="profile-container">
           <video className="profile-video" autoPlay loop muted>
             {document.createElement("video").canPlayType("video/webm") ? (

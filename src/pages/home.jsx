@@ -237,6 +237,26 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <section className="featured">
+        <div>
+          <div className=" container featured-title">
+            <h3 className={Styles.tag}>Featured Branding Projects</h3>
+
+            {/* Project card component */}
+            <ProjectCard />
+            <div className="featured-btn">
+              <ReadButton
+                label="View More"
+                onClick={() => {
+                  navigate("/project");
+                  window.scrollTo(0, 0);
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

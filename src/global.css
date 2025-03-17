@@ -21,7 +21,7 @@ html, body {
 :root {
   --blue: #205989;
   --pink: #F5AFAF;
-  --pinkv2: #ff99cc; 
+  --pinkv2: rgba(245, 175, 175, 0.5); 
   --orange :#D75B27;
   --green:#46AA9B;
   --text_white: #FFFFFF;
@@ -196,15 +196,11 @@ h6 {
 
 /* Paper Pattern */
 .bg_pattern {
-  position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
   background-color: #fff;
-  z-index: -1; /* Keeps it behind content but visible */
+  z-index: -100;
 }
-
 
 
 .Paper_v2 {

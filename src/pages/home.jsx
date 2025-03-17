@@ -13,138 +13,113 @@ import Styles from "../components/title.module.css";
 import ProjectCard from "../components/projectCard";
 import Splash from "../components/splash";
 import ReadButton from "../components/readButton.jsx";
+
 // assets
 import Cloud1 from "../assets/cloud1.png";
 import Cloud2 from "../assets/cloud2.png";
-import Profile from "../assets/video.webm";
+import ProfileWebM from "../assets/video.webm";
+import ProfileGIF from "../assets/video.gif";
 import AirplaneIcon from "../assets/icons/airplane.png";
-import LinkedInIcon from "../assets/icons/linkedin.png";
 import TanukiIllustration from "../assets/tanuki.png";
 
 import projectData from "../data/project.json";
 
+gsap.registerPlugin(ScrollTrigger);
+
 function Home() {
-  // initialization of third packages
   const navigate = useNavigate();
-  
-  // takes out the only data from project data id 1 and 2
-
-  const filteredProjects = projectData.filter(
-    (project) => project.id === 1 || project.id === 2
-  );
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  const [showSplash, setShowSplash] = useState(true); //manage the splash screen
+  const [useGif, setUseGif] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    // splash timer after 2.5 seconds
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    if (isSafari) {
+      setUseGif(true);
+    } else {
+      // WebMの再生可否をチェック
+      const video = document.createElement("video");
+      if (!video.canPlayType("video/webm")) {
+        setUseGif(true);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
     }, 2500);
-
     return () => clearTimeout(timer);
   }, []);
 
-  // after tha splash screen ends gsap for clouds animation will be shown
+
   useEffect(() => {
     if (!showSplash) {
       gsap.fromTo(
         ".cloud",
+        { scale: 0.3, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 1, ease: "power3.out", stagger: 0.3 }
+      );
+
+      gsap.to(".cloud1, .cloud1-duplicate", {
+        x: "-100vw",
+        duration: 20,
+        ease: "none",
+        repeat: -1,
+      });
+
+      gsap.to(".cloud2, .cloud2-duplicate", {
+        x: "-100vw",
+        duration: 25,
+        ease: "none",
+        repeat: -1,
+      });
+
+      gsap.fromTo(
+        ".airplane-1",
+        { x: "-10vw" },
         {
-          scale: 0.3,
-          opacity: 0,
-        },
+          x: "120vw",
+          y: "20vh",
+          rotation: 10,
+          duration: 8,
+          ease: "power1.inOut",
+          repeat: -1,
+        }
+      );
+
+      gsap.fromTo(
+        ".airplane-2",
+        { x: "-30vw" },
         {
-          scale: 1,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-          stagger: 0.3,
+          x: "130vw",
+          y: "10vh",
+          rotation: 5,
+          duration: 7,
+          ease: "power1.inOut",
+          repeat: -1,
+        }
+      );
+
+      gsap.fromTo(
+        ".airplane-3",
+        { x: "-40vw" },
+        {
+          x: "130vw",
+          y: "-20vh",
+          rotation: 5,
+          duration: 9,
+          ease: "power1.inOut",
+          repeat: -1,
         }
       );
     }
   }, [showSplash]);
 
-  // gsap of each cloud moving animation
-  gsap.to(".cloud1", {
-    x: "-100vw",
-    duration: 20,
-    ease: "none",
-    repeat: -1,
-  });
-
-  gsap.to(".cloud1-duplicate", {
-    x: "-100vw",
-    duration: 20,
-    ease: "none",
-    repeat: -1,
-  });
-
-  gsap.to(".cloud2", {
-    x: "-100vw",
-    duration: 25,
-    ease: "none",
-    repeat: -1,
-  });
-
-  gsap.to(".cloud2-duplicate", {
-    x: "-100vw",
-    duration: 25,
-    ease: "none",
-    repeat: -1,
-  });
-
-  // airplanes flowing animation
-  useEffect(() => {
-    gsap.fromTo(
-      ".airplane-1",
-      { x: "-10vw" },
-      {
-        x: "120vw",
-        y: "20vh",
-        rotation: 10,
-        duration: 8,
-        ease: "power1.inOut",
-        repeat: -1,
-      }
-    );
-
-    gsap.fromTo(
-      ".airplane-2",
-      { x: "-30vw" },
-      {
-        x: "130vw",
-        y: "10vh",
-        rotation: 5,
-        duration: 7,
-        ease: "power1.inOut",
-        repeat: -1,
-      }
-    );
-
-    gsap.fromTo(
-      ".airplane-3",
-      { x: "-40vw" },
-      {
-        x: "130vw",
-        y: "-20vh",
-        rotation: 5,
-        duration: 9,
-        ease: "power1.inOut",
-        repeat: -1,
-      }
-    );
-  });
-
-  // gsap of message box scale-up animation
   useEffect(() => {
     gsap.fromTo(
       ".message-box",
-      {
-        scale: 0.5,
-        opacity: 0,
-      },
+      { scale: 0.5, opacity: 0 },
       {
         scale: 1,
         opacity: 1,
@@ -158,15 +133,10 @@ function Home() {
         },
       }
     );
-    // gsap of Tanuki illustration fadeIn animation
+
     gsap.fromTo(
       ".message-tanukiBox",
-      {
-        opacity: 0,
-        y: 100,
-        x: 50,
-        scale: 0.5,
-      },
+      { opacity: 0, y: 100, x: 50, scale: 0.5 },
       {
         opacity: 1,
         y: 0,
@@ -188,7 +158,6 @@ function Home() {
   return (
     <>
       {showSplash && <Splash />}
-      {/* to render the second part (<Splash />) only if the first part (showSplash) evaluates to true. */}
       <section className="Home-hero hero bg_pattern Paper_v2">
         <div className="clouds">
           <div className="cloud cloud1">
@@ -198,47 +167,41 @@ function Home() {
             <img src={Cloud1} alt="cloud1-duplicate" />
           </div>
           <div className="cloud cloud2">
-            <img src={Cloud2} alt="cloud1" />
+            <img src={Cloud2} alt="cloud2" />
           </div>
-          `
           <div className="cloud cloud2-duplicate">
             <img src={Cloud2} alt="cloud2-duplicate" />
           </div>
         </div>
         <div className="container Home-hero__text">
-          <div className="">
-            <h1>
-              {/* third package that applies a typing effect */}
-              <Typewriter
-                words={[
-                  "Crafting Brands that Cross Borders",
-                  "国境を超えたデザインを",
-                ]}
-                loop={true}
-                typeSpeed={70}
-                deleteSpeed={50}
-                delaySpeed={1000}
-              />
-            </h1>
-
-            {/* Button component is imported and  used*/}
-            <Button
-              label="About me"
-              onClick={() => {
-                navigate("/about");
-              }}
+          <h1>
+            <Typewriter
+              words={[
+                "Crafting Brands that Cross Borders",
+                "国境を超えたデザインを",
+              ]}
+              loop={true}
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
             />
-          </div>
+          </h1>
+          <Button label="About me" onClick={() => navigate("/about")} />
         </div>
 
         <div className="profile-container">
-          <video className="profile-video" autoPlay loop muted>
-            {document.createElement("video").canPlayType("video/webm") ? (
-              <source src={Profile} type="video/webm" />
-            ) : (
-              <source src={Profile.replace(".webm", ".gif")} type="video/gif" />
-            )}
-          </video>
+          {!useGif ? (
+            <video
+              src={ProfileWebM}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="profile-video"
+            />
+          ) : (
+            <img src={ProfileGIF} alt="Profile animation" className="profile-video" />
+          )}
         </div>
       </section>
 
@@ -248,21 +211,19 @@ function Home() {
         </div>
         <div className="container message-layout">
           <div className="message-box">
-            <div className="message-box__header">
-              <h2>Hi! I am Yuri,a brand designer</h2>
-            </div>
+            <h2>Hi! I am Yuri, a brand designer</h2>
             <p>
               My studio's logo features a{" "}
               <a
                 href="https://en.wikipedia.org/wiki/Japanese_raccoon_dog"
                 target="_blank"
+                rel="noreferrer"
               >
                 tanuki
               </a>
               , an animal unique to Japan. In Japanese folklore, tanuki are
-              known for their versatility and ability to transform into
-              anything. Like them, I can bring adaptability to your branding
-              work and collaborate seamlessly with diverse teams and projects.
+              known for their adaptability and transformation skills. Like them,
+              I bring versatility to branding and collaboration.
             </p>
           </div>
           <div className="message-airplane airplane-2">
@@ -273,26 +234,6 @@ function Home() {
           </div>
           <div className="message-tanukiBox">
             <img src={TanukiIllustration} alt="Tanuki-illustration" />
-          </div>
-        </div>
-      </section>
-
-      <section className="featured">
-        <div>
-          <div className=" container featured-title">
-            <h3 className={Styles.tag}>Featured Branding Projects</h3>
-
-            {/* Project card component */}
-            <ProjectCard />
-            <div className="featured-btn">
-              <ReadButton
-                label="View More"
-                onClick={() => {
-                  navigate("/project");
-                  window.scrollTo(0, 0);
-                }}
-              />
-            </div>
           </div>
         </div>
       </section>

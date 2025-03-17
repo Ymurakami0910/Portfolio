@@ -21,7 +21,7 @@ html, body {
 :root {
   --blue: #205989;
   --pink: #F5AFAF;
-  --pinkv2: rgba(245, 175, 175, 0.5); 
+  --pinkv2:#F5AFAF80; 
   --orange :#D75B27;
   --green:#46AA9B;
   --text_white: #FFFFFF;
@@ -139,7 +139,7 @@ h6 {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px; /* 幅を狭めないために左右のパディング追加 */
+  padding: 0 20px; /* 幅を狭めないために左右のパディング追加 */
 }
 
 /* モニターの解像度によって変更 */
@@ -251,7 +251,9 @@ h6 {
   position: relative;
   z-index: 1;
   padding-top: 8rem;
+  padding-left: 1rem;
 }
+
 
 .Home-hero__text h1 {
   min-height: 4rem; /* 文字の高さを固定 */
@@ -315,6 +317,14 @@ h6 {
   height: 100%;
   object-fit: cover; /* Ensure video covers the container area */
   transform: rotate(5deg);
+}
+
+
+
+@media (max-width: 1800px) and (min-width:1200px){
+  .profile-container {
+    right: 5%;
+  }
 }
 
 /* Media Queries for mobile and tablet screens */
@@ -480,9 +490,12 @@ h6 {
   .cloud {
     width: 700px;
   }
+  .Home-hero__text {
+    padding-left: 0.8rem;
+  }
   
   .Home-hero__text h1 {
-    min-height: 1rem; /* 文字の高さを固定 */
+    min-height: 8rem; /* 文字の高さを固定 */
   }
   
 }

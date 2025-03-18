@@ -31,19 +31,44 @@ function Home() {
   const [useGif, setUseGif] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
 
-  useEffect(() => {
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-
-    if (isSafari) {
-      setUseGif(true);
-    } else {
-      // WebMの再生可否をチェック
-      const video = document.createElement("video");
-      if (!video.canPlayType("video/webm")) {
-        setUseGif(true);
+    // Browser detection function
+    function detectBrowser() {
+      var ua = navigator.userAgent, tem,
+          match = ua.match(/(opera|chrome|safari|firefox|msie|trident)\/?\s*(\d+(\.\d+)*)/i) || [];
+  
+      if (/trident/i.test(match[1])) {
+        tem = /\brv[ :]+(\d+(\.\d+)*)/g.exec(ua) || [];
+        return "IE " + (tem[1] || "");
       }
+  
+      if (match[1] === "Chrome") {
+        tem = ua.match(/\b(OPR|Edg|Brave)\/(\d+(\.\d+)*)/);
+        if (tem) return tem.slice(1).join(" ").replace("OPR", "Opera").replace("Edg", "Edge");
+      }
+  
+      match = match.length > 2 ? [match[1], match[2]] : [navigator.appName, navigator.appVersion, "-?"];
+      return match.join(" ");
     }
-  }, []);
+
+    useEffect(() => {
+      const browser = detectBrowser();
+      const isSafari = browser.includes("Safari");
+      const isInstagramWebView = /Instagram|FBAN/i.test(navigator.userAgent);
+  
+      if (isSafari || isInstagramWebView) {
+        setUseGif(true);
+      } else {
+        const video = document.createElement("video");
+        video.src = ProfileWebM;
+        video.muted = true;
+        video.playsInline = true;
+  
+        video.onloadeddata = () => setUseGif(false);
+        video.onerror = () => setUseGif(true);
+  
+        video.load();
+      }
+    }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -51,7 +76,6 @@ function Home() {
     }, 2500);
     return () => clearTimeout(timer);
   }, []);
-
 
   useEffect(() => {
     if (!showSplash) {
@@ -198,9 +222,15 @@ function Home() {
               muted
               playsInline
               className="profile-video"
+              onCanPlayThrough={() => setUseGif(false)}
+              onError={() => setUseGif(true)}
             />
           ) : (
-            <img src={ProfileGIF} alt="Profile animation" className="profile-video" />
+            <img
+              src={ProfileGIF}
+              alt="Profile animation"
+              className="profile-video"
+            />
           )}
         </div>
       </section>

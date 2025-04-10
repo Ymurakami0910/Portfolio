@@ -901,7 +901,7 @@ h6 {
   perspective: 1000px;
   transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
   animation: float-2 3s ease-in-out infinite;
-  -webkit-perspective: 1000px; /* Safari用 */
+  -webkit-perspective: 1000px; 
 }
 
 .photo-container:hover {
@@ -915,7 +915,7 @@ h6 {
   position: relative;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d; /* Safari用 */
+  -webkit-transform-style: preserve-3d; 
   cursor: pointer;
 }
 
@@ -927,7 +927,7 @@ h6 {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  -webkit-backface-visibility: hidden; /* Safari用 */
+  -webkit-backface-visibility: hidden; 
   border: var(--green) solid 10px;
   box-shadow: var(--box-shadow);
   border-radius: 19px;

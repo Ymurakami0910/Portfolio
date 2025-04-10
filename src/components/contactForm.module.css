@@ -1,66 +1,108 @@
+/* ContactForm.module.css */
+
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 50px 20px;
-    gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.header p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.formContainer {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--blue)
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.input:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+.textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.button {
+  padding: 1rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  display: inline-block;
+  font-family: "Fredoka", serif; 
+  font-weight: var(--bold);
+  font-size:1.1rem;
+  color: #fff;
+  background-color:var(--green);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: all 0.3s ease; 
+  margin-top: 0.5rem;
+}
+
+.button:hover {
+  transform: scale(1.1); 
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
   }
   
-  .textSection {
-    flex: 1;
-    text-align: left;
-  }
-  
-  .textSection h2 {
+  .header h2 {
     font-size: 2rem;
-    margin-bottom: 10px;
   }
   
-  .textSection p {
-    font-size: 1.1rem;
-    color: #666;
+  .formContainer {
+    padding: 1.5rem;
   }
-  
-  .formSection {
-    flex: 1;
-  }
-  
-  .contactForm {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .contactForm label {
-    font-weight: bold;
-  }
-  
-  .contactForm input,
-  .contactForm textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .contactForm textarea {
-    height: 120px;
-  }
-  
-  .contactForm button {
-    background-color: #ff69b4; /* Adjust to match your theme */
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  .contactForm button:hover {
-    background-color: #d85a9d;
-  }
-  
+}

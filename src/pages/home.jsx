@@ -210,7 +210,6 @@ function Home() {
               delaySpeed={1000}
             />
           </h1>
-          <Button label="About me" onClick={() => navigate("/about")} />
         </div>
 
         <div className="profile-container">
@@ -255,6 +254,7 @@ function Home() {
               known for their adaptability and transformation skills. Like them,
               I bring versatility to branding and collaboration.
             </p>
+            <Button label="About me" onClick={() => navigate("/about")} />
           </div>
           <div className="message-airplane airplane-2">
             <img src={AirplaneIcon} alt="airplane-icon" />

@@ -26,7 +26,7 @@ const YouMayLike = ({ projects }) => {
                 </div>
                 <Button
                   onClick={() => window.open(project.pageLink2, "_blank")}
-                  label="Check"
+                  label="Read"
                   className="Project-card__link"
                 />
               </div>

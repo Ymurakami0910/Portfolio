@@ -137,48 +137,52 @@ h6 {
 /* container */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px; /* 幅を狭めないために左右のパディング追加 */
 }
 
-/* モニターの解像度によって変更 */
-@media (min-width: 2559px) {
+/* Extra-large screens (e.g. 2560px monitors) */
+@media (min-width: 2560px) {
   .container {
-    max-width: 2000px; /* 2560px モニター向けに調整 */
+    max-width: 2000px;
   }
 }
 
-@media (max-width: 2000px) {
+/* Large desktop screens */
+@media (max-width: 2559px) and (min-width: 2001px) {
   .container {
-    max-width: 1800px; /* 2000px モニター向けに調整 */
+    max-width: 1800px;
   }
 }
 
-@media (max-width: 1800px) {
+/* Standard desktop screens */
+@media (max-width: 2000px) and (min-width: 1801px) {
   .container {
-    max-width: 1600px; /* 1800px モニター向けに調整 */
+    max-width: 1600px;
   }
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1800px) and (min-width: 1501px) {
   .container {
     max-width: 1300px;
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1500px) and (min-width: 1201px) {
   .container {
     max-width: 1000px;
   }
 }
 
-@media (max-width: 1199px) and (min-width: 769px) {
+/* Tablet landscape */
+@media (max-width: 1200px) and (min-width: 769px) {
   .container {
     max-width: 750px;
   }
 }
 
+/* Tablet portrait */
 @media (max-width: 768px) and (min-width: 577px) {
   .container {
     max-width: 100%;
@@ -186,6 +190,7 @@ h6 {
   }
 }
 
+/* Mobile */
 @media (max-width: 576px) {
   .container {
     max-width: 100%;
@@ -250,16 +255,18 @@ h6 {
 .Home-hero__text {
   position: relative;
   z-index: 1;
-  padding-top: 8rem;
   padding-left: 1rem;
 }
 
 
 .Home-hero__text h1 {
-  min-height: 4rem; /* 文字の高さを固定 */
+  min-height: 5rem; /* 文字の高さを固定 */
   display: flex;
+  font-size: 4rem;
   align-items: center; /* 縦方向の中央揃え */
   padding-bottom: 1rem;
+  font-weight: 700;
+  padding-top: 15rem;
 }
 
 
@@ -304,7 +311,7 @@ h6 {
 /* Profile video positioning */
 .profile-container {
   position: absolute;
-  top: 20%;
+  top: 15%;
   right: 15%; /* Adjust right positioning */
   width: 20vw; /* Set initial width for larger screens */
   height: 60vh; /* Set initial height for larger screens */
@@ -335,14 +342,21 @@ h6 {
     width: 40vw; /* Increase width for tablet and mobile */
     height: 45vh; /* Reduce height for tablet and mobile */
   }
+  .Home-hero__text h1 {
+    font-size: 3rem;
+  }
+  
 }
 
 @media (max-width: 480px) {
   .profile-container {
-  top: 40%;
+    top: 40%;
     right: 5%; /* Adjust right position for smaller screens */
     width: 60vw; /* Increase width further on mobile */
     height: 50vh; /* Further adjust height on mobile */
+  }
+  .Home-hero__text h1 {
+    font-size: 3rem;
   }
 }
 
@@ -506,11 +520,11 @@ h6 {
   }
   
   .clouds {
-    top: 30vh; /* 雲の位置を調整 */
+    top: 35vh; /* 雲の位置を調整 */
   }
   
   .cloud {
-    width: 1200px; /* 雲のサイズを拡大 */
+    width: 2000px; /* 雲のサイズを拡大 */
     top: 50%;
   }
   
@@ -546,7 +560,6 @@ h6 {
     width: 150px; /* 飛行機のメッセージ画像を少し大きく */
   }
 }
-
 /* message section */
 .message {
   position: relative;
@@ -564,15 +577,13 @@ h6 {
 .message-box {
   flex-basis: 70%;
   position: relative;
-  display: inline-block;
-  margin: 1.5em 0;
-  padding: 20px;
-  min-width: 200px;
-  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
   color: #555;
-  font-size: 16px;
-  background:var(--text_white);
-  border-radius: 15px;
+  font-size: 1rem;
+  background: var(--text_white);
+  border-radius: 1rem;
+  min-width: 280px;
 }
 
 .message-box:before {
@@ -602,24 +613,6 @@ h6 {
   font-weight: var(--bold);
 }
 
-.message-box__icon,.contact-icon  {
-  flex-shrink: 0;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.message-box__icon:hover, .contact-icon:hover {
-    transform: scale(1.1);
-    box-shadow: var(--box-shadow);
-  }
-
-.message-box__icon img, .contact-icon img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
 .message-box p {
   margin-top: 4rem;
 }
@@ -632,7 +625,25 @@ h6 {
 .message-tanukiBox img {
   max-width: 400px;
   height: auto;
+} 
+
+
+@media (min-width: 1200px) and (max-width: 1800px) {
+  .message-box {
+    flex-basis:70% 
+  }
+  
+  .message-tanukiBox {
+    flex-basis: 30%
+  }
+  
+  .message-box:before {
+    right: -40px;
+    border: 20px solid transparent;
+    border-left: 25px solid var(--text_white);
+  }
 }
+
 
 @media (max-width: 768px) {
   h1 span {

@@ -17,3 +17,12 @@
 .primaryButton:hover {
     transform: scale(1.1); 
   }
+
+  
+/* Screens between 1200px and 1800px */
+@media (max-width: 1800px) and (min-width: 1200px) {
+    .primaryButton {
+      font-size: 1.2rem;
+      padding: 0.75rem 1.5625rem; /* 12px 25px */
+    }
+  }

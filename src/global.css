@@ -256,8 +256,9 @@ h6 {
 
 
 .Home-hero__text h1 {
-  min-height: 4rem; /* 文字の高さを固定 */
+  min-height: 5rem; /* 文字の高さを固定 */
   display: flex;
+  font-size: 4rem;
   align-items: center; /* 縦方向の中央揃え */
   padding-bottom: 1rem;
 }
@@ -335,6 +336,10 @@ h6 {
     width: 40vw; /* Increase width for tablet and mobile */
     height: 45vh; /* Reduce height for tablet and mobile */
   }
+  .Home-hero__text h1 {
+    font-size: 3rem;
+  }
+  
 }
 
 @media (max-width: 480px) {
@@ -343,6 +348,9 @@ h6 {
     right: 5%; /* Adjust right position for smaller screens */
     width: 60vw; /* Increase width further on mobile */
     height: 50vh; /* Further adjust height on mobile */
+  }
+  .Home-hero__text h1 {
+    font-size: 3rem;
   }
 }
 
@@ -510,7 +518,7 @@ h6 {
   }
   
   .cloud {
-    width: 1200px; /* 雲のサイズを拡大 */
+    width: 1800px; /* 雲のサイズを拡大 */
     top: 50%;
   }
   

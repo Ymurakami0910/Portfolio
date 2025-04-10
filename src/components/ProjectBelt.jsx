@@ -16,10 +16,10 @@ const ProjectBelt = ({ images, isMobile }) => {
         gsap.to(beltContainer, {
           x: `-=${totalWidth / 2}`,
           duration: 10,
-          ease: "none", // linearではなくnoneを使用
+          ease: "none", 
           repeat: -1,
           modifiers: {
-            x: gsap.utils.unitize((x) => parseFloat(x) % (totalWidth / 2)), // ループをシームレスにする
+            x: gsap.utils.unitize((x) => parseFloat(x) % (totalWidth / 2)), // seamless loop
           },
         });
       } else {

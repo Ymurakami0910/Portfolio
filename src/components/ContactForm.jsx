@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import emailjs from "emailjs-com";
+import styles from '../components/ContactForm.module.css'
+
 
 const ContactForm = () => {
   const form = useRef();
@@ -27,28 +29,27 @@ const ContactForm = () => {
 
     e.target.reset();
   };
-
   return (
-    <div>
-      <div>
-        <h2>Contact Us</h2>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <h2>Contact me</h2>
         <p>
-          Have questions or want to work together? Feel free to reach out to us
+          Have questions or want to work together? Feel free to reach out to me
           through this form.
         </p>
       </div>
-      <div>
-        <form ref={form} onSubmit={sendEmail}>
-          <label>Name:</label>
-          <input type="text" name="name" required />
+      <div className={styles.formContainer}>
+        <form ref={form} onSubmit={sendEmail} className={styles.form}>
+          <label className={styles.label}>Name:</label>
+          <input type="text" name="name" className={styles.input} required />
 
-          <label>Email:</label>
-          <input type="email" name="email" required />
+          <label className={styles.label}>Email:</label>
+          <input type="email" name="email" className={styles.input} required />
 
-          <label>Message:</label>
-          <textarea name="message" required />
+          <label className={styles.label}>Message:</label>
+          <textarea name="message" className={styles.textarea} required />
 
-          <button type="submit">Send</button>
+          <button type="submit" className={styles.button}>Send</button>
         </form>
       </div>
     </div>

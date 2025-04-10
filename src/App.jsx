@@ -47,7 +47,7 @@ function App() {
 
   return (
     <Router>
-      <ScrollToTop/> {/* lenis は渡さずに単純に動かす */}
+      <ScrollToTop/> 
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

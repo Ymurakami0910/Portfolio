@@ -15,7 +15,7 @@ const ProjectBelt = ({ images, isMobile }) => {
         const totalWidth = beltContainer.scrollWidth;
         gsap.to(beltContainer, {
           x: `-=${totalWidth / 2}`,
-          duration: 10,
+          duration: 50,
           ease: "none", 
           repeat: -1,
           modifiers: {

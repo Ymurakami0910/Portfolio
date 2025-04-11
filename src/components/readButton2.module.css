@@ -1,10 +1,10 @@
 a.btnBorder {
-    font-family: "Open sans";
+    font-family: "Fredoka", serif;
     position: relative;
     border: 2px solid var(--green);
     border-radius: 10px;
     background: #fff;
-    padding: 8px 16px; /* サイズを小さく */
+    padding: 8px 16px; 
     text-decoration: none;
     color: var(--green);
     font-weight: bold;
@@ -13,7 +13,8 @@ a.btnBorder {
     transition: all 0.3s ease;
     box-shadow: var(--box-shadow);
     cursor: pointer;
-    font-size: 14px; /* フォントサイズを小さく */
+    font-size: 1.1rem; 
+    font-weight: 500;
 }
 
 a.btnBorder:before {
@@ -46,6 +47,7 @@ a.btnBorder:hover {
 a.btnBorder:hover:before {
     background: var(--green); 
 }
+
 
 /* モバイル用の調整 */
 @media screen and (max-width: 768px) {

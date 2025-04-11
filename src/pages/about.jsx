@@ -6,6 +6,9 @@ import { Typewriter } from "react-simple-typewriter";
 
 import { Tooltip } from "react-tooltip";
 
+import { Icon } from '@iconify/react';
+
+
 // gsap 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -143,6 +146,7 @@ function About() {
           <div className="about-cards">
             <div className="about-cards__text">
               <h2>Play cards to get to know me!</h2>
+              <p>Flip through the cards and uncover fun facts about me—designs, passions, and maybe a few surprises!</p>
             </div>
             <div className="about-cards__wrap">
             <Tooltip
@@ -150,17 +154,17 @@ function About() {
                     place="top"
                     offset={-10} // これで少し上に移動
                     style={{
-                      backgroundColor: "rgba(0, 0, 0, 0.9)", 
+                      backgroundColor: "#46AA9B", 
                       color: "#fff",
                       fontFamily: "'Fredoka', serif", 
-                      padding: "6px 10px", 
+                      padding: "6px 100px", 
                       borderRadius: "4px",
-                      fontSize: "13px",
+                      fontSize: "1.2rem",
                       zIndex:100000,
                     }}
                     
                   >
-                  Tap
+                  Click!
                   </Tooltip>
               {/* flip cards, the data is coming from above  */}
               {cardData.map((card, index) => (
@@ -196,6 +200,7 @@ function About() {
                 <input type="checkbox" id="drop1" className="drop-toggle" />
                 <label htmlFor="drop1">
                   <div className="drop-title">
+                  <Icon icon="mdi:palette" className="drop-icon" />
                     <h5>Diverse skill set for new media design</h5>
                     <img src={arrowIcon} alt="arrow" />
                   </div>
@@ -212,6 +217,7 @@ function About() {
                 <input type="checkbox" id="drop2" className="drop-toggle" />
                 <label htmlFor="drop2">
                   <div className="drop-title">
+                  <Icon icon="mdi:pen" className="drop-icon" />
                     <h5>Global communication</h5>
                     <img src={arrowIcon} alt="arrow" />
                   </div>

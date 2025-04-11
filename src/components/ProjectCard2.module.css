@@ -1,98 +1,105 @@
 /* Container that holds all the project cards */
 .cardContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-    max-width: 2000px;
-    margin: 0 auto; 
-  }
-  
-  /* Individual project card */
-  .card {
-    display: flex;
-    justify-content: flex-start;
-    gap: 20px;
-    width: 100%;
-    max-width: 2000px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    position: relative;
-    background: url('../assets/paper-2.jpeg'); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    cursor: pointer;
-  }
-  
-  /* Card text content */
-  .cardText {
-    flex: 1;
-    text-align: left; 
-    margin-top: 2rem;
-  }
-  
-  /* Project title */
-  .cardTitle {
-    margin-bottom:1rem;
-  }
-  
-  /* Genre label */
-  .cardGenre {
-    font-size: 1.3rem;
-    color: var(--blue);
-    margin-bottom: 1rem;
-  }
-  
-  /* Chips */
-  .chipsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 8px;
-  }
-  
-  .chip {
-    font-family: "Fredoka", serif;
-    color: var(--green);
-    padding: 4px 8px;
-    border: var(--green) solid 2px;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  /* Project description */
-  .cardDescription {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-    color:var(--blue);
-  }
-  
-  /* Image container */
-  .cardImageContainer {
-    flex-shrink: 0;
-    width: 400px;
-    height: auto;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Card image */
-  .cardImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .ReadButton {
-    position: absolute;
-    bottom: 2rem; 
-    right: 40%; 
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+/* Individual project card */
+.card {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  width: 100%;
+  max-width: 1800px;  /* Restrict max width for larger screens */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: relative;
+  background: url('../assets/paper-2.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+
+  /* Flexbox layout: 30% for text, 70% for image */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1800px;
+}
+/* Hover effect on cards */
+.card:hover {
+  transform: scale(1.02); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.cardText {
+  flex-basis: 45%; /* 30% for the text */
+  text-align: left;
+  margin-top: 2rem;
+  padding-right: 20px;  /* Add padding for spacing */
+}
+
+.cardImageContainer {
+  flex-basis: 50%; /* Adjusted to 55% for the image size */
+  flex-shrink: 0;
+  height: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 45%; /* Max width of image to prevent it from being too large */
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardTitle {
+  margin-bottom: 1rem;
+}
+
+.cardGenre {
+  font-size: 1.3rem;
+  color: var(--blue);
+  margin-bottom: 1rem;
+}
+
+.chipsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.chip {
+  font-family: "Fredoka", serif;
+  color: var(--green);
+  padding: 4px 8px;
+  border: var(--green) solid 2px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.cardDescription {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: var(--blue);
+}
+
+.ReadButton {
+  position: absolute;
+  top: 52%;
+}
 
 .chipsContainer {
   display: flex;
@@ -105,7 +112,7 @@
   display: flex;
   align-items: center;
   padding: 6px 12px;
-  background-color:var(--white);
+  background-color: var(--white);
   border-radius: 5px;
   font-size: 0.9rem;
   color: var(--green);
@@ -124,46 +131,52 @@
   margin-left: 6px; /* Add some space between the icon and the text */
 }
 
-
-@media (min-width: 1800px) {
+@media (max-width: 1800px) and (min-width: 768px) {
   .ReadButton {
-    right: 30%;
-    cursor: pointer;
-   }
-
-}
-  /* Responsive styles */
-  @media (max-width: 768px) {
-    .cardContainer {
-      padding: 10px;
-      margin: 0 0%; 
-    }
-  
-    .card {
-      flex-direction: column;
-      align-items: flex-start; 
-      width: 100%;
-      cursor: default;
-    }
-  
-    .cardText {
-      text-align: left; 
-      width: 100%;
-      margin-top: 2rem;
-      
-    }
-  
-    .cardImageContainer {
-      width: 100%;
-      height: auto;
-      border-radius: 10px; 
-      margin-bottom: 2rem;
-    }
-  
-    .ReadButton {
-     bottom: 3%;
-     right: 3%;
-     cursor: pointer;
-    }
+    top: 70%;
   }
-  
+}
+
+@media (max-width: 768px) {
+  .cardContainer {
+    padding: 10px;
+    margin: 0; /* Remove unnecessary margin */
+  }
+
+  .card {
+    flex-direction: column; /* Stack content and image vertically */
+    align-items: stretch; /* Ensure both content and image stretch to 100% width */
+    width: 100%;
+    cursor: default;
+  }
+
+  .cardText {
+    width: 100%; /* Take full width of the card */
+    margin-top: 2rem;
+    text-align: left;
+  }
+  .cardText {
+    flex-basis: 100%; 
+  }
+
+  .cardImageContainer {
+    width: 100%; /* Make image container take full width */
+    flex-basis: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 2rem; /* Add space between text and image */
+  }
+
+  .cardImage {
+    width: 100%; /* Ensure the image takes full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
+  }
+
+  .ReadButton {
+    top: 93%;
+    right: 3%;
+    cursor: pointer;
+  }
+}

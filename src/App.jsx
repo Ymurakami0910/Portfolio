@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import Lenis from 'lenis';
+
 
 // import all pages that website contains 
 import Layout from './components/layout';
@@ -22,28 +22,9 @@ import "slick-carousel/slick/slick-theme.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function App() {
-  const lenisRef = useRef(null);    
+function App() { 
 
-  useEffect(() => {
-    lenisRef.current = new Lenis({
-      autoRaf: true,
-      duration: 1.3, // デフォルトの1.2くらいに戻す
-      easing: (t) => 1 - Math.pow(1 - t, 3), // より軽めのeasing
-      smoothTouch: true, // タッチデバイスの挙動を改善
-    });
-  
-    const lenis = lenisRef.current;
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
-  
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
+
 
   return (
     <Router>

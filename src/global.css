@@ -353,7 +353,7 @@ h6 {
     height: 45vh; /* Reduce height for tablet and mobile */
   }
   .Home-hero__text h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   
 }
@@ -931,8 +931,9 @@ h6 {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  max-width: 90%;
+  max-width: 100%;
   flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
 .photo-container {
@@ -1077,6 +1078,7 @@ label {
 }
 
 .drop-title h5 {
+  padding-left: 2.5rem;
   color: var(--blue);
 }
 
@@ -1123,6 +1125,16 @@ label {
   object-fit: cover;
   display: inline-block;
 }
+
+.drop-icon {
+  position: absolute;
+  font-size: 2rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+
+
 
 @media (max-width: 992px) and (min-width: 769px) {
   .about-header {
@@ -1297,6 +1309,7 @@ label {
   display: flex;
   gap: 10px;
 }
+
 .Project-scope {
   padding-top: 1rem;
   padding-bottom: 3rem;
@@ -1413,6 +1426,14 @@ label {
   border-radius: 10px;
   object-fit: contain;
 }
+
+
+@media (min-width: 1801px) {
+  .belt-image {
+    height: 400px;
+  }
+}
+
 
 .Project-content__website, .Project-content__video {
   display: flex;

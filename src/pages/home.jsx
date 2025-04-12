@@ -210,18 +210,35 @@ function Home() {
           </div>
         </div>
         <div className="container Home-hero__text">
-          <h1>
-            <Typewriter
-              words={[
-                "Crafting Brands that Cross Borders",
-                "国境を超えたデザインを",
-              ]}
-              loop={true}
-              typeSpeed={50} // slower typing
-              deleteSpeed={30} // slower deleting
-              delaySpeed={2000} // longer pause before switching
-            />
-          </h1>
+          {/* Typewriter section - now only contains the animated text */}
+          <div className="typewriter-container">
+            <h1>
+              <Typewriter
+                words={[
+                  "Crafting Brands that Cross Borders",
+                  "国境を超えたデザインを",
+                ]}
+                loop={true}
+                typeSpeed={80}
+                deleteSpeed={30}
+                delaySpeed={2000}
+                cursor
+                cursorStyle="_"
+                cursorClassName="typewriter-cursor" // Add this line
+                onType={(count) => {
+                  const container = document.querySelector(
+                    ".typewriter-container"
+                  );
+                  if (container) container.style.minHeight = "5rem";
+                }}
+              />
+            </h1>
+          </div>
+
+          {/* Name section - now completely separate */}
+          <div className="Home-hero__name">
+            <h2>Yurino Murakami</h2>
+          </div>
         </div>
 
         <div className="profile-container">
@@ -252,7 +269,7 @@ function Home() {
         </div>
         <div className="container message-layout">
           <div className="message-box">
-            <h2>Hi! I am Yuri, a brand designer</h2>
+            <h2>Crafting Brands with a Global Heart and Japanese Soul</h2>
             <p>
               My studio's logo features a{" "}
               <a
@@ -264,12 +281,13 @@ function Home() {
               </a>
               , an animal unique to Japan. In Japanese folklore, tanuki are
               known for their adaptability and transformation skills. Like them,
-              I bring versatility to branding and collaboration.
-              Rooted in both Japanese tradition and global experiences, 
-              I'm passionate about crafting brands that feel meaningful and connect with people across borders.
+              I bring versatility to branding and collaboration. Rooted in both
+              Japanese tradition and global experiences, I'm passionate about
+              crafting brands that feel meaningful and connect with people
+              across borders.
             </p>
             <div className="message-button">
-            <Button label="About me" onClick={() => navigate("/about")} />
+              <Button label="About me" onClick={() => navigate("/about")} />
             </div>
           </div>
           <div className="message-airplane airplane-2">

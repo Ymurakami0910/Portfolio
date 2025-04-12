@@ -283,6 +283,35 @@ h6 {
   padding-top: 15rem;
 }
 
+/* Add to your existing CSS */
+.typewriter-container {
+  min-height: 5rem; /* Maintain the height you wanted */
+  display: flex;
+  align-items: center;
+}
+
+.Home-hero__name {
+  position: relative;
+  z-index: 2; /* Ensure it stays above other elements */
+  margin-top: 1rem; /* Adjust spacing as needed */
+}
+
+.Home-hero__name h2 {
+  opacity: 1;
+  animation: none;
+}
+
+/* Show cursor on desktop */
+.typewriter-cursor {
+  display: inline;
+}
+
+/* Hide cursor on mobile */
+@media (max-width: 768px) {
+  .typewriter-cursor {
+    display: none !important;
+  }
+}
 .clouds {
   position: relative;
   top: 150px
@@ -374,7 +403,7 @@ h6 {
 
 @media (max-width: 480px) {
   .profile-container {
-    top: 40%;
+    top: 50%;
     right: 5%; /* Adjust right position for smaller screens */
     width: 60vw; /* Increase width further on mobile */
     height: 50vh; /* Further adjust height on mobile */
@@ -523,7 +552,7 @@ h6 {
 }
 @media (max-width: 480px) {
   .Home-hero{
-    min-height: 90vh;
+    min-height: 95vh;
   }
   .cloud {
     width: 700px;
@@ -533,7 +562,7 @@ h6 {
   }
   
   .Home-hero__text h1 {
-    min-height: 8rem; /* 文字の高さを固定 */
+    min-height: 9rem; /* 文字の高さを固定 */
     padding-top: 9rem;
   }
 

@@ -44,7 +44,7 @@ function Footer() {
         }, 
         {
           x: distance,
-          y: isMobile ? "10vh" : "35vh",  // 終了位置ももっと下に
+          y: isMobile ? "17vh" : "32vh",  // 終了位置ももっと下に
           rotation: 5,
           duration: duration + 2,
           ease: "power1.inOut",

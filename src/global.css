@@ -130,6 +130,21 @@ h6 {
   }
 }
 
+@keyframes tanukiWiggle {
+  0%, 100% {
+    transform: translate(20%, 20%) rotate(0deg);
+  }
+  25% {
+    transform: translate(20%, 20%) rotate(2deg);
+  }
+  50% {
+    transform: translate(20%, 20%) rotate(0deg);
+  }
+  75% {
+    transform: translate(20%, 20%) rotate(-2deg);
+  }
+}
+
 
 
 
@@ -377,7 +392,7 @@ h6 {
   z-index: 1;
 }
 .message-airplane img {
-  width: 180px; 
+  width: 180px;
   margin: 0; 
   
 }
@@ -567,7 +582,7 @@ h6 {
   }
   
   .message-airplane img {
-    width: 150px; /* 飛行機のメッセージ画像を少し大きく */
+    width: 200px; /* 飛行機のメッセージ画像を少し大きく */
   }
 }
 
@@ -824,6 +839,29 @@ h6 {
   object-fit: contain; /* アイコンの比率を保ちつつ収める */
 }
 
+.ProjectPageTanuki {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 5;
+  opacity: 0.8;
+  transform: translate(20%, 20%);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  animation: tanukiWiggle 2s ease-in-out infinite;
+}
+
+.ProjectPageTanuki img {
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+.ProjectPageTanuki.hidden {
+  opacity: 0;
+}
+
+
 
 @media (max-width: 768px){
   .ProjectPage-content {
@@ -840,13 +878,18 @@ h6 {
   text-align: left; 
 }
 
+
+.ProjectPageTanuki img {
+  max-width: 70px;
+}
+
 }
 
 /* About page */
 
 .about-header {
   background-color: var(--blue);
-  max-height:65vh;
+  min-height:55vh;
   padding-top: 1rem;
   padding-bottom:3rem;
   position: relative;
@@ -1004,6 +1047,7 @@ h6 {
 
 .about-offer {
   background-image: url(./assets/bg-about.jpg);
+  min-height: 40vh;
 }
 
 

@@ -386,29 +386,46 @@ h6 {
     padding-top: 12rem;
   }
 }
+@media (max-width: 1024px) and (min-width: 769px) {
+  .profile-container {
+    top: 20%;
+    right: 5%;
+    width: 35vw;
+    height: 50vh;
+  }
+
+  .Home-hero__text h1 {
+    font-size: 2.8rem;
+    padding-top: 8rem;
+  }
+}
+
 
 /* Media Queries for mobile and tablet screens */
 @media (max-width: 768px) {
   .profile-container {
-    right: 10%;
-    top: 30%; /* Adjust right position on smaller screens */
-    width: 40vw; /* Increase width for tablet and mobile */
-    height: 45vh; /* Reduce height for tablet and mobile */
+    right: 5%;
+    top: 35%;
+    width: 50vw;
+    height: 40vh;
   }
+
   .Home-hero__text h1 {
-    font-size: 2.5rem;
+    padding-top: 5rem;
+    font-size: 2.2rem;
   }
-  
 }
+
 
 @media (max-width: 480px) {
   .profile-container {
     top: 50%;
-    right: 5%; /* Adjust right position for smaller screens */
-    width: 60vw; /* Increase width further on mobile */
-    height: 50vh; /* Further adjust height on mobile */
+    right: 5%;
+    width: 65vw;
+    height: 45vh;
   }
 }
+
 
 
 
@@ -712,6 +729,27 @@ h6 {
     flex-basis: 30%
   }
 
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  h1 span {
+    display: block;
+  }
+
+  .message-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .message-box,
+  .message-tanukiBox {
+    width: 100%;
+    max-width: 85%;
+    margin-bottom: 1.5rem;
+  }
+
+  .message-tanukiBox {
+    margin-top: 1rem;
+  }
 }
 
 
@@ -1454,7 +1492,7 @@ label {
 }
 
 .Project-Content__text {
-  width: 60%;
+  width: 40%;
   padding: 20px;
   background-color: #ffffff;
   box-shadow: var(--box-shadow);
@@ -1486,23 +1524,38 @@ label {
 }
 
 
-.Project-Content img {
-  width: auto;
-  height: 400px;
+/* 新たに追加：画像を囲む picture 要素にスタイルを指定 */
+.Project-Content__pic {
+  width: 63%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 画像の高さと丸み・影などの既存の装飾をキープ */
+.Project-Content__pic img {
+  width: 100%; /* 親要素に合わせて広がるように */
+  height: auto;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: var(--box-shadow);
 }
 
+
+
+
 .Project-belt {
+  padding-top: 1rem;
+}
+
+.Project-belt_wrapper{
   margin: 0 auto;
   overflow: hidden;
-  position: relative;
   background-color: white;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
   align-items: center; 
   justify-content: center; 
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .belt-container {
@@ -1520,6 +1573,9 @@ label {
 
 
 @media (min-width: 1801px) {
+  .Project-belt {
+    padding-top: 10rem;
+  }
   .belt-image {
     height: 400px;
   }
@@ -1532,14 +1588,22 @@ label {
   padding-bottom: 3rem;
 }
 
-.Project-content__video, .Project-content__figma{
+.Project-content__video, .Project-content__figma {
   gap: 30px;
   padding-top: 3rem;
+  padding-bottom: 3rem;
 }
+
 .responsive-video {
   width: 100%;
   height: auto;
-  max-width: 640px;  /* 最大幅を設定（必要に応じて変更） */
+  max-width: 640px;  /* デフォルトの最大幅 */
+}
+
+@media (min-width: 1800px) {
+  .responsive-video {
+    max-width:1000px;  /* 大きい画面ではビデオを大きく */
+  }
 }
 
 .Project-content__figma {
@@ -1573,21 +1637,30 @@ label {
 
 /* slide shows */
 
-.slick-slider{
+.slick-slider {
   padding: 1rem;
 }
+
 .slick-slide {
   text-align: center;
-  background:var(--pink);
+  background: var(--pink);
   padding: 20px;
   width: 600px;
   height: auto;
+  transition: width 0.3s ease;
 }
 
 .slick-slide img {
-  width:100%; 
-  margin: 0 auto; 
+  width: 100%;
+  margin: 0 auto;
   display: block;
+}
+
+/* 大画面対応 */
+@media (min-width: 1800px) {
+  .slick-slide {
+    width: 800px; /* 大きいスライドに */
+  }
 }
 
 .custom-arrow {
@@ -1609,14 +1682,14 @@ label {
 
 .custom-next-arrow {
   position: absolute;
-  right:-15px;
+  right: -15px;
   top: 50%;
   transform: translateY(-50%);
 }
 
 .custom-prev-arrow {
   position: absolute;
-  left:-10px;
+  left: -10px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 100;
@@ -1641,12 +1714,15 @@ label {
   padding-top: 0;
   position: relative;
   max-width: 60%;
-  margin: auto; 
+  margin: auto;
+  animation: fadeIn 0.4s ease-in-out;
 }
 
 .modal-content img {
   width: 100%;
   height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
 .close-modal {
@@ -1658,44 +1734,106 @@ label {
   font-size: 30px;
   color: var(--green);
   cursor: pointer;
-  transition: all 0.3s ease; 
+  transition: all 0.3s ease;
 }
 
 .close-modal:hover,
 .close-modal:focus {
-  transform: scale(1.1); 
+  transform: scale(1.1);
   outline: none;
 }
 
-/* モーダル背景クリックで閉じる */
+/* 背景クリックで閉じる */
 .modal::before {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0; 
+  top: 0;
   left: 0;
 }
 
-/* Mobile and tablet responsiveness */
+.responsive-tooltip {
+  background-color: #46AA9B !important;
+  color: #fff !important;
+  font-family: 'Fredoka', sans-serif !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  font-size: 1.5rem !important;
+  z-index: 10000 !important;
+}
+
+@media (max-width: 1024px) {
+  .responsive-tooltip {
+    font-size: 1.2rem !important;
+    padding: 5px 10px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-tooltip {
+    font-size: 1rem !important;
+    padding: 4px 8px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-tooltip {
+    font-size: 0.875rem !important;
+    padding: 3px 6px !important;
+  }
+}
+
+
+/* モバイル対応 */
 @media (max-width: 768px) {
   .modal-content {
-    max-width: 90%; /* Reduce max-width for smaller devices */
-    max-height: 90%; /* Adjust max-height */
+    max-width: 90%;
+    max-height: 90%;
   }
 
   .close-modal {
-    font-size: 24px; /* Smaller close button on mobile */
+    font-size: 24px;
   }
 }
 
 @media (max-width: 480px) {
   .custom-arrow {
-    width: 25px; /* Even smaller arrows on smaller devices */
+    width: 25px;
     height: 25px;
-    font-size: 14px; /* Smaller arrow icons */
+    font-size: 14px;
   }
 }
+
+/* 大画面モーダル強化 */
+
+@media (min-width: 1800px) {
+  .close-modal {
+    font-size: 50px;
+  }
+  .modal-content {
+    max-width: 70%;
+  }
+  .custom-arrow {
+    font-size: 35px;
+    width: 50px;
+    height: 50px;
+  }
+}
+@media (max-width: 1799px) and (min-width: 1200px) {
+  .modal-content {
+    max-width: 80%;
+  }
+  .custom-arrow {
+    font-size: 35px;
+    width: 50px;
+    height: 50px;
+  }
+  .close-modal {
+    font-size: 40px;
+  }
+}
+
 
 
 
@@ -1745,13 +1883,10 @@ label {
   gap: 8px;
   margin-top: 8px;
 }
-
-
-@media (max-width: 768px) {
+@media (max-width: 768px) and (min-width: 467px) {
   .Project {
-    padding-top: 25%;
+    padding-top:5%;
   }
-
   .Project h1 {
     font-size: 2.5rem;
   }
@@ -1768,6 +1903,10 @@ label {
   .Project-Content__text {
     width: 100%;
   }
+  .Project-Content__pic {
+    width: 100%;
+  }
+  
 
   .Project-content__website,.Project-content__video, .Project-content__figma{
     flex-direction: column;
@@ -1816,13 +1955,117 @@ label {
   }
 }
 
+@media (max-width: 468px) {
+  .Project {
+    padding-top: 25%;
+  }
+
+  .Project h1 {
+    font-size: 2.5rem;
+  }
+
+
+  .Project-Content {
+    flex-direction: column;
+  }
+  .Project-Content img {
+    height: auto;
+    width: 100%;
+    
+  }
+  .Project-Content__text {
+    width: 100%;
+  }
+  .Project-Content__pic {
+    width: 100%;
+  }
+  
+
+  .Project-content__website,.Project-content__video, .Project-content__figma{
+    flex-direction: column;
+  }
+
+  .Project-content__website img {
+    width: 100%;
+    height: auto;
+  }
+  .Project-content__figma {
+    max-height:90vh; 
+  }
+
+  .Project-content__iframe {
+    height: auto;
+
+  }
+  iframe {
+    width: 100%; /* Make iframe responsive */
+    height: auto; /* Adjust iframe height proportionally */
+  }
+
+  .belt-container {
+    flex-direction: column; 
+    gap: 20px; 
+    justify-content: center;
+    width: 100%;
+  }
+
+  .belt-image {
+    height: 250px;
+    width: 100%;
+    border-radius: 0px;
+  }
+
+  .Project-content__website button {
+    width: auto;
+    margin-top: 10px;
+  }
+
+  .slick-slide {
+    width: 100%;
+  }
+  .slick-slide img {
+    width: 100%; 
+  }
+}
+
+.figma-embed-container {
+  width: 100%;
+  max-width: 60%;
+  margin: 0 auto;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-height: 80vh;
+}
+
+.figma-embed-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Tablet & Mobile */
+@media (max-width: 1024px) {
+  .figma-embed-container {
+    max-width: 100%;
+  }
+}
+
+
+
+@media (max-width: 1024px) and (min-width: 781px){
+  .contact {
+    padding-top: 1vh;
+  }
+}
 
 
 
 
-
-
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .contact {
     padding-top: 15vh;
   }

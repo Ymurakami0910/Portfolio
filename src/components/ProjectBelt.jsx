@@ -56,7 +56,8 @@ const ProjectBelt = ({ images, isMobile }) => {
   }, [isMobile]);
 
   return (
-    <section className="Project-belt">
+    <section className="Project-belt Paper_v2 bg_pattern">
+    <div className="Project-belt_wrapper">
       <div className="belt-container">
         {!isMobile
           ? // Desktop: Duplicate images for seamless loop
@@ -68,6 +69,7 @@ const ProjectBelt = ({ images, isMobile }) => {
               <img src={src} alt={`Slide ${index}`} className="belt-image" key={index} />
             ))}
       </div>
+    </div>
     </section>
   );
 };

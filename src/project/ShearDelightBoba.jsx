@@ -6,7 +6,6 @@ import styles from "../components/ProjectCard2.module.css";
 import tag from "../components/title.module.css";
 
 import ProjectOverview from "../components/ProjectOverview.jsx";
-import FigmaEmbed from "../components/FigmaEmbed.jsx";
 import ProjectIntro from "../components/ProjectIntro.jsx";
 import ProjectBelt from "../components/ProjectBelt.jsx";
 import ProjectTakeaways from "../components/ProjectTakeaways.jsx";
@@ -21,12 +20,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import Thumb from "../assets/Boba/Thumb.jpg";
-import Min from "../assets/Boba/Thumb.jpg";
+import Min from  "../assets/Boba/BobaThumb.jpg";
 
 import Project2 from "../assets/Boba/BobaThumb.jpg";
-import Project3 from "../assets/CraftedCorners/Crafted-3.jpg";
-import Project4 from "../assets/CraftedCorners/Crafted-4.jpg";
-import Project5 from "../assets/CraftedCorners/Crafted-5.jpg";
+import Project3 from "../assets/Boba/B2.jpg";
+import Project4 from "../assets/Boba/B3.png";
+import Project5 from "../assets/Boba/Thumb.jpg";
 
 import slide1 from "../assets/Boba/1.png";
 import slide2 from "../assets/boba/2.png";
@@ -42,9 +41,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function CraftedCorners() {
-  const [figmaUrl, setFigmaUrl] = useState(
-    "https://embed.figma.com/design/H6L5Y8FBaVZzQ4Qn7xaoCk/Crafted-Corners?node-id=0-1&embed-host=share"
-  );
+
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -126,25 +123,24 @@ function CraftedCorners() {
       <ProjectOverview
         title="Overview"
         description="
-        Crafted Corners, is a collaborative group project focused on developing an app platform that offers an online home decor e-commerce platform. 
-        I contributed to creating a brand identity, emphasizing team collaboration. 
-        I worked alongside Suin Tina Timmy and Sam Park, using the waterfall methodology 
-        for project management in ensuring structured progress through the project phases."
+        A cozy, sheep-themed boba store concept with cute custom cup designs and collectible merch. 
+        We’re creating a fun brand that blends physical and digital items like stamp cards, posters, 
+        and more.Mainly targeting teens and young adults (12–30) who love all things cute, with a secondary 
+        focus on kids and foodie influencers who enjoy photogenic drinks."
         chips={currentProject?.chips}
       />
 
       <ProjectIntro
-        title="Iconic characters"
-        description={`I created two characters that embody the brand’s friendly and inviting personality. These characters will be used in the app, marketing materials, and on the website to engage with customers. I sketched multiple concepts before finalizing designs that complemented the overall branding.
+        title=" A Playful Brand for All Ages"
+        description={`The sheep character and logo are designed to be instantly lovable across both digital and physical worlds — from adorable merch and stickers to social media posts that pop. The brand embraces current trends and connects with a wide audience, from teens and young adults to kids and boba-loving influencers.
         `}
         imageSrcSmall={Min}
         imageSrcLarge={Project2}
         imageAlt="Kissa Tanpopo Medium size cup yellow"
       />
 
-      <section className="Paper_v2 bg_pattern">
+      {/* <section className="Paper_v2 bg_pattern">
         <div className="container Project-content__figma">
-            <FigmaEmbed src={figmaUrl} />
           <div className="Project-Content__text">
             <h4>Asset and Banner Figma file</h4>
             <p>
@@ -154,8 +150,8 @@ function CraftedCorners() {
             </p>
           </div>
         </div>
-      </section>
-
+      </section> */}
+    
       <ProjectBelt
         images={[Project2, Project3, Project4, Project5]}
         isMobile={isMobile}
@@ -164,7 +160,8 @@ function CraftedCorners() {
       <ProjectTakeaways
         title="Takeaways"
         description={`
-        The Crafted Corners project was a great opportunity to develop my skills in brand identity design and work in a multidisciplinary team. By designing the logo, style guide, and character designs, I learned how important it is to align visual elements with the personality of the brand to create a cohesive and inviting experience. It was also a great exercise for team communication; we managed to use Figma and Discord successfully to stay organized and make sure all ideas were taken into consideration.`}
+        This project showed how a cute sheep character can bring charm and warmth to a brand, making it more approachable for a wide audience. I focused on creating designs that work both digitally and physically — from stamp cards to custom cups — adding a sense of fun and collectibility. By keeping the visuals soft and friendly, the brand naturally appeals to people of all ages, from teens to kids and even foodie influencers.
+        `}
       />
 
       <section className="Paper_v2 bg_pattern">

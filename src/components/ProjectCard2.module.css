@@ -67,21 +67,23 @@
 }
 
 .cardImageContainer {
-  flex-basis: 50%; /* Adjusted to 55% for the image size */
-  flex-shrink: 0;
-  height: auto;
+  flex-basis: 55%;
+  max-width: 45%;
+  aspect-ratio: 4 / 3; /* or 3 / 4 画像の縦横比に合わせて調整 */
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  max-width: 45%; /* Max width of image to prevent it from being too large */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cardImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
-
 .cardTitle {
   margin-bottom: 1rem;
 }

@@ -11,7 +11,7 @@ const ProjectHeader = ({
       <figure className="container Project-Thumb">
         <img src={imageSrc} alt={imageAlt} />
       </figure>
-      <div className="container fadeIn Project-title">
+      <div className="container Project-title">
         <h1>{title}</h1>
       </div>
     </section>

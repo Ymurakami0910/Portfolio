@@ -62,7 +62,7 @@ const ProjectSlider = ({ imageGroups }) => {
         },
       },
       {
-        breakpoint: 1024,
+        breakpoint: 1900,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -94,6 +94,14 @@ const ProjectSlider = ({ imageGroups }) => {
         </Slider>
       ))}
 
+      {/* Tooltip definition (rendered once) */}
+      <Tooltip
+        id="modal-tooltip"
+        place="top"
+        delayShow={300}
+        className="responsive-tooltip"
+      />
+
       {/* Modal with slider */}
       {isModalOpen && (
         <div className="modal" onClick={closeModal}>
@@ -105,24 +113,8 @@ const ProjectSlider = ({ imageGroups }) => {
                     src={image}
                     alt={`Expanded view ${imgIndex + 1}`}
                     data-tooltip-id="modal-tooltip"
+                    data-tooltip-content="Click outside to close"
                   />
-                  <Tooltip
-                    id="modal-tooltip"
-                    place="bottom"
-                    offset={-10} // これで少し上に移動
-                    style={{
-                      backgroundColor: "rgba(0, 0, 0, 0.9)", 
-                      color: "#fff",
-                      fontFamily: "'Fredoka', serif", 
-                      padding: "6px 10px", 
-                      borderRadius: "4px",
-                      fontSize: "13px",
-                      zIndex: 9999, // ツールチップを最前面に
-                    }}
-                    
-                  >
-                    Click outside to close
-                  </Tooltip>
                 </div>
               ))}
             </Slider>

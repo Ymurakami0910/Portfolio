@@ -38,6 +38,16 @@
         "chips": ["Figma", " UI/UX"],
         "pageLink": "project/redesign",
         "pageLink2": "redesign"
+    },
+    {
+        "id": 5,
+        "genre": "Fictional Boba Shop",
+        "title": "Shear Delight Boba",
+        "description": "Designing a sheep-themed boba store where sell boba with custom cup designs. ",
+        "image": "boba/BobaThumb.jpg",
+        "chips": ["PhotoShop","Illustrator", "Marketing"],
+        "pageLink": "project/ShearDelightBoba",
+        "pageLink2": "ShearDelightBoba"
     }
 
 ]

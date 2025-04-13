@@ -28,7 +28,7 @@ import Project4 from "../assets/Boba/B3.png";
 import Project5 from "../assets/Boba/Thumb.jpg";
 
 import slide1 from "../assets/Boba/1.png";
-import slide2 from "../assets/boba/2.png";
+import slide2 from "../assets/Boba/2.png";
 import slide3 from "../assets/Boba/3.png";
 import slide4 from "../assets/Boba/4.png";
 

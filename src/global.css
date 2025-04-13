@@ -1454,8 +1454,6 @@ label {
   gap: 1rem;
 }
 
-
-
 .Project-Bullet__box ul li {
   margin-top: 0.5rem;
   position: relative;
@@ -1523,29 +1521,102 @@ label {
   margin-bottom:1rem;
 }
 
-
 /* 新たに追加：画像を囲む picture 要素にスタイルを指定 */
 .Project-Content__pic {
-  width: 63%;
+  width: 58%;
+  aspect-ratio: 5/ 3; /* ここで比率を固定！ */
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden; /* はみ出す部分をカット */
+  border-radius: 8px;
 }
 
 /* 画像の高さと丸み・影などの既存の装飾をキープ */
 .Project-Content__pic img {
-  width: 100%; /* 親要素に合わせて広がるように */
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: var(--box-shadow);
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 余白なしで枠に収まる */
 }
 
+.Project-content__website, .Project-content__video {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
 
+.Project-content__video, .Project-content__figma {
+  gap: 30px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
 
+.responsive-video {
+  width: 100%;
+  height: auto;
+  max-width: 640px;  /* デフォルトの最大幅 */
+}
+
+@media (min-width: 1800px) {
+  .responsive-video {
+    max-width:1000px;  /* 大きい画面ではビデオを大きく */
+  }
+}
+
+.Project-content__figma {
+  width: 100%;
+  max-height: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Project-content__figma {
+  flex: 1;
+  align-items: flex-start;
+}
+
+.figma-embed-container {
+  width: 100%;
+  max-width: 60%;
+  margin: 0 auto;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-height: 80vh;
+}
+
+.figma-embed-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.Project-content__website img {
+  padding-top: 1rem;
+}
+.Project-content__website img {
+  width: 100%;
+  height: auto;
+  width: 60%;
+  object-fit: cover;
+}
+
+.Project-content__website button {
+  align-self: center;
+  width: 40%; 
+}
+
+.Project-slider {
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+}
+/*  Belt Style */
 
 .Project-belt {
-  padding-top: 1rem;
+  padding-top: 2rem;
 }
 
 .Project-belt_wrapper{
@@ -1581,59 +1652,6 @@ label {
   }
 }
 
-
-.Project-content__website, .Project-content__video {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 3rem;
-}
-
-.Project-content__video, .Project-content__figma {
-  gap: 30px;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-.responsive-video {
-  width: 100%;
-  height: auto;
-  max-width: 640px;  /* デフォルトの最大幅 */
-}
-
-@media (min-width: 1800px) {
-  .responsive-video {
-    max-width:1000px;  /* 大きい画面ではビデオを大きく */
-  }
-}
-
-.Project-content__figma {
-  width: 100%;
-  max-height: 600px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.Project-content__figma {
-  flex: 1;
-  align-items: flex-start;
-}
-
-.Project-content__website img {
-  width: auto;
-  height: 500px;
-  width: 60%;
-  object-fit: cover;
-}
-
-.Project-content__website button {
-  align-self: center;
-  width: 40%; 
-}
-
-.Project-slider {
-  padding-top: 1rem;
-  padding-bottom: 4rem;
-}
 
 /* slide shows */
 
@@ -1697,6 +1715,7 @@ label {
 
 /* Modal view */
 .modal {
+  backdrop-filter: blur(4px);
   position: fixed;
   top: 0;
   left: 0;
@@ -1819,6 +1838,11 @@ label {
     width: 50px;
     height: 50px;
   }
+
+  .Project-belt {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
 }
 @media (max-width: 1799px) and (min-width: 1200px) {
   .modal-content {
@@ -1883,6 +1907,8 @@ label {
   gap: 8px;
   margin-top: 8px;
 }
+
+
 @media (max-width: 768px) and (min-width: 467px) {
   .Project {
     padding-top:5%;
@@ -2028,24 +2054,7 @@ label {
   }
 }
 
-.figma-embed-container {
-  width: 100%;
-  max-width: 60%;
-  margin: 0 auto;
-  position: relative;
-  aspect-ratio: 16 / 9;
-  max-height: 80vh;
-}
 
-.figma-embed-frame {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
 
 /* Tablet & Mobile */
 @media (max-width: 1024px) {

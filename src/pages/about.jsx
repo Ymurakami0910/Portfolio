@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // the third party that our class didn't cover
@@ -6,10 +6,9 @@ import { Typewriter } from "react-simple-typewriter";
 
 import { Tooltip } from "react-tooltip";
 
-import { Icon } from '@iconify/react';
+import { Icon } from "@iconify/react";
 
-
-// gsap 
+// gsap
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -17,45 +16,48 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "../components/button";
 import DLButton from "../components/dlButton";
 
-
 // assets
 import tanukiImage from "../assets/tanuki-2.png";
 import Yuri1 from "../assets/Yuri--1.jpg";
 import Yuri2 from "../assets/Yuri-2.png";
 import Yuri3 from "../assets/Yuri-3.png";
+import YURI1 from "../assets/YURI1.png";
+import YURI2 from "../assets/YURI2.png";
+import YURI3 from "../assets/YURI3.png";
+
 import arrowIcon from "../assets/icons/arrow.png";
 import aiIcon from "../assets/icons/ai.png";
 import psIcon from "../assets/icons/ps.png";
 import idIcon from "../assets/icons/id.png";
 import aeIcon from "../assets/icons/ae.png";
-import figmaIcon from "../assets/icons/figma.png"
+import figmaIcon from "../assets/icons/figma.png";
 import canvaIcon from "../assets/icons/canva.png";
 import htmlIcon from "../assets/icons/html.png";
 import cssIcon from "../assets/icons/css.png";
 import jsIcon from "../assets/icons/js.png";
 
 function About() {
-
-  // initialization of third packages 
+  // initialization of third packages
   const navigate = useNavigate();
 
   gsap.registerPlugin(ScrollTrigger);
 
-
-  //  state that manage the flip cards 
+  //  state that manage the flip cards
   const [flipStates, setFlipStates] = useState([false, false, false]);
 
   // the data of flip cards that map through later
   const cardData = [
     {
-      image: Yuri1,
+      image: Yuri1, // front image
+      backImage: YURI1, // back image (cute version?)
       altText: "Yuri's photo 1",
       title: "I'm from Hokkaido, Japan!",
       description:
-        " Growing up with beautiful nature and scenery, It's one of the sources of my inspiration.",
+        "Growing up with beautiful nature and scenery, it's one of the sources of my inspiration.",
     },
     {
       image: Yuri2,
+      backImage: YURI2,
       altText: "Yuri's photo 2",
       title: "I worked as an airport lounge host!",
       description:
@@ -63,6 +65,7 @@ function About() {
     },
     {
       image: Yuri3,
+      backImage: YURI3,
       altText: "Yuri's photo 3",
       title: "Travelling is my passion",
       description:
@@ -77,31 +80,30 @@ function About() {
     );
   };
 
-
   // GSAP that is triggered by the scroll, based on a user's view point
   useEffect(() => {
-    // Take the all of .fadeIn class and this effect will be applied by forEach 
+    // Take the all of .fadeIn class and this effect will be applied by forEach
     const FadeIns = document.querySelectorAll(".fadeIn");
     FadeIns.forEach((element) => {
       gsap.fromTo(
         element,
         {
-          opacity: 0, 
-          y: 50, 
+          opacity: 0,
+          y: 50,
         },
         {
-          opacity: 1, 
-          y: 0, 
-          duration: 1, 
-          ease: "power3.out", 
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
           scrollTrigger: {
-            trigger: element, 
+            trigger: element,
             start: "top 80%",
             // view point value
-            end: "top 30%", 
-            scrub: true, 
-            toggleActions: "play none none reverse",  
-            // no repeat 
+            end: "top 30%",
+            scrub: true,
+            toggleActions: "play none none reverse",
+            // no repeat
           },
         }
       );
@@ -133,7 +135,12 @@ function About() {
               brands that connect with people. Let's team up and create
               something great together!
             </p>
-            <div className="about-header__button"><DLButton label="Resume" onClick={() => window.open('/Resume.pdf', '_blank')} /></div>
+            <div className="about-header__button">
+              <DLButton
+                label="Resume"
+                onClick={() => window.open("/Resume.pdf", "_blank")}
+              />
+            </div>
           </div>
           <div className="about-header__image">
             <img src={tanukiImage} alt="Tanuki Image" />
@@ -146,29 +153,35 @@ function About() {
           <div className="about-cards">
             <div className="about-cards__text">
               <h2>Play cards to get to know me!</h2>
-              <p>Flip through the cards and uncover fun facts about me—designs, passions, and maybe a few surprises!</p>
+              <p>
+                Flip through the cards and uncover fun facts about me—designs,
+                passions, and maybe a few surprises!
+              </p>
             </div>
             <div className="about-cards__wrap">
-            <Tooltip
-                    id="modal-tooltip"
-                    place="top"
-                    offset={-10} // これで少し上に移動
-                    style={{
-                      backgroundColor: "#46AA9B", 
-                      color: "#fff",
-                      fontFamily: "'Fredoka', serif", 
-                      padding: "6px 100px", 
-                      borderRadius: "4px",
-                      fontSize: "1.2rem",
-                      zIndex:100000,
-                    }}
-                    
-                  >
-                  Click!
-                  </Tooltip>
+              <Tooltip
+                id="modal-tooltip"
+                place="top"
+                offset={-10} // これで少し上に移動
+                style={{
+                  backgroundColor: "#46AA9B",
+                  color: "#fff",
+                  fontFamily: "'Fredoka', serif",
+                  padding: "6px 100px",
+                  borderRadius: "4px",
+                  fontSize: "1.2rem",
+                  zIndex: 100000,
+                }}
+              >
+                Click!
+              </Tooltip>
               {/* flip cards, the data is coming from above  */}
               {cardData.map((card, index) => (
-                <div className="photo-container fadeIn" key={index} data-tooltip-id="modal-tooltip">
+                <div
+                  className="photo-container fadeIn"
+                  key={index}
+                  data-tooltip-id="modal-tooltip"
+                >
                   <div
                     className={`photo ${flipStates[index] ? "flipped" : ""}`} // Conditional class for flipped card
                     onClick={() => flipPhoto(index)} // Flip the card on click
@@ -182,6 +195,11 @@ function About() {
                         <h4>{card.title}</h4>
                         <p>{card.description}</p>
                       </div>
+                      <img
+                        src={card.backImage}
+                        alt={`${card.altText} back`}
+                        className="corner-chokon"
+                      />
                     </div>
                   </div>
                 </div>
@@ -200,7 +218,7 @@ function About() {
                 <input type="checkbox" id="drop1" className="drop-toggle" />
                 <label htmlFor="drop1">
                   <div className="drop-title">
-                  <Icon icon="mdi:palette" className="drop-icon" />
+                    <Icon icon="mdi:palette" className="drop-icon" />
                     <h5>Diverse skill set for new media design</h5>
                     <img src={arrowIcon} alt="arrow" />
                   </div>
@@ -217,7 +235,7 @@ function About() {
                 <input type="checkbox" id="drop2" className="drop-toggle" />
                 <label htmlFor="drop2">
                   <div className="drop-title">
-                  <Icon icon="mdi:pen" className="drop-icon" />
+                    <Icon icon="mdi:pen" className="drop-icon" />
                     <h5>Global communication</h5>
                     <img src={arrowIcon} alt="arrow" />
                   </div>

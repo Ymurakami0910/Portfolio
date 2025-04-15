@@ -54,11 +54,9 @@ function ProjectCard2({ filter }) {
     }
   };
 
-  
-
   return (
     <div className={styles.cardContainer}>
-      {filteredProjects.map((project,index) => (
+      {filteredProjects.map((project, index) => (
         <div
           key={project.id}
           className={styles.card}
@@ -103,15 +101,15 @@ function ProjectCard2({ filter }) {
             </div>
           </div>
           <div className={styles.cardImageContainer}>
-            <img
+            <ImageWithPlaceholder
               src={project.image}
+              placeholder={project.imagePlaceholder} // project.json に追加しておくといい
               alt={project.title}
               className={styles.cardImage}
             />
           </div>
         </div>
       ))}
-
     </div>
   );
 }

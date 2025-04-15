@@ -1,15 +1,20 @@
 import React from 'react';
+import ImageWithPlaceholder from './ImageWithPlaceholder';
+import ThumbLazy from '../assets/Thumb-lazy.png';
 
 const ProjectHeader = ({ 
-  backgroundClass, 
   imageSrc, 
   imageAlt, 
   title 
 }) => {
   return (
-    <section className={`Project Paper_v2 ${backgroundClass}`}>
+    <section className={`Project Paper_v2`}>
       <figure className="container Project-Thumb">
-        <img src={imageSrc} alt={imageAlt} />
+        <ImageWithPlaceholder 
+          src={imageSrc} 
+          placeholderSrc={ThumbLazy} 
+          alt={imageAlt} 
+        />
       </figure>
       <div className="container Project-title">
         <h1>{title}</h1>

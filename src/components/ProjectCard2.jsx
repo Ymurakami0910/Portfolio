@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import ReadButton2 from "../components/readButton2";
 import styles from "../components/ProjectCard2.module.css";
+
+import ImageWithPlaceholder from "./ImageWithPlaceholder";
 import projectData from "../data/project.json";
 
 import aiIcon from "../assets/icons/ai.png";

@@ -1568,9 +1568,6 @@ label {
   max-height: 600px;
   display: flex;
   justify-content: space-between;
-}
-
-.Project-content__figma {
   flex: 1;
   align-items: flex-start;
 }
@@ -1581,8 +1578,15 @@ label {
   margin: 0 auto;
   position: relative;
   aspect-ratio: 16 / 9;
-  max-height: 80vh;
 }
+
+@media (min-width: 1800px){
+  .Project-content__figma {
+    max-height:  800px;
+  }
+}
+
+
 
 .figma-embed-frame {
   position: absolute;
@@ -1613,44 +1617,8 @@ label {
   padding-top: 1rem;
   padding-bottom: 4rem;
 }
-/*  Belt Style */
-
-.Project-belt {
-  padding-top: 2rem;
-}
-
-.Project-belt_wrapper{
-  margin: 0 auto;
-  overflow: hidden;
-  background-color: white;
-  align-items: center; 
-  justify-content: center; 
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-.belt-container {
-  display: flex;
-  gap: 20px;
-  width: max-content;
-}
-
-.belt-image {
-  height: 300px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  object-fit: contain;
-}
 
 
-@media (min-width: 1801px) {
-  .Project-belt {
-    padding-top: 10rem;
-  }
-  .belt-image {
-    height: 400px;
-  }
-}
 
 
 /* slide shows */
@@ -1666,6 +1634,7 @@ label {
   width: 600px;
   height: auto;
   transition: width 0.3s ease;
+  
 }
 
 .slick-slide img {
@@ -1831,7 +1800,7 @@ label {
     font-size: 50px;
   }
   .modal-content {
-    max-width: 70%;
+    max-width: 60%;
   }
   .custom-arrow {
     font-size: 35px;
@@ -1840,13 +1809,13 @@ label {
   }
 
   .Project-belt {
-    padding-top: 1rem;
+    padding-top: 2rem;
     padding-bottom: 2rem;
   }
 }
 @media (max-width: 1799px) and (min-width: 1200px) {
   .modal-content {
-    max-width: 80%;
+    max-width: 67%;
   }
   .custom-arrow {
     font-size: 35px;
@@ -2014,6 +1983,9 @@ label {
   .Project-content__website img {
     width: 100%;
     height: auto;
+  }
+  .Project-content__figma {
+    padding-bottom: 0;
   }
   .Project-content__figma {
     max-height:90vh; 

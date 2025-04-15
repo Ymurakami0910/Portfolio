@@ -40,7 +40,7 @@ import "slick-carousel/slick/slick-theme.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-function CraftedCorners() {
+function ShearDelightBoba() {
 
 
   gsap.registerPlugin(ScrollTrigger);
@@ -177,4 +177,4 @@ function CraftedCorners() {
   );
 }
 
-export default CraftedCorners;
+export default ShearDelightBoba;

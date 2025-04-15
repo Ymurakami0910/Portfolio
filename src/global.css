@@ -1487,6 +1487,7 @@ label {
   display: flex;
   justify-content: space-between;
   gap: 20px;
+  padding-bottom: 2rem;
 }
 
 .Project-Content__text {
@@ -1523,8 +1524,7 @@ label {
 
 /* 新たに追加：画像を囲む picture 要素にスタイルを指定 */
 .Project-Content__pic {
-  width: 58%;
-  aspect-ratio: 5/ 3; /* ここで比率を固定！ */
+  width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1557,9 +1557,9 @@ label {
   max-width: 640px;  /* デフォルトの最大幅 */
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 1000px) {
   .responsive-video {
-    max-width:1000px;  /* 大きい画面ではビデオを大きく */
+    max-width:60%;  /* 大きい画面ではビデオを大きく */
   }
 }
 

@@ -5,6 +5,7 @@
         "title": "Kissa Tanpopo",
         "description": "A nostalgic Japanese dessert cafe concept development. Brand book and responsible single page website",
         "image": "kissaTanpopoThmb.png",
+        "imagePlaceholder": "Thumb-lazy.png",
         "chips": ["Indesign", "Illustrator", "PhotoShop","Web-Development","HTML","CSS", "JS"],
         "pageLink": "project/kissa-tanpopo",    
         "pageLink2": "kissa-tanpopo"
@@ -15,6 +16,7 @@
         "title": "Celestial Tea Ceremony",
         "description": "We developed a fictional advertising campaign for the fictional Celestial Tea Ceremony, I played a role as a leader.",
         "image": "celestial/celestialThumb.jpg",
+        "imagePlaceholder": "Thumb-lazy.png",
         "chips": ["Indesign", "Illustrator", "PhotoShop","After Effect","Group Project"],
         "pageLink": "project/celestial",
         "pageLink2": "celestial"
@@ -25,6 +27,7 @@
         "title": "Crafted Corners",
         "description": "I played a roll as a graphic designer for an online home decor e-commerce platform.",
         "image": "craftedCorners/CraftedThmb.jpg",
+        "imagePlaceholder": "Thumb-lazy.png",
         "chips": ["Figma", "Illustrator", "Marketing","Group Project"],
         "pageLink": "Project/craftedCorners",
         "pageLink2": "craftedCorners"
@@ -35,6 +38,7 @@
         "title": "Blenz Coffee",
         "description": "Redesigned the coffee  mobile order app with UI/UX skills.",
         "image": "blenz/blenzThumb.jpg",
+        "imagePlaceholder": "Thumb-lazy.png",
         "chips": ["Figma", " UI/UX"],
         "pageLink": "project/redesign",
         "pageLink2": "redesign"
@@ -45,6 +49,7 @@
         "title": "Shear Delight Boba",
         "description": "Designing a sheep-themed boba store where sell boba with custom cup designs. ",
         "image": "boba/BobaThumb.jpg",
+        "imagePlaceholder": "Thumb-lazy.png",
         "chips": ["PhotoShop","Illustrator", "Marketing"],
         "pageLink": "project/ShearDelightBoba",
         "pageLink2": "ShearDelightBoba"

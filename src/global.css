@@ -1383,16 +1383,20 @@ label {
 .Project-Thumb {
   display: block;
   width: 100%;
-  aspect-ratio: 998.87 / 453.46; /* SVGのviewBox比率と一致させる */
+  aspect-ratio: 998.87 / 453.46;
   overflow: hidden;
+
   mask-image: url("/src/assets/mask.svg");
   mask-repeat: no-repeat;
   mask-position: center;
-  mask-size: cover;
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+
+
   -webkit-mask-image: url("/src/assets/mask.svg");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
-  -webkit-mask-size: cover;
+  -webkit-mask-size: contain;
 
   box-shadow: var(--box-shadow);
 }
@@ -1400,9 +1404,10 @@ label {
 .Project-Thumb img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* coverにすることで、マスク内に画像がフィットしやすくなる */
+  object-fit: cover;
   display: block;
 }
+
 
 
 .Project-title h1{
@@ -1410,11 +1415,6 @@ label {
   padding-bottom:2rem ;
 }
 
-.Project-Thumb img {
-  width: 100%;
-  height: 100%; 
-  object-fit: cover; 
-}
 
 .Project-overview, .Project-Takeaways, .Project-Bullet {
   width: 100%;

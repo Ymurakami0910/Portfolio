@@ -151,7 +151,7 @@ function ShearDelightBoba() {
           </div>
         </div>
       </section> */}
-    
+      
       <ProjectBelt
         images={[Project2, Project3, Project4, Project5]}
         isMobile={isMobile}

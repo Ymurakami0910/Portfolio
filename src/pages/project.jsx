@@ -15,8 +15,6 @@ import TanukiSketch from "../assets/TanukiSketch.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-
-
 function Projects() {
   const [filter, setFilter] = useState("");
   const [showFilters, setShowFilters] = useState(false);
@@ -115,11 +113,9 @@ function Projects() {
           <ProjectCard2 filter={filter} />
         </div>
       </div>
-      {!hideTanuki && (
-        <div className={`ProjectPageTanuki ${hideTanuki ? "hidden" : ""}`}>
-          <img src={TanukiSketch} alt="Tanuki sketch" />
-        </div>
-      )}
+      <div className={`ProjectPageTanuki ${hideTanuki ? "hidden" : ""}`}>
+        <img src={TanukiSketch} alt="Tanuki sketch" />
+      </div>
     </div>
   );
 }

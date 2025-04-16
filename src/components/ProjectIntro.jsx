@@ -8,7 +8,7 @@ const ProjectIntro = ({
   imageAlt 
 }) => {
   return (
-    <section className="Paper_v2 bg_pattern">
+    <section id="hide" className="Paper_v2 bg_pattern">
       <div className="container Project-Content">
       <picture className="fadeIn Project-Content__pic ">
           <source srcSet={imageSrcSmall} media="(max-width: 768px)" />

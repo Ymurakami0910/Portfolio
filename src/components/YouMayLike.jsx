@@ -34,6 +34,7 @@ const YouMayLike = ({ projects }) => {
           ))}
         </div>
       </div>
+
     </section>
   );
 };

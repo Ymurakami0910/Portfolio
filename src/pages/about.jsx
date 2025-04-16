@@ -36,6 +36,16 @@ import htmlIcon from "../assets/icons/html.png";
 import cssIcon from "../assets/icons/css.png";
 import jsIcon from "../assets/icons/js.png";
 
+import BOOK1 from "../assets/book1.jpg";
+import BOOK2 from "../assets/book2.jpg";
+import BOOK3 from "../assets/book3.jpg";
+import BOOK4 from "../assets/book4.jpg";
+import BOOK5 from "../assets/book5.jpg";
+import BOOK6 from "../assets/book6.jpg";
+import BOOK7 from "../assets/book7.jpg";
+
+import DraggableImg from "../components/Draggable";
+
 function About() {
   // initialization of third packages
   const navigate = useNavigate();
@@ -179,7 +189,7 @@ function About() {
               {cardData.map((card, index) => (
                 <div
                   className="photo-container fadeIn"
-                  key={index}
+                  key={index}           
                   data-tooltip-id="modal-tooltip"
                 >
                   <div
@@ -283,6 +293,14 @@ function About() {
             </div>
           </div>
         </div>
+
+        <div className="about-scrapBook">
+    <div className="scrapbook-container">
+      {[BOOK1, BOOK2, BOOK3, BOOK4, BOOK5, BOOK6, BOOK7].map((book, index) => (
+        <DraggableImg key={index} id={index + 1} imageUrl={book} />
+      ))}
+    </div>
+  </div>
       </section>
     </>
   );

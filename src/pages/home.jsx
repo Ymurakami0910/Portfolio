@@ -264,7 +264,6 @@ function Home() {
       </section>
 
       <section className="message">
-        
         <div className="message-airplane airplane-1">
           <img src={AirplaneIcon} alt="airplane-icon" />
         </div>

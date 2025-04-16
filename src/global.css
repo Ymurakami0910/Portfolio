@@ -1339,7 +1339,7 @@ label {
   padding: 1rem 0;
   position: relative; /* Needed for bounds */
   min-height: 90vh; /* Ensure drag space */
-  overflow: hidden; /* Prevent overflow */
+  overflow: visible; /* Prevent overflow */
 }
 .about-scrapBook__text{
   padding-left: 2%;

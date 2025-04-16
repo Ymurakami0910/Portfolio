@@ -8,12 +8,24 @@ const getDefaultPosition = (id) => {
   if (savedPos) {
     return JSON.parse(savedPos);
   }
-  
-  const overlapOffset = 200;
-  const x = 200 + (id - 1) * overlapOffset;
-  const y = 100;
-  return { x, y };
+
+  const isMobile = window.innerWidth <= 768;
+
+  if (isMobile) {
+    // モバイル用：縦に重なりすぎないように配置
+    const overlapOffsetY = 50;
+    const x = 40;
+    const y = 100 + (id - 1) * overlapOffsetY;
+    return { x, y };
+  } else {
+    // PC用：横一列に少し重なるように配置
+    const overlapOffsetX = 200;
+    const x = 200 + (id - 1) * overlapOffsetX;
+    const y = 100;
+    return { x, y };
+  }
 };
+
 
 const DraggableImg = ({ id, imageUrl, resetFlag }) => {
   const nodeRef = useRef(null); 

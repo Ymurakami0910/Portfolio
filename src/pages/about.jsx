@@ -189,7 +189,7 @@ function About() {
               {cardData.map((card, index) => (
                 <div
                   className="photo-container fadeIn"
-                  key={index}           
+                  key={index}
                   data-tooltip-id="modal-tooltip"
                 >
                   <div
@@ -295,12 +295,18 @@ function About() {
         </div>
 
         <div className="about-scrapBook">
-    <div className="scrapbook-container">
-      {[BOOK1, BOOK2, BOOK3, BOOK4, BOOK5, BOOK6, BOOK7].map((book, index) => (
-        <DraggableImg key={index} id={index + 1} imageUrl={book} />
-      ))}
-    </div>
-  </div>
+          <div className="container about-scrapBook__text">           
+          <h3>Drag and Place Pictures to Create Your Scrapbook!</h3>
+          <p>(Hint: Hover over pictures and drag them to rearrange!)</p>
+          </div>
+          <div className="scrapbook-container">
+            {[BOOK1, BOOK2, BOOK3, BOOK4, BOOK5, BOOK6, BOOK7].map(
+              (book, index) => (
+                <DraggableImg key={index} id={index + 1} imageUrl={book} />
+              )
+            )}
+          </div>
+        </div>
       </section>
     </>
   );

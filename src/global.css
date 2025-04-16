@@ -1338,20 +1338,25 @@ label {
 .about-scrapBook {
   padding: 1rem 0;
   position: relative; /* Needed for bounds */
-  min-height: 100vh; /* Ensure drag space */
+  min-height: 90vh; /* Ensure drag space */
   overflow: hidden; /* Prevent overflow */
+}
+.about-scrapBook__text{
+  padding-left: 2%;
+  padding-bottom: 1rem;
+
 }
 
 .scrapbook-container {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 800px; /* Adjust based on content */
+  min-height: 800px;
 }
 
 .scrapbook-image {
   position: absolute; /* Required for Draggable */
-  border: 5px solid #fff;
+  border: 10px solid #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -1359,6 +1364,22 @@ label {
 .scrapbook-image {
   width: 300px;
   height: 400px;
+}
+.scrapbook-image {
+  position: absolute;
+  border: 10px solid #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: grab;
+  z-index: 1;
+}
+
+.scrapbook-image:hover {
+  box-shadow: 10px 10px rgba(70, 170, 155, 0.8);
+}
+
+.scrapbook-image:active {
+  cursor: grabbing;
+  z-index: 20;
 }
 
 .scrapbook-image {
@@ -1370,6 +1391,7 @@ label {
 }
 
 
+
 /* 幅が異なる画像だけ個別指定 */
 .img-3,
 .img-5 {
@@ -1377,7 +1399,19 @@ label {
   height: 300px;
 }
 
+@media (max-width: 768px){
+.scrapbook-image {
+    width: 150px;
+    height: 200px;
+}
 
+.img-3,
+.img-5 {
+  width: 225px;
+  height: 150px;
+}
+  
+}
 
 
 @media (max-width: 992px) and (min-width: 769px) {

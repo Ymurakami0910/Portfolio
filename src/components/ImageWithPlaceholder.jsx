@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./ImageWithPlaceholder.module.css";
+import Placeholder from "../assets/Thumb-lazy.png"
 
 function ImageWithPlaceholder({ src, alt, placeholder, className }) {
   const [loaded, setLoaded] = useState(false);
@@ -7,7 +8,7 @@ function ImageWithPlaceholder({ src, alt, placeholder, className }) {
   return (
     <div className={`${styles.wrapper} ${className || ""}`}>
       <img
-        src={placeholder}
+        src={Placeholder}
         alt="placeholder"
         className={`${styles.image} ${styles.placeholder} ${
           loaded ? styles.hidden : ""

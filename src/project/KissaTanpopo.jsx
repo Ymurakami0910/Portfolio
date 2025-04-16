@@ -14,6 +14,7 @@ import YouMayLike from "../components/YouMayLike.jsx";
 import ProjectHeader from "../components/ProjectHeader.jsx";
 
 
+
 import Thumb from "../assets/KissaTanpopo/KissaStore.png";
 import Kissa1min from "../assets/KissaTanpopo/Kissa--1.jpg";
 import Kissa1lg from "../assets/KissaTanpopo/Kissa-1-lg.jpg";
@@ -164,6 +165,7 @@ function KissaTanpopo() {
       <ProjectBelt
         images={[Kissa2, Kissa3, Kissa4, Kissa5]}
         isMobile={isMobile}
+        placeholder="/placeholder.jpg"
       />
 
       <ProjectTakeaways

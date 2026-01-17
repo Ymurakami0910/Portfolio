@@ -30,10 +30,10 @@ function App() {
 
 
   return (
-    <Router>
+    <Router >
       <ScrollToTop/> 
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/Portfolio" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="project" element={<Projects />} />
           <Route path="about" element={<About />} />

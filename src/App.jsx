@@ -15,6 +15,8 @@ import Celestial from './project/Celestial';
 import CraftedCorners from './project/CraftedCorner';
 import Blenz from './project/Blenz';
 import Boba from "./project/ShearDelightBoba"
+import Photography from "./project/Photography"
+
 import ScrollToTop from './components/scrollTop';
 
 // slick slider css for project page 
@@ -41,6 +43,7 @@ function App() {
           <Route path="project/craftedCorners" element={<CraftedCorners />} />
           <Route path="project/redesign" element={<Blenz />} />
           <Route path="project/ShearDelightBoba" element={<Boba />} />
+          <Route path="project/Photography" element={<Photography/>} />
         </Route>
       </Routes>
     </Router>

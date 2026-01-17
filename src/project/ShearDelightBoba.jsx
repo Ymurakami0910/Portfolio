@@ -166,7 +166,7 @@ function ShearDelightBoba() {
 
       <section className="Paper_v2 bg_pattern">
         <div className="container Project-slider ">
-          <h5>More about Crafted Corners</h5>
+          <h5>Style-guide</h5>
           <ProjectSlider imageGroups={projectImages}/>
 
         </div>

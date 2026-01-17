@@ -53,6 +53,17 @@
         "chips": ["PhotoShop","Illustrator", "Marketing"],
         "pageLink": "project/ShearDelightBoba",
         "pageLink2": "ShearDelightBoba"
+    },
+    {
+        "id": 6,
+        "genre": "Photography",
+        "title": "Miniature Mystique",
+        "description": "A fairy meets a mysterious rabbit under a huge mossy tree. Inspired by Arrietty and Rococo art, this photo collage blends real nature shots from North Vancouver with a dreamy, fantasy twist. Made in Photoshop and featuring my friend Hilary (@Hil_i_21).",
+        "image": "boba/BobaThumb.jpg",
+        "imagePlaceholder": "Thumb-lazy.png",
+        "chips": ["PhotoShop","Composite Photography"],
+        "pageLink": "project/Photography",
+        "pageLink2": "Photography"
     }
 
 ]
